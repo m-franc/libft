@@ -6,13 +6,13 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2016/12/17 13:23:22 by mfranc           ###   ########.fr        #
+#    Updated: 2017/01/07 18:29:01 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 SRCS = 	ft_memset.c				\
 		ft_bzero.c 				\
@@ -77,7 +77,6 @@ SRCS = 	ft_memset.c				\
 		ft_countword.c			\
 		ft_isword.c				\
 		ft_tabnew.c				\
-		ft_range.c				\
 		ft_sqrt.c				\
 		ft_strsplit_tolist.c	\
 		ft_putlist.c			\
@@ -148,7 +147,6 @@ OBJECTS = 	ft_memset.o				\
 			ft_countword.o			\
 			ft_isword.o				\
 			ft_tabnew.o				\
-			ft_range.o				\
 			ft_sqrt.o				\
 			ft_strsplit_tolist.o	\
 			ft_putlist.o			\
