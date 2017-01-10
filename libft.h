@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/09 17:06:39 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/10 20:26:02 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef	struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+# define BASE "0123456789ABCDEF"
 
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -74,7 +76,9 @@ void				ft_putstr(char const *s);
 void				ft_puttab(char **tab);
 char				**ft_strsplit(char const *s, char c);
 void				ft_putnbr(int n);
+void				ft_putnbr_base(int n, int base);
 char				*ft_itoa(int n);
+char				*ft_itoa_base(int n, int base);
 int					ft_intlen(int n);
 void				ft_putendl(char const *s);
 void				ft_putchar(char c);

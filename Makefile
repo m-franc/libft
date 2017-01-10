@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/01/09 15:37:22 by mfranc           ###   ########.fr        #
+#    Updated: 2017/01/10 20:02:11 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,9 @@ SRCS = 	ft_memset.c				\
 		ft_strsplit_tolist.c	\
 		ft_putlist.c			\
 		ft_listcount.c			\
-		get_next_line.c			
+		get_next_line.c			\
+		ft_itoa_base.c			\
+		ft_putnbr_base.c
 	
 OBJECTS = 	ft_memset.o				\
 			ft_bzero.o 				\
@@ -151,7 +153,9 @@ OBJECTS = 	ft_memset.o				\
 			ft_strsplit_tolist.o	\
 			ft_putlist.o			\
 			ft_listcount.o			\
-			get_next_line.o			
+			get_next_line.o			\
+			ft_itoa_base.o			\
+			ft_putnbr_base.o
 
 all: $(NAME)
 
