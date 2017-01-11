@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/10 20:26:02 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/11 20:24:54 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ typedef	struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-# define BASE "0123456789ABCDEF"
+# define BASEUP "0123456789ABCDEF"
+# define BASELW "0123456789abcdef"
 
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -76,16 +77,17 @@ void				ft_putstr(char const *s);
 void				ft_puttab(char **tab);
 char				**ft_strsplit(char const *s, char c);
 void				ft_putnbr(int n);
-void				ft_putnbr_base(int n, int base);
+void				ft_putnbr_base(int n, int base, char *baselist);
 char				*ft_itoa(int n);
-char				*ft_itoa_base(int n, int base);
-int					ft_intlen(int n);
+char				*ft_itoa_base(int n, int base, char *baselist);
+int					ft_intlen(int n, int base);
 void				ft_putendl(char const *s);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char const c, int fd);
 void				ft_putstr_fd(char const *c, int fd);
 void				ft_putendl_fd(char const *c, int fd);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_putaddr(const void *value);
 int					ft_isword(char c);
 int					ft_countword(char const *s);
 void				**ft_tabnew(size_t n);

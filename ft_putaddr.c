@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_putaddr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/10 17:00:09 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/11 19:17:13 by mfranc           ###   ########.fr       */
+/*   Created: 2017/01/11 18:30:54 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/11 20:47:48 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base(int n, int base, char *baselist)
+void	ft_putaddr(const void *value)
 {
-	int		len;
-	char	*result;
-	int		i;
-	int		ln;
+	char				res[9];
+	int					i;
+	unsigned long		p;
 
-	if (base >= 17 && base < 2)
-		return (NULL);
-	ln = (long int)n;
-	len = ft_intlen(ln, base);
-	if (!(result = ft_strnew(len)))
-		return (NULL);
-	if (ln < 0 && base == 10)
-		result[0] = '-';
-	result[len--] = '\0';
-	i = 1;
-	if (ln < 0)
-		ln = -n;
-	while (ln != 0)
+	i = 8;
+	p = (unsigned long)value;
+	while ((p / 16) != 0)
 	{
-		result[len--] = baselist[ln % base];
-		ln /= base;
+		res[i--] = BASELW[(p % 16)];
+		p /= 16;
 	}
-	return (result);
+	ft_putstr(ft_strcat("0x", res));
 }
