@@ -6,13 +6,13 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 18:38:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/11 16:32:22 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/12 20:31:50 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int n, int base)
+int	ft_intlen(long n, int base)
 {
 	int	i;
 

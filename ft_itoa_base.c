@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 17:00:09 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/11 19:17:13 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/12 20:18:01 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_itoa_base(int n, int base, char *baselist)
 	int		len;
 	char	*result;
 	int		i;
-	int		ln;
+	long	ln;
 
 	if (base >= 17 && base < 2)
 		return (NULL);
-	ln = (long int)n;
+	ln = (long)n;
 	len = ft_intlen(ln, base);
 	if (!(result = ft_strnew(len)))
 		return (NULL);

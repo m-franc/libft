@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/11 20:24:54 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/12 20:07:48 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void				ft_putnbr(int n);
 void				ft_putnbr_base(int n, int base, char *baselist);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int n, int base, char *baselist);
-int					ft_intlen(int n, int base);
+int					ft_intlen(long n, int base);
 void				ft_putendl(char const *s);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char const c, int fd);

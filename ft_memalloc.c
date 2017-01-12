@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 18:18:07 by mfranc            #+#    #+#             */
-/*   Updated: 2016/12/12 16:04:48 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/12 14:55:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memalloc(size_t n)
 
 	if (!n)
 		return (NULL);
-	if (!(area = (void*)malloc(sizeof(void) * n)))
+	if (!(area = malloc(n)))
 		return (NULL);
 	ft_bzero(area, n);
 	return (area);
