@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:30:54 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/11 20:47:48 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/13 12:50:31 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 
 void	ft_putaddr(const void *value)
 {
-	char				res[9];
-	int					i;
-	unsigned long		p;
+	long		addr;
+	char		*str;
 
-	i = 8;
-	p = (unsigned long)value;
-	while ((p / 16) != 0)
-	{
-		res[i--] = BASELW[(p % 16)];
-		p /= 16;
-	}
-	ft_putstr(ft_strcat("0x", res));
+	addr = (long)value;
+	str = ft_itoa_base(addr, 16, BASELW);
+	ft_putstr("0x");
+	ft_putstr(str);
 }

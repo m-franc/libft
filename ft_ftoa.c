@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/10 17:00:09 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/13 14:08:08 by mfranc           ###   ########.fr       */
+/*   Created: 2017/01/13 13:38:43 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/13 20:45:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_itoa_base(long long ln, int base, char *baselist)
+char	*ft_ftoa(float n)
 {
-	int		len;
+	char	*first;
+	char	*second;
+	char	*getdot;
 	char	*result;
-	int		i;
+	float	tmp;
 
-	if (base >= 17 && base < 2)
+	if (!(first = ft_itoa(n)))
 		return (NULL);
-	len = ft_intlen_base(ln, base);
-	if (!(result = ft_strnew(len)))
-		return (NULL);
-	if (ln < 0 && base == 10)
-		result[0] = '-';
-	result[len--] = '\0';
-	i = 1;
-	if (ln < 0)
-		ln = -ln;
-	while (ln != 0)
+	n = (n - atoi(first)) * 100;
+	n = ABS(n);
+	tmp = n;
+	while (((int)tmp % 10) != 0)
 	{
-		result[len--] = baselist[ln % base];
-		ln /= base;
+		n *= 10;
+		tmp /= 10;
 	}
+	if (!(second = ft_itoa(n)))
+		return (NULL);
+	getdot = ft_strjoin(first, ".");
+	ft_strdel(&first);
+	first = getdot;
+	result = ft_strjoin(first, second);
+	ft_strdel(&getdot);
+	ft_strdel(&second);
 	return (result);
 }

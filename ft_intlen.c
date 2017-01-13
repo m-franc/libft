@@ -6,24 +6,24 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 18:38:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/12 20:31:50 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/13 12:29:19 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(long n, int base)
+int	ft_intlen(int n)
 {
 	int	i;
 
 	i = 0;
 	if (n == 0)
 		return (1);
-	else if (n < 0 && base == 10)
+	else if (n < 0)
 		i++;
 	while (n != 0)
 	{
-		n /= base;
+		n /= 10;
 		i++;
 	}
 	return (i);
