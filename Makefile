@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/01/13 14:08:33 by mfranc           ###   ########.fr        #
+#    Updated: 2017/01/14 14:12:57 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,9 @@ SRCS = 	ft_memset.c				\
 		ft_intlen_base.c		\
 		ft_putnbr_base.c		\
 		ft_putaddr.c			\
-		ft_ftoa.c
+		ft_ftoa.c				\
+		ft_strspn.c				\
+		ft_strcspn.c
 	
 OBJECTS = 	ft_memset.o				\
 			ft_bzero.o 				\
@@ -161,7 +163,9 @@ OBJECTS = 	ft_memset.o				\
 			ft_intlen_base.o		\
 			ft_putnbr_base.o		\
 			ft_putaddr.o			\
-			ft_ftoa.o
+			ft_ftoa.o				\
+			ft_strspn.o				\
+			ft_strcspn.o			
 
 all: $(NAME)
 

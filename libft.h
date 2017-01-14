@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/13 20:41:07 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/14 20:18:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ char				*ft_strstr(const char *s1, const char *s2);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
+size_t				ft_strspn(const char *s, const char *accept);
+size_t				ft_strcspn(const char *s, const char *reject);
 int					ft_atoi(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -86,7 +88,7 @@ void				ft_putnbr(int n);
 void				ft_putnbr_base(int n, int base, char *baselist);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(long long ln, int base, char *baselist);
-char				*ft_ftoa(float n);
+char				*ft_ftoa(long double n);
 int					ft_intlen(int n);
 int					ft_intlen_base(long long n, int base);
 void				ft_putendl(char const *s);

@@ -6,24 +6,32 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 13:38:43 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/13 20:45:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/14 20:24:00 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_ftoa(float n)
+static char	*ft_get_precision(float n)
 {
-	char	*first;
-	char	*second;
-	char	*getdot;
-	char	*result;
-	float	tmp;
+	char	*precision;
 
-	if (!(first = ft_itoa(n)))
+	if (!(precision = ft_itoa_base(n, 10, BASELW)))
 		return (NULL);
-	n = (n - atoi(first)) * 100;
+	return (precision);
+}
+
+char		*ft_ftoa(long double n)
+{
+	char		*first;
+	char		*second;
+	char		*getdot;
+	char		*result;
+	long double	tmp;
+
+	if (!(first = ft_itoa_base(n, 10, BASELW)))
+		return (NULL);
+	n = ((n - atoi(first)) * 100);
 	n = ABS(n);
 	tmp = n;
 	while (((int)tmp % 10) != 0)
@@ -31,8 +39,8 @@ char	*ft_ftoa(float n)
 		n *= 10;
 		tmp /= 10;
 	}
-	if (!(second = ft_itoa(n)))
-		return (NULL);
+	n = n * 10;
+	second = ft_get_precision(n);
 	getdot = ft_strjoin(first, ".");
 	ft_strdel(&first);
 	first = getdot;

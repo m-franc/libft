@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 17:41:57 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/13 13:00:05 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/14 17:07:05 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 void	ft_putnbr(int n)
 {
-	ft_putstr(ft_itoa(n));
+	char	*number;
+
+	number = ft_itoa(n);
+	ft_putstr(number);
+	ft_strdel(&number);
 }

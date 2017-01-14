@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 17:41:57 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/14 17:07:06 by mfranc           ###   ########.fr       */
+/*   Created: 2017/01/14 16:37:31 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/14 16:59:15 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_base(int n, int base, char *baselist)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	char	*number;
+	size_t	count;
 
-	number = ft_itoa_base(n, base, baselist);
-	ft_putstr(number);
-	ft_strdel(&number);
+	if (!s || !reject)
+		return (0);
+	count = 0;
+	while (*s)
+	{
+		if (!(ft_strchr(reject, *s)))
+			count++;
+		else
+			break ;
+		s++;
+	}
+	return (count);
 }
