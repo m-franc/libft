@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/10 17:00:09 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/14 19:51:57 by mfranc           ###   ########.fr       */
+/*   Created: 2016/11/10 21:50:12 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/15 18:38:42 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base(long long ln, int base, char *baselist)
+void	ft_putint_fd(long long int n, int fd, int base, char *baselist)
 {
-	int		len;
-	char	*result;
-	int		i;
-
-	if (base >= 17 && base < 2)
-		return (NULL);
-	len = ft_intlen_base(ln, base);
-	if (!(result = ft_strnew(len)))
-		return (NULL);
-	if (ln < 0 && base == 10)
-		result[0] = '-';
-	result[len--] = '\0';
-	i = 1;
-	if (ln < 0)
-		ln = -ln;
-	while (ln != 0)
-	{
-		result[len--] = baselist[ln % base];
-		ln /= base;
-	}
-	return (result);
+	ft_putstr_fd(ft_itoa(n, base, baselist), fd);
 }

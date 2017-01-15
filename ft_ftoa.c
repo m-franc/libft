@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 13:38:43 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/14 20:24:00 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/15 17:44:49 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char	*ft_get_precision(float n)
 {
 	char	*precision;
 
-	if (!(precision = ft_itoa_base(n, 10, BASELW)))
+	if (!(precision = ft_itoa(n, 10, BASELW)))
 		return (NULL);
 	return (precision);
 }
@@ -29,9 +29,9 @@ char		*ft_ftoa(long double n)
 	char		*result;
 	long double	tmp;
 
-	if (!(first = ft_itoa_base(n, 10, BASELW)))
+	if (!(first = ft_itoa(n, 10, BASELW)))
 		return (NULL);
-	n = ((n - atoi(first)) * 100);
+	n = ((n - ft_atoi(first)) * 100);
 	n = ABS(n);
 	tmp = n;
 	while (((int)tmp % 10) != 0)

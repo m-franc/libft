@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 20:06:23 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/13 19:58:34 by mfranc           ###   ########.fr       */
+/*   Created: 2017/01/10 17:00:09 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/15 17:59:50 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long long n, int base, char *baselist)
 {
-	char			*result;
-	int				size;
+	int		len;
+	char	*result;
 
-	size = ft_intlen(n);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (!(result = (char*)malloc(sizeof(char) * (size) + 1)))
+	if (base >= 17 && base < 2)
 		return (NULL);
-	if (n < 0)
-		*result = '-';
-	result[size--] = '\0';
-	if (n <= 9 && n >= 0)
-		result[size--] = '0' + n;
+	len = ft_ilen(n, base);
+	if (!(result = ft_strnew(len)))
+		return (NULL);
+	if (n < 0 && base == 10)
+		result[0] = '-';
+	result[len--] = '\0';
 	if (n < 0)
 		n = -n;
 	while (n != 0)
 	{
-		result[size--] = '0' + (n % 10);
-		n /= 10;
+		result[len--] = baselist[n % base];
+		n /= base;
 	}
 	return (result);
 }

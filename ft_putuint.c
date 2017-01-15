@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 18:38:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/14 19:52:14 by mfranc           ###   ########.fr       */
+/*   Created: 2016/11/09 17:41:57 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/15 19:14:58 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen_base(long long n, int base)
+void	ft_putuint(unsigned long long int n, int base, char *baselist)
 {
-	int	i;
+	char	*number;
 
-	i = 0;
-	if (n == 0)
-		return (1);
-	else if (n < 0 && base == 10)
-		i++;
-	while (n != 0)
-	{
-		n /= base;
-		i++;
-	}
-	return (i);
+	number = ft_uitoa(n, base, baselist);
+	ft_putstr(number);
+	ft_strdel(&number);
 }

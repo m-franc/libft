@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/14 20:18:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/15 18:47:35 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ typedef	struct		s_list
 # define BASELW "0123456789abcdef"
 # define ENDL ft_putchar('\n');
 # define ABS(Value) Value < 0 ? -Value : Value
-# define PNBR(x) ft_putnbr(x);
+# define PNBR(x, y, z) ft_putint(x, y, z);
 # define PSTR(x) ft_putstr(x);
-# define INTMIN -2147483648
-# define INTMAX 2147483647
+# define INTMIN -9223372036854775807
+# define INTMAX 9223372036854775807
+# define UIMAX 17446744073109551615
 
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -84,19 +85,19 @@ char				*ft_strtrim(char const *s);
 void				ft_putstr(char const *s);
 void				ft_puttab(char **tab);
 char				**ft_strsplit(char const *s, char c);
-void				ft_putnbr(int n);
-void				ft_putnbr_base(int n, int base, char *baselist);
-char				*ft_itoa(int n);
-char				*ft_itoa_base(long long ln, int base, char *baselist);
+void				ft_putint(long long int n, int base, char *baselist);
+void				ft_putuint(unsigned long long int n, int base, char *baselist);
+char				*ft_itoa(long long int n, int base, char *baselist);
+char				*ft_uitoa(unsigned long long int n, int base, char *baselist);
+int					ft_ilen(long long int n, int base);
+int					ft_uilen(unsigned long long n, int base);
 char				*ft_ftoa(long double n);
-int					ft_intlen(int n);
-int					ft_intlen_base(long long n, int base);
 void				ft_putendl(char const *s);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char const c, int fd);
 void				ft_putstr_fd(char const *c, int fd);
 void				ft_putendl_fd(char const *c, int fd);
-void				ft_putnbr_fd(int n, int fd);
+void				ft_putint_fd(long long int n, int fd, int base, char *baselist);
 void				ft_putaddr(const void *value);
 int					ft_isword(char c);
 int					ft_countword(char const *s);
