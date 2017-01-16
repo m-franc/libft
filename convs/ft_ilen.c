@@ -6,13 +6,13 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:58:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/16 11:58:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/16 12:47:33 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_ilen(long long int n, int base)
+int	ft_ilen(long long n, int base)
 {
 	int	i;
 

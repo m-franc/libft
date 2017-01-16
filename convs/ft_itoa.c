@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:58:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/16 11:58:27 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/16 15:26:49 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_itoa(long long n, int base, char *baselist)
 	if (base >= 17 && base < 2)
 		return (NULL);
 	len = ft_ilen(n, base);
-	if (!(result = ft_strnew(len)))
+	if (!(result = ft_memalloc(len)))
 		return (NULL);
 	if (n < 0 && base == 10)
 		result[0] = '-';
@@ -32,7 +32,7 @@ char	*ft_itoa(long long n, int base, char *baselist)
 		result[len--] = baselist[n % base];
 		n /= base;
 	}
-	if (n == 0)
-		result[len--] = baselist[n % base];
+	if (n == 0 && result[len] != '-')
+		result[len] = baselist[n % base];
 	return (result);
 }

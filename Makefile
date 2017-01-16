@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/01/16 11:50:49 by mfranc           ###   ########.fr        #
+#    Updated: 2017/01/16 12:40:24 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRCS = 	mems/ft_memset.c				\
 		puts/ft_putstr_fd.c			\
 		puts/ft_putendl_fd.c			\
 		puts/ft_putint_fd.c			\
+		puts/ft_putuint_fd.c			\
 		lists/ft_lstnew.c				\
 		lists/ft_lstdelone.c			\
 		lists/ft_lstdel.c				\
