@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/01/15 19:36:32 by mfranc           ###   ########.fr        #
+#    Updated: 2017/01/16 11:50:49 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,81 +16,82 @@ FLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 INCLUDES = includes
 
-SRCS = 	ft_memset.c				\
-		ft_bzero.c 				\
-		ft_memcpy.c				\
-		ft_memccpy.c 			\
-		ft_memmove.c			\
-		ft_memchr.c				\
-		ft_memcmp.c				\
-		ft_strlen.c				\
-		ft_strdup.c				\
-		ft_strcpy.c				\
-		ft_strncpy.c			\
-		ft_strcat.c				\
-		ft_strncat.c			\
-		ft_strlcat.c			\
-		ft_strchr.c				\
-		ft_strrchr.c			\
-		ft_strstr.c				\
-		ft_strnstr.c			\
-		ft_strncmp.c			\
-		ft_strcmp.c				\
-		ft_atoi.c				\
-		ft_isalpha.c			\
-		ft_isdigit.c			\
-		ft_isalnum.c			\
-		ft_isprint.c			\
-		ft_isascii.c			\
-		ft_toupper.c			\
-		ft_tolower.c			\
-		ft_memalloc.c			\
-		ft_memdel.c				\
-		ft_strnew.c				\
-		ft_strdel.c				\
-		ft_strclr.c				\
-		ft_striter.c			\
-		ft_striteri.c			\
-		ft_strmap.c				\
-		ft_strmapi.c			\
-		ft_strequ.c				\
-		ft_strnequ.c			\
-		ft_strsub.c				\
-		ft_strjoin.c			\
-		ft_strtrim.c			\
-		ft_putstr.c				\
-		ft_puttab.c				\
-		ft_strsplit.c			\
-		ft_putendl.c			\
-		ft_putchar_fd.c			\
-		ft_putchar.c			\
-		ft_putstr_fd.c			\
-		ft_putendl_fd.c			\
-		ft_putint_fd.c			\
-		ft_lstnew.c				\
-		ft_lstdelone.c			\
-		ft_lstdel.c				\
-		ft_lstadd.c				\
-		ft_lstiter.c			\
-		ft_lstmap.c				\
-		ft_countword.c			\
-		ft_isword.c				\
-		ft_tabnew.c				\
-		ft_sqrt.c				\
-		ft_strsplit_tolist.c	\
-		ft_putlist.c			\
-		ft_listcount.c			\
-		get_next_line.c			\
-		ft_itoa.c				\
-		ft_uitoa.c				\
-		ft_ilen.c				\
-		ft_uilen.c				\
-		ft_putint.c				\
-		ft_putuint.c			\
-		ft_putaddr.c			\
-		ft_ftoa.c				\
-		ft_strspn.c				\
-		ft_strcspn.c
+SRCS = 	mems/ft_memset.c				\
+		mems/ft_bzero.c 				\
+		mems/ft_memcpy.c				\
+		mems/ft_memccpy.c 			\
+		mems/ft_memmove.c			\
+		mems/ft_memchr.c				\
+		mems/ft_memcmp.c				\
+		strs/ft_strlen.c				\
+		strs/ft_strdup.c				\
+		strs/ft_strcpy.c				\
+		strs/ft_strncpy.c			\
+		strs/ft_strcat.c				\
+		strs/ft_strncat.c			\
+		strs/ft_strlcat.c			\
+		strs/ft_strchr.c				\
+		strs/ft_strrchr.c			\
+		strs/ft_strstr.c				\
+		strs/ft_strnstr.c			\
+		strs/ft_strncmp.c			\
+		strs/ft_strcmp.c				\
+		convs/ft_atoi.c				\
+		convs/ft_atoui.c				\
+		detects/ft_isalpha.c			\
+		detects/ft_isdigit.c			\
+		detects/ft_isalnum.c			\
+		detects/ft_isprint.c			\
+		detects/ft_isascii.c			\
+		detects/ft_toupper.c			\
+		detects/ft_tolower.c			\
+		mems/ft_memalloc.c			\
+		mems/ft_memdel.c				\
+		strs/ft_strnew.c				\
+		strs/ft_strdel.c				\
+		strs/ft_strclr.c				\
+		strs/ft_striter.c			\
+		strs/ft_striteri.c			\
+		strs/ft_strmap.c				\
+		strs/ft_strmapi.c			\
+		strs/ft_strequ.c				\
+		strs/ft_strnequ.c			\
+		strs/ft_strsub.c				\
+		strs/ft_strjoin.c			\
+		strs/ft_strtrim.c			\
+		puts/ft_putstr.c				\
+		puts/ft_puttab.c				\
+		strs/ft_strsplit.c			\
+		puts/ft_putendl.c			\
+		puts/ft_putchar_fd.c			\
+		puts/ft_putchar.c			\
+		puts/ft_putstr_fd.c			\
+		puts/ft_putendl_fd.c			\
+		puts/ft_putint_fd.c			\
+		lists/ft_lstnew.c				\
+		lists/ft_lstdelone.c			\
+		lists/ft_lstdel.c				\
+		lists/ft_lstadd.c				\
+		lists/ft_lstiter.c			\
+		lists/ft_lstmap.c				\
+		strs/ft_countword.c			\
+		detects/ft_isword.c				\
+		mems/ft_tabnew.c				\
+		maths/ft_sqrt.c				\
+		strs/ft_strsplit_tolist.c	\
+		puts/ft_putlist.c			\
+		lists/ft_listcount.c			\
+		strs/get_next_line.c			\
+		convs/ft_itoa.c				\
+		convs/ft_uitoa.c				\
+		convs/ft_ilen.c				\
+		convs/ft_uilen.c				\
+		puts/ft_putint.c				\
+		puts/ft_putuint.c			\
+		puts/ft_putaddr.c			\
+		convs/ft_ftoa.c				\
+		strs/ft_strspn.c				\
+		strs/ft_strcspn.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/15 18:47:35 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/16 11:53:43 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef	struct		s_list
 # define PSTR(x) ft_putstr(x);
 # define INTMIN -9223372036854775807
 # define INTMAX 9223372036854775807
-# define UIMAX 17446744073109551615
+# define UIMAX 18446744073109551615
 
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -59,7 +59,8 @@ int					ft_strncmp(const char *s1, const char *s2, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 size_t				ft_strspn(const char *s, const char *accept);
 size_t				ft_strcspn(const char *s, const char *reject);
-int					ft_atoi(const char *str);
+long long			ft_atoi(const char *str);
+unsigned long long	ft_atoui(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
