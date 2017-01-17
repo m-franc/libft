@@ -6,11 +6,11 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/01/17 19:04:42 by mfranc           ###   ########.fr        #
+#    Updated: 2017/01/17 20:52:56 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libftprintf.a
 
 FLAGS = -fsanitize=address
 
