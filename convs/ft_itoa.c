@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:58:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/16 15:26:49 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/18 19:42:06 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ char	*ft_itoa(long long n, int base, char *baselist)
 	if (base >= 17 && base < 2)
 		return (NULL);
 	len = ft_ilen(n, base);
-	if (!(result = ft_memalloc(len)))
+	if (!(result = ft_memalloc(len + 1)))
 		return (NULL);
 	if (n < 0 && base == 10)
 		result[0] = '-';
-	result[len--] = '\0';
 	if (n < 0)
 		n = -n;
+	result[len--] = '\0';
 	while (n != 0)
 	{
 		result[len--] = baselist[n % base];
 		n /= base;
 	}
 	if (n == 0 && result[len] != '-')
-		result[len] = baselist[n % base];
+		result[len--] = baselist[n % base];
 	return (result);
 }

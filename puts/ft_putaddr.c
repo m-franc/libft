@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 18:30:54 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/15 17:45:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/18 19:02:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putaddr(const void *value)
 	long		addr;
 	char		*str;
 
+	if (!value)
+		return ;
 	addr = (long)value;
 	str = ft_itoa(addr, 16, BASELW);
 	ft_putstr("0x");

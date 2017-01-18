@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 20:35:33 by mfranc            #+#    #+#             */
-/*   Updated: 2016/11/16 14:30:58 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/18 17:42:05 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_putendl(char const *s)
 {
-	if (s)
-	{
-		ft_putstr(s);
-		write(1, "\n", 1);
-	}
+	if (!s)
+		return ;
+	ft_putstr(s);
+	ft_putchar('\n');
 }

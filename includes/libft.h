@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/17 16:15:52 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/18 20:36:34 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ char				*ft_uitoa(unsigned long long n, int base, char *baselist);
 int					ft_ilen(long long n, int base);
 int					ft_uilen(unsigned long long n, int base);
 char				*ft_ftoa(long double n, int base, char *bl);
+void				ft_putnstr(const char *s, size_t n);
 void				ft_putendl(char const *s);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char const c, int fd);

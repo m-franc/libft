@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 21:50:12 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/18 19:44:32 by mfranc           ###   ########.fr       */
+/*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/18 21:32:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	ft_putint_fd(long long n, int fd, int base, char *baselist)
-{
-	char	*number;
+# include 		<stdarg.h>
+# include 		"libft.h"
 
-	if (fd < 0 || !baselist)
-		return ;
-	number = ft_itoa(n, base, baselist),
-	ft_putstr_fd(number, fd);
-	ft_strdel(&number);
-}
+# define CONVS 	"sSpdDioOuUxXcCbrkeEfFgGaAn"
+# define MODIFS "hhhllljz"
+# define FLAGS 	"#0-+*$L."
+
+int				ft_printf(const char *buff, ...);
+
+#endif

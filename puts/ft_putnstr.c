@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 21:50:12 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/18 19:44:32 by mfranc           ###   ########.fr       */
+/*   Created: 2017/01/18 16:45:00 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/18 17:36:12 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putint_fd(long long n, int fd, int base, char *baselist)
+void	ft_putnstr(const char *s, size_t n)
 {
-	char	*number;
-
-	if (fd < 0 || !baselist)
+	if (!s)
 		return ;
-	number = ft_itoa(n, base, baselist),
-	ft_putstr_fd(number, fd);
-	ft_strdel(&number);
+	if (n > ft_strlen(s))
+		ft_putstr(s);
+	else
+		write(1, s, n);
 }

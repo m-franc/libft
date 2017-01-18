@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 13:38:43 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/17 16:16:41 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/18 16:29:26 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ char		*ft_ftoa(long double n, int base, char *bl)
 	tmp = n;
 	while (((long long)tmp % 10) != 0)
 	{
-		PNBR(tmp, 10, BASEUP);
 		n /= 10;
 		tmp *= 10;
 	}

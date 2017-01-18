@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 13:52:48 by mfranc            #+#    #+#             */
-/*   Updated: 2016/11/23 14:22:47 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/18 18:15:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	ft_putlist(t_list *lst)
 {
-	if (lst)
+	if (!lst)
+		return ;
+	while (lst)
 	{
-		while (lst)
-		{
-			ft_putendl(lst->content);
-			lst = lst->next;
-		}
+		ft_putendl(lst->content);
+		lst = lst->next;
 	}
 }
