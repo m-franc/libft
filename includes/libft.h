@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/18 20:36:34 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/22 19:25:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ typedef	struct		s_list
 # define PSTR(x) ft_putstr(x);
 # define INTMIN -2147483648
 # define INTMAX 2147483647
-# define ULMAX 4294967295
+# define UINTMAX 4294967295
 # define LLMIN -9223372036854775807
 # define LLMAX 9223372036854775807
-# define LLUIMAX 18446744073109551615
+# define ULLMAX 18446744073109551615
 
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -48,6 +48,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
 size_t				ft_strlen(const char *str);
+size_t				ft_strlenuntil(const char *str, char c);
 char				*ft_strdup(const char *str);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
@@ -96,6 +97,7 @@ char				*ft_uitoa(unsigned long long n, int base, char *baselist);
 int					ft_ilen(long long n, int base);
 int					ft_uilen(unsigned long long n, int base);
 char				*ft_ftoa(long double n, int base, char *bl);
+char				*ft_convbase(char *str, int old_base, int new_base, char *baselist);
 void				ft_putnstr(const char *s, size_t n);
 void				ft_putendl(char const *s);
 void				ft_putchar(char c);
@@ -117,6 +119,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_strsplit_tolist(char const *s, char c);
 int					ft_sqrt(int nb);
+long long 			ft_power(long long nb, int power);
 void				ft_putlist(t_list *lst);
 size_t				ft_listcount(t_list *lst);
 
