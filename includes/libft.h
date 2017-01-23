@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/22 19:25:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/23 16:26:20 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <wchar.h>
 
 typedef	struct		s_list
 {
@@ -106,6 +107,7 @@ void				ft_putstr_fd(char const *c, int fd);
 void				ft_putendl_fd(char const *c, int fd);
 void				ft_putint_fd(long long n, int fd, int base, char *baselist);
 void				ft_putuint_fd(unsigned long long n, int fd, int base, char *baselist);
+void				ft_putwchar(wint_t uchar);
 void				ft_putaddr(const void *value);
 int					ft_isword(char c);
 int					ft_countword(char const *s);
