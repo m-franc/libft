@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/23 16:26:20 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/24 18:50:57 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void				ft_putint_fd(long long n, int fd, int base, char *baselist);
 void				ft_putuint_fd(unsigned long long n, int fd, int base, char *baselist);
 void				ft_putwchar(wint_t uchar);
 void				ft_putaddr(const void *value);
+void				ft_putbits(unsigned char c);
 int					ft_isword(char c);
 int					ft_countword(char const *s);
 void				**ft_tabnew(size_t n);

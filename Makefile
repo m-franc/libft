@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/01/23 16:22:01 by mfranc           ###   ########.fr        #
+#    Updated: 2017/01/24 18:50:24 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,8 @@ SRCS = 	mems/ft_memset.c				\
 		convs/ft_convbase.c			\
 		maths/ft_power.c		\
 		strs/ft_strlenuntil.c		\
-		puts/ft_putwchar.c
+		puts/ft_putwchar.c			\
+		puts/ft_putbits.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 
