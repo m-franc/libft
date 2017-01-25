@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putbits.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 15:50:48 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/25 19:11:36 by mfranc           ###   ########.fr       */
+/*   Created: 2017/01/25 11:42:21 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/25 12:14:23 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				ft_putbits(const void *c, size_t size)
+char	*ft_strrev(char *s)
 {
-	unsigned char	msq;
-	char			result[9 * size];
-	int				i;
-	size_t			o;
+	int		i;
+	int		lenrev;
+	char	tmp;
 
+	if (!s)
+		return (NULL);
+	lenrev = ft_strlen(s) - 1;
 	i = 0;
-	o = 0;
-	while (o < size)
+	while (i < lenrev)
 	{
-		msq = 0b0000001;
-		while (msq)
-		{
-			if (*(char*)c & msq)
-				result[i++] = '1';
-			else
-				result[i++] = '0';
-			msq = (msq << 1);
-		}
-		if (i != (9 * size - 1))
-			result[i++] = 32;
-		c++;
-		o++;
+		tmp = s[lenrev];
+		s[lenrev--] = s[i];
+		s[i++] = tmp;
 	}
-	result[i] = '\0';
-	ft_putstr(ft_strrev(result));
+	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/24 18:50:57 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/25 19:12:20 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t n);
 char				*ft_strjoin(char const *s1, const char *s2);
 char				*ft_strtrim(char const *s);
 void				ft_putstr(char const *s);
+char				*ft_strrev(char *s);
 void				ft_puttab(char **tab);
 char				**ft_strsplit(char const *s, char c);
 void				ft_putint(long long n, int base, char *baselist);
@@ -109,7 +110,7 @@ void				ft_putint_fd(long long n, int fd, int base, char *baselist);
 void				ft_putuint_fd(unsigned long long n, int fd, int base, char *baselist);
 void				ft_putwchar(wint_t uchar);
 void				ft_putaddr(const void *value);
-void				ft_putbits(unsigned char c);
+void				ft_putbits(const void *c, size_t size);
 int					ft_isword(char c);
 int					ft_countword(char const *s);
 void				**ft_tabnew(size_t n);
