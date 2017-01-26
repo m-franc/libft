@@ -6,15 +6,25 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:19:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/23 19:51:51 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/26 18:49:22 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	ft_putwchar(wint_t uchar)
+void	ft_putwchar(wchar_t uchar)
 {
-	char	*b2;
+	size_t	i;
+	size_t	size;
+	int		msq;
 
-	ft_strdel(&b2);
+	msq = 0b00000001;
+	size = sizeof(uchar);
+	i = 0;
+	while (size > 0)
+	{
+		if (msq & uchar)
+			write(1, &uchar, 1);
+		uchar = uchar << ((8 * size) - 8);
+		size--;
+	}
 }
