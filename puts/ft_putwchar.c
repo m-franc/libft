@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:19:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/26 18:49:22 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/27 18:27:40 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,7 +24,7 @@ void	ft_putwchar(wchar_t uchar)
 	{
 		if (msq & uchar)
 			write(1, &uchar, 1);
-		uchar = uchar << ((8 * size) - 8);
+		uchar = uchar << 8;
 		size--;
 	}
 }
