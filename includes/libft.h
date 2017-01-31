@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/27 18:27:42 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/01/31 18:46:29 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char				*ft_strstr(const char *s1, const char *s2);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
+char				*ft_wchartostr(wint_t uchar);
 size_t				ft_strspn(const char *s, const char *accept);
 size_t				ft_strcspn(const char *s, const char *reject);
 long long			ft_atoi(const char *str);
@@ -89,6 +90,7 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t n);
 char				*ft_strjoin(char const *s1, const char *s2);
 char				*ft_strtrim(char const *s);
+char				*ft_straddchar(char *s, char c);
 void				ft_putstr(char const *s);
 char				*ft_strrev(char *s);
 void				ft_puttab(char **tab);
@@ -109,7 +111,6 @@ void				ft_putstr_fd(char const *c, int fd);
 void				ft_putendl_fd(char const *c, int fd);
 void				ft_putint_fd(long long n, int fd, int base, char *baselist);
 void				ft_putuint_fd(unsigned long long n, int fd, int base, char *baselist);
-void				ft_putwchar(wint_t uchar);
 void				ft_putaddr(const void *value);
 void				ft_putbits(const void *c, size_t size);
 int					ft_isword(char c);

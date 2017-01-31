@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwchar.c                                      :+:      :+:    :+:   */
+/*   ft_straddchar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/23 16:19:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/27 18:27:40 by mfranc           ###   ########.fr       */
+/*   Created: 2017/01/31 18:32:06 by mfranc            #+#    #+#             */
+/*   Updated: 2017/01/31 19:43:31 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	ft_putwchar(wchar_t uchar)
+char	*ft_straddchar(char *s, char c)
 {
-	size_t	i;
-	size_t	size;
-	int		msq;
+	char	*new;
+	int		newlen;
+	int		i;
 
-	msq = 0b00000001;
-	size = sizeof(uchar);
 	i = 0;
-	while (size > 0)
+	newlen = ft_strlen(s) + 1;
+	if (!(new = ft_strnew(newlen)))
+		return (NULL);
+	if (!s)
 	{
-		if (msq & uchar)
-			write(1, &uchar, 1);
-		uchar = uchar << 8;
-		size--;
+		*new = c;
+		return (new);
 	}
+	while (*s)
+		new[i++] = *s++;
+	new[i++] = c;
+	return (new);
 }
