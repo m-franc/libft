@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/01/31 18:46:43 by mfranc           ###   ########.fr        #
+#    Updated: 2017/02/01 10:16:51 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ SRCS = 	mems/ft_memset.c				\
 		maths/ft_power.c		\
 		strs/ft_strlenuntil.c		\
 		strs/ft_wchartostr.c		\
-		puts/ft_putbits.c		\
+		convs/ft_vtob.c			\
 		strs/ft_strrev.c			\
 		strs/ft_straddchar.c
 

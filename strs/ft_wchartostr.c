@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwchar.c                                      :+:      :+:    :+:   */
+/*   ft_wchartostr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/23 16:19:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/31 21:29:32 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/01 10:16:00 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/01 10:38:34 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static	char	*get4bytewchar(wint_t uchar)
 
 static	char	*get3bytewchar(wint_t uchar)
 {
+	ft_putendl(ft_vtob(&uchar, sizeof(uchar)));
 	return (NULL);
 }
 
