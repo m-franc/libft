@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:16:00 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/02 20:45:44 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/03 20:31:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,79 +14,84 @@
 
 static	char	*get4bytewchar(wint_t uchar)
 {
-	return (NULL);
+	int		tmp;
+	int		tmp2;
+	int		tmp3;
+	char	*result;
+	
+	if (!(result = ft_strnew(4)))
+		return (NULL);
+	PSTR("VALEUR ORIGINAL          : ")
+	ft_putbits(&uchar, sizeof(uchar));
+	ENDL
+	tmp = (uchar & 0xFC0) << 2;
+	PSTR("PREMIER DECALAGE         : ")
+	ft_putbits(&tmp, sizeof(tmp));
+	ENDL
+	tmp2 = (uchar & 0x3F000) << 4;
+	PSTR("DEUXIEME DECALAGE        : ")
+	ft_putbits(&tmp2, sizeof(tmp2));
+	ENDL
+	tmp3 = (uchar & 0x1C0000) << 6;
+	PSTR("TROISIEME DECALAGE       : ")
+	ft_putbits(&tmp3, sizeof(tmp3));
+	ENDL
+	tmp3 = (uchar & 0x3F) | tmp3 | tmp2 | tmp;
+	PSTR("FUSION                   : ")
+	ft_putbits(&tmp3, sizeof(tmp3));
+	ENDL
+	tmp3 = tmp3 ^ 0xF0808080;
+	PSTR("AJOUT DES ATTRIBUTS UTF8 : ")
+	ft_putbits(&tmp3, sizeof(tmp3));
+	ENDL
+	result[0] = tmp3 >> 24;
+	result[1] = tmp3 >> 16;
+	result[2] = tmp3 >> 8;
+	result[3] = tmp3;
+	PSTR("RESULTAT                 : ")
+	return (result);
 }
 
 static	char	*get3bytewchar(wint_t uchar)
 {
 	int				tmp;
 	int				tmp2;
-	char			*result;
-	int 			msq;
-	int				msq2;
+	char			*result;	
 
 	if (!(result = ft_strnew(3)))
 		return (NULL);
-//	msq = 0b11000000;
-	PSTR("LORIGINAL                                : ")
-	ft_putendl(ft_vtob(&uchar, sizeof(uchar)));
-	PSTR("DEUXIEME OCTET                           : ")
 	tmp2 = uchar & 0xFC0;
 	tmp2 = tmp2 << 2;
-	ft_putendl(ft_vtob(&tmp2, sizeof(tmp2)));
-	PSTR("TROISIEME OCTET                          : ")
 	tmp = uchar & 0xF000;
 	tmp = tmp << 4;
-	ft_putendl(ft_vtob(&tmp, sizeof(tmp)));
 	tmp2 = (uchar & 0x3F) | tmp2 | tmp;
-	PSTR("FUSION DES DEUX AVEC LE PREMIER          : ")
-	ft_putendl(ft_vtob(&tmp2, sizeof(tmp2)));
-	msq2 = 0xE08080;
-	tmp2 = tmp2 | msq2;
-	PSTR("FUSION DES DEUX AVEC LE PREMIER ET LES 1 : ")
-	ft_putendl(ft_vtob(&tmp2, sizeof(tmp2)));
-	ENDL
-	ENDL
-	return (NULL);
+	tmp2 = tmp2 ^ 0xE08080;
+	result[0] = tmp2 >> 16;
+	result[1] = tmp2 >> 8;
+	result[2] = tmp2;
+	return (result);
 }
 
 static	char	*get2bytewchar(wint_t uchar)
 {
-	int			msq;
-	int			msq2;
-	int			i;
+	int			tmp;
 	char		*result;
 
-	i = 0;
-	if (!(result = ft_strnew(3)))
+	if (!(result = ft_strnew(2)))
 		return (NULL);
-	msq = 0b11000000;
-	msq2 = 0b10000000;
-	while (msq2)
-	{
-		if (uchar)
-		msq = msq << 1;
-	}
+	tmp = uchar & 0xFC0;
+	tmp = tmp << 2;
+	tmp = (uchar & 0x3F) | tmp;
+	tmp = tmp ^ 0xc080;
+	result[0] = tmp >> 8;
+	result[1] = tmp;
 	return (result);
 }
 
-char			*ft_wchartostr(wint_t uchar)
+char			*ft_wctoa(wint_t uchar)
 {
-/*	int a = 0;
-	int b = 127;
-	int c = 128;
-	int d = 2047;
-	int e = 2048;
-	int f = 65535;
-	int g = 65536;
-	int h = 1114111;
-	printf("Dimension 1 octet : %s - %s\n", ft_vtob(&a, sizeof(a)), ft_vtob(&b, sizeof(b)));
-	printf("Dimension 2 octet : %s - %s\n", ft_vtob(&c, sizeof(c)), ft_vtob(&d, sizeof(d)));
-	printf("Dimension 3 octet : %s - %s\n", ft_vtob(&e, sizeof(e)), ft_vtob(&f, sizeof(f)));
-	printf("Dimension 4 octet : %s - %s\n", ft_vtob(&g, sizeof(g)), ft_vtob(&h, sizeof(h)));
-	*/
 	if (uchar >= 0 && uchar <= 127)
-		return (ft_straddchar(NULL, (char)uchar));
+		return (ft_straddchar(NULL, uchar));
 	else if (uchar >= 128 && uchar <= 2047)
 		return (get2bytewchar(uchar));
 	else if (uchar >= 2048 && uchar <= 65535)

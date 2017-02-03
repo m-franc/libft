@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 21:50:12 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/18 19:44:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/03 15:14:02 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	ft_putint_fd(long long n, int fd, int base, char *baselist)
 
 	if (fd < 0 || !baselist)
 		return ;
-	number = ft_itoa(n, base, baselist),
+	if (!(number = ft_itoa(n, base, baselist)))
+		return ;
 	ft_putstr_fd(number, fd);
 	ft_strdel(&number);
 }

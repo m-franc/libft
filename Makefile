@@ -6,13 +6,13 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/02/01 10:16:51 by mfranc           ###   ########.fr        #
+#    Updated: 2017/02/03 15:18:44 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-FLAGS = -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 INCLUDES = includes
 
@@ -98,10 +98,11 @@ SRCS = 	mems/ft_memset.c				\
 		convs/ft_convbase.c			\
 		maths/ft_power.c		\
 		strs/ft_strlenuntil.c		\
-		strs/ft_wchartostr.c		\
+		convs/ft_wctoa.c			\
 		convs/ft_vtob.c			\
 		strs/ft_strrev.c			\
-		strs/ft_straddchar.c
+		strs/ft_straddchar.c		\
+		puts/ft_putbits.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 

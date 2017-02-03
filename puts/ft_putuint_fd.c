@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 12:39:39 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/18 19:44:43 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/03 15:13:09 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	ft_putuint_fd(unsigned long long n, int fd, int base, char *baselist)
 
 	if (fd < 0 || !baselist)
 		return ;
-	number = ft_uitoa(n, base, baselist);
+	if (!(number = ft_uitoa(n, base, baselist)))
+		return ;
 	ft_putstr_fd(number, fd);
 	ft_strdel(&number);
 }

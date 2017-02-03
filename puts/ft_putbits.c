@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putbits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 17:41:57 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/03 15:12:41 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/03 15:01:48 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/03 16:58:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putuint(unsigned long long n, int base, char *baselist)
+void	ft_putbits(const void *s, size_t size)
 {
-	char	*number;
+	char	*binary;
 
-	if (!baselist)
+	if (!s)
 		return ;
-	if (!(number = ft_uitoa(n, base, baselist)))
+	if (!(binary = ft_vtob(s, 4)))
 		return ;
-	ft_putstr(number);
-	ft_strdel(&number);
+	ft_putstr(binary);
+	ft_strdel(&binary);
 }

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:14:08 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/02 20:38:20 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/03 10:37:46 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ char				*ft_vtob(const void *c, size_t size)
 			result[i++] = (*(char*)c & msq) ? '1' : '0';
 			msq = (msq << 1);
 		}
-		result[i++] = 32;
+		if (i != 9 * size - 1)
+			result[i++] = 32;
 		c++;
 		o++;
 	}
