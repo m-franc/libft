@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putint.c                                        :+:      :+:    :+:   */
+/*   ft_putptr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/04 19:39:02 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/04 19:39:03 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/04 19:39:22 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/04 19:39:23 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putint(long long int n, int base, char *baselist)
+void	ft_putptr_fd(const void *value, int fd)
 {
-	char	*number;
+	char				*ptr;
 
-	if (!baselist)
+	if (!value)
 		return ;
-	if (!(number = ft_itoa(n, base, baselist)))
+	if (!(ptr = ft_vtop(value)))
 		return ;
-	ft_putstr(number);
-	ft_strdel(&number);
+	ft_putstr_fd(ptr, fd);
+	ft_strdel(&ptr);
 }

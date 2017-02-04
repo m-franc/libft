@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putint.c                                        :+:      :+:    :+:   */
+/*   ft_putptrendl_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/04 19:39:02 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/04 19:39:03 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/04 19:39:30 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/04 19:39:42 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putint(long long int n, int base, char *baselist)
+void	ft_putptrendl_fd(const void *value, int fd)
 {
-	char	*number;
-
-	if (!baselist)
-		return ;
-	if (!(number = ft_itoa(n, base, baselist)))
-		return ;
-	ft_putstr(number);
-	ft_strdel(&number);
+	ft_putptr_fd(value, fd);
+	ft_putchar('\n');
 }

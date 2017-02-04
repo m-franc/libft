@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr.c                                       :+:      :+:    :+:   */
+/*   ft_putwchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/11 18:30:54 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/23 15:47:56 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/04 17:53:06 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/04 18:06:22 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putaddr(const void *value)
+void	ft_putwchar(wint_t wchar)
 {
-	unsigned long		addr;
-	char				*str;
+	char	*unicode;
 
-	if (!value)
+	if (!(unicode = ft_wctoa(wchar)))
 		return ;
-	addr = (unsigned long)value;
-	str = ft_itoa(addr, 16, BASELW);
-	ft_putstr("0x");
-	ft_putstr(str);
-	ft_strdel(&str);
+	ft_putstr(unicode);
+	ft_strdel(&unicode);
 }

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putint.c                                        :+:      :+:    :+:   */
+/*   ft_wstrtoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/04 19:39:02 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/04 19:39:03 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/04 13:05:22 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/04 17:43:26 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putint(long long int n, int base, char *baselist)
+char	*ft_wstrtoa(wchar_t *str)
 {
-	char	*number;
+	char	*result;
+	char	*currc;
 
-	if (!baselist)
-		return ;
-	if (!(number = ft_itoa(n, base, baselist)))
-		return ;
-	ft_putstr(number);
-	ft_strdel(&number);
+	if (!str)
+		return (NULL);
+	if (!(result = ft_memalloc(ft_wstrlen(str))))
+		return (NULL);
+	while (*str)
+	{
+		if (!(currc = ft_wctoa(*str++)))
+			return (NULL);
+		result = ft_strcat(result, currc);
+		ft_strdel(&currc);
+	}
+	return (result);
 }

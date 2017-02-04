@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/02/03 15:18:44 by mfranc           ###   ########.fr        #
+#    Updated: 2017/02/04 19:43:22 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ SRCS = 	mems/ft_memset.c				\
 		convs/ft_uilen.c				\
 		puts/ft_putint.c				\
 		puts/ft_putuint.c			\
-		puts/ft_putaddr.c			\
+		puts/ft_putptr.c				\
 		convs/ft_ftoa.c				\
 		strs/ft_strspn.c				\
 		strs/ft_strcspn.c			\
@@ -102,7 +102,23 @@ SRCS = 	mems/ft_memset.c				\
 		convs/ft_vtob.c			\
 		strs/ft_strrev.c			\
 		strs/ft_straddchar.c		\
-		puts/ft_putbits.c
+		puts/ft_putbits.c		\
+		convs/ft_wstrtoa.c			\
+		strs/ft_wstrlen.c			\
+		puts/ft_putwstr.c		\
+		puts/ft_putwendl.c			\
+		puts/ft_putwchar.c			\
+		puts/ft_putwstr_fd.c		\
+		puts/ft_putwendl_fd.c	\
+		puts/ft_putwchar_fd.c		\
+		convs/ft_vtop.c			\
+		puts/ft_putintendl.c		\
+		puts/ft_putintendl_fd.c			\
+		puts/ft_putptr_fd.c			\
+		puts/ft_putptrendl.c			\
+		puts/ft_putptrendl_fd.c			\
+		puts/ft_putuintendl_fd.c		\
+		puts/ft_putuintendl.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 

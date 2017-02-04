@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/03 16:58:08 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/04 19:44:06 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
 size_t				ft_strlen(const char *str);
+size_t				ft_wstrlen(wchar_t *str);
 size_t				ft_strlenuntil(const char *str, char c);
 char				*ft_strdup(const char *str);
 char				*ft_strcpy(char *dest, const char *src);
@@ -96,6 +97,7 @@ void				ft_puttab(char **tab);
 char				**ft_strsplit(char const *s, char c);
 void				ft_putint(long long n, int base, char *baselist);
 void				ft_putuint(unsigned long long n, int base, char *baselist);
+void				ft_putuintendl(unsigned long long n, int base, char *baselist);
 char				*ft_itoa(long long n, int base, char *baselist);
 char				*ft_uitoa(unsigned long long n, int base, char *baselist);
 int					ft_ilen(long long n, int base);
@@ -103,6 +105,8 @@ int					ft_uilen(unsigned long long n, int base);
 char				*ft_ftoa(long double n, int base, char *bl);
 char				*ft_convbase(char *str, int old_base, int new_base, char *baselist);
 char				*ft_wctoa(wint_t uchar);
+char				*ft_wstrtoa(wchar_t *wstr);
+char				*ft_vtop(const void *value);
 void				ft_putnstr(const char *s, size_t n);
 void				ft_putendl(char const *s);
 void				ft_putchar(char c);
@@ -110,9 +114,21 @@ void				ft_putchar_fd(char const c, int fd);
 void				ft_putstr_fd(char const *c, int fd);
 void				ft_putendl_fd(char const *c, int fd);
 void				ft_putint_fd(long long n, int fd, int base, char *baselist);
+void				ft_putintendl(long long n, int base, char *baselist);
+void				ft_putintendl_fd(long long n, int fd, int base, char *baselist);
 void				ft_putuint_fd(unsigned long long n, int fd, int base, char *baselist);
-void				ft_putaddr(const void *value);
+void				ft_putuintendl_fd(unsigned long long n, int fd, int base, char *baselist);
+void				ft_putptr(const void *value);
+void				ft_putptrendl(const void *value);
+void				ft_putptr_fd(const void *value, int fd);
+void				ft_putptrendl_fd(const void *value, int fd);
 void				ft_putbits(const void *s, size_t size);
+void				ft_putwstr(wchar_t *str);
+void				ft_putwstr_fd(wchar_t *str, int fd);
+void				ft_putwendl(wchar_t *str);
+void				ft_putwendl_fd(wchar_t *str, int fd);
+void				ft_putwchar(wint_t wchar);
+void				ft_putwchar_fd(wint_t wchar, int fd);
 char				*ft_vtob(const void *c, size_t size);
 int					ft_isword(char c);
 int					ft_countword(char const *s);

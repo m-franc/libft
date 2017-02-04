@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putint.c                                        :+:      :+:    :+:   */
+/*   ft_putwendl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/04 19:39:02 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/04 19:39:03 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/04 17:44:41 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/04 18:12:15 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putint(long long int n, int base, char *baselist)
+void	ft_putwendl_fd(wchar_t *str, int fd)
 {
-	char	*number;
+	char	*unicode;
 
-	if (!baselist)
+	if (fd < 0)
 		return ;
-	if (!(number = ft_itoa(n, base, baselist)))
+	if (!(unicode = ft_wstrtoa(str)))
 		return ;
-	ft_putstr(number);
-	ft_strdel(&number);
+	ft_putendl_fd(unicode, fd);
+	ft_strdel(&unicode);
 }

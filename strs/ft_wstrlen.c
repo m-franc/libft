@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putint.c                                        :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/04 19:39:02 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/04 19:39:03 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/04 14:52:30 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/04 17:41:52 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putint(long long int n, int base, char *baselist)
+size_t	ft_wstrlen(wchar_t *str)
 {
-	char	*number;
+	size_t	i;
+	size_t	size;
 
-	if (!baselist)
-		return ;
-	if (!(number = ft_itoa(n, base, baselist)))
-		return ;
-	ft_putstr(number);
-	ft_strdel(&number);
+	i = -1;
+	size = 0;
+	while (str[++i])
+		size += sizeof(wchar_t);
+	return (size);
 }

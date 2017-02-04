@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:16:00 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/03 20:31:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/04 17:31:26 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,17 @@ static	char	*get4bytewchar(wint_t uchar)
 	int		tmp3;
 	char	*result;
 	
-	if (!(result = ft_strnew(4)))
+	if (!(result = ft_strnew(5)))
 		return (NULL);
-	PSTR("VALEUR ORIGINAL          : ")
-	ft_putbits(&uchar, sizeof(uchar));
-	ENDL
 	tmp = (uchar & 0xFC0) << 2;
-	PSTR("PREMIER DECALAGE         : ")
-	ft_putbits(&tmp, sizeof(tmp));
-	ENDL
 	tmp2 = (uchar & 0x3F000) << 4;
-	PSTR("DEUXIEME DECALAGE        : ")
-	ft_putbits(&tmp2, sizeof(tmp2));
-	ENDL
 	tmp3 = (uchar & 0x1C0000) << 6;
-	PSTR("TROISIEME DECALAGE       : ")
-	ft_putbits(&tmp3, sizeof(tmp3));
-	ENDL
 	tmp3 = (uchar & 0x3F) | tmp3 | tmp2 | tmp;
-	PSTR("FUSION                   : ")
-	ft_putbits(&tmp3, sizeof(tmp3));
-	ENDL
 	tmp3 = tmp3 ^ 0xF0808080;
-	PSTR("AJOUT DES ATTRIBUTS UTF8 : ")
-	ft_putbits(&tmp3, sizeof(tmp3));
-	ENDL
 	result[0] = tmp3 >> 24;
 	result[1] = tmp3 >> 16;
 	result[2] = tmp3 >> 8;
 	result[3] = tmp3;
-	PSTR("RESULTAT                 : ")
 	return (result);
 }
 
@@ -58,12 +39,11 @@ static	char	*get3bytewchar(wint_t uchar)
 	int				tmp2;
 	char			*result;	
 
-	if (!(result = ft_strnew(3)))
+	if (!(result = ft_strnew(4)))
 		return (NULL);
-	tmp2 = uchar & 0xFC0;
-	tmp2 = tmp2 << 2;
-	tmp = uchar & 0xF000;
-	tmp = tmp << 4;
+	ft_bzero(result, 4);
+	tmp2 = (uchar & 0xFC0) << 2;
+	tmp = (uchar & 0xF000) << 4;
 	tmp2 = (uchar & 0x3F) | tmp2 | tmp;
 	tmp2 = tmp2 ^ 0xE08080;
 	result[0] = tmp2 >> 16;
@@ -77,10 +57,10 @@ static	char	*get2bytewchar(wint_t uchar)
 	int			tmp;
 	char		*result;
 
-	if (!(result = ft_strnew(2)))
+	if (!(result = ft_strnew(3)))
 		return (NULL);
-	tmp = uchar & 0xFC0;
-	tmp = tmp << 2;
+	ft_bzero(result, 3);
+	tmp = (uchar & 0xFC0) << 2;
 	tmp = (uchar & 0x3F) | tmp;
 	tmp = tmp ^ 0xc080;
 	result[0] = tmp >> 8;

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 15:01:48 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/03 16:58:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/04 13:09:18 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putbits(const void *s, size_t size)
 
 	if (!s)
 		return ;
-	if (!(binary = ft_vtob(s, 4)))
+	if (!(binary = ft_vtob(s, size)))
 		return ;
 	ft_putstr(binary);
 	ft_strdel(&binary);
