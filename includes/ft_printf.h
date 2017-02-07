@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/06 19:06:17 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/07 16:42:36 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ typedef struct	s_datas
 int				ft_printf(const char *buff, ...);
 char			*ft_fill_buff(t_datas *datas, char *buff);
 char			*ft_get_unconvdatas(t_datas *datas, char *buff, size_t o);
-char			*ft_get_flags(t_datas *datas, char *buff);
+char			*ft_get_convdatas(t_datas *datas, char *buff);
 
 #endif
