@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/02/06 11:23:58 by mfranc           ###   ########.fr        #
+#    Updated: 2017/02/08 16:51:30 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,7 +118,23 @@ SRCS = 	mems/ft_memset.c				\
 		puts/ft_putptrendl.c			\
 		puts/ft_putptrendl_fd.c			\
 		puts/ft_putuintendl_fd.c		\
-		puts/ft_putuintendl.c
+		puts/ft_putuintendl.c			\
+		ft_printf/get_conv/ft_get_s_conv.c	\
+		ft_printf/get_conv/ft_get_ls_conv.c	\
+		ft_printf/get_conv/ft_get_p_conv.c	\
+		ft_printf/get_conv/ft_get_d_conv.c	\
+		ft_printf/get_conv/ft_get_ld_conv.c	\
+		ft_printf/get_conv/ft_get_i_conv.c	\
+		ft_printf/get_conv/ft_get_o_conv.c	\
+		ft_printf/get_conv/ft_get_lo_conv.c	\
+		ft_printf/get_conv/ft_get_u_conv.c	\
+		ft_printf/get_conv/ft_get_lu_conv.c	\
+		ft_printf/get_conv/ft_get_x_conv.c	\
+		ft_printf/get_conv/ft_get_lx_conv.c	\
+		ft_printf/get_conv/ft_get_c_conv.c	\
+		ft_printf/get_conv/ft_get_lc_conv.c	\
+		ft_printf/get_conv/ft_get_b_conv.c	\
+		ft_printf/get_conv/ft_get_n_conv.c	\
 
 OBJECTS = $(SRCS:%.c=%.o)
 
