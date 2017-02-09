@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/02/09 16:16:23 by mfranc           ###   ########.fr        #
+#    Updated: 2017/02/09 18:34:47 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,22 +119,22 @@ SRCS = 	mems/ft_memset.c				\
 		puts/ft_putptrendl_fd.c			\
 		puts/ft_putuintendl_fd.c		\
 		puts/ft_putuintendl.c			\
-		ft_printf/get_conv/ft_get_s_conv.c	\
-		ft_printf/get_conv/ft_get_ls_conv.c	\
-		ft_printf/get_conv/ft_get_p_conv.c	\
-		ft_printf/get_conv/ft_get_d_conv.c	\
-		ft_printf/get_conv/ft_get_ld_conv.c	\
-		ft_printf/get_conv/ft_get_i_conv.c	\
-		ft_printf/get_conv/ft_get_o_conv.c	\
-		ft_printf/get_conv/ft_get_lo_conv.c	\
-		ft_printf/get_conv/ft_get_u_conv.c	\
-		ft_printf/get_conv/ft_get_lu_conv.c	\
-		ft_printf/get_conv/ft_get_x_conv.c	\
-		ft_printf/get_conv/ft_get_lx_conv.c	\
-		ft_printf/get_conv/ft_get_c_conv.c	\
-		ft_printf/get_conv/ft_get_lc_conv.c	\
-		ft_printf/get_conv/ft_get_b_conv.c	\
-		ft_printf/get_conv/ft_get_n_conv.c	\
+		ft_printf/args/ft_s.c	\
+		ft_printf/args/ft_ls.c	\
+		ft_printf/args/ft_p.c	\
+		ft_printf/args/ft_d.c	\
+		ft_printf/args/ft_lc.c	\
+		ft_printf/args/ft_i.c	\
+		ft_printf/args/ft_o.c	\
+		ft_printf/args/ft_lo.c	\
+		ft_printf/args/ft_u.c	\
+		ft_printf/args/ft_lu.c	\
+		ft_printf/args/ft_x.c	\
+		ft_printf/args/ft_lx.c	\
+		ft_printf/args/ft_c.c	\
+		ft_printf/args/ft_lc.c	\
+		ft_printf/args/ft_b.c	\
+		ft_printf/args/ft_n.c	\
 		ft_printf/ft_fill_buff.c		\
 		ft_printf/ft_array_funcs.c
 
