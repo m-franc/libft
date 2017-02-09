@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_s_conv.c                                    :+:      :+:    :+:   */
+/*   ft_get_conv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 16:41:03 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/09 13:59:45 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/09 13:58:37 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/09 13:59:04 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_s_conv(t_datas *datas)
+t_get_dataconv	g_convdatas[] =
 {
-	char	*arg;
-
-	if (!(arg = va_arg(datas->args, char *)))
-		return (NULL);
-	if (!(datas->result = ft_strjoin(datas->result, arg)))
-		return (NULL);
-	datas->len += ft_strlen(arg);
-	return (datas->result);
-}
+	ft_get_s_conv, ft_get_ls_conv, ft_get_p_conv, ft_get_d_conv,
+	ft_get_ld_conv, ft_get_i_conv, ft_get_o_conv, ft_get_lo_conv,
+	ft_get_u_conv, ft_get_lu_conv, ft_get_x_conv, ft_get_lx_conv,
+	ft_get_c_conv, ft_get_lc_conv, ft_get_b_conv, ft_get_n_conv
+};
