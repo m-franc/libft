@@ -6,18 +6,27 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 16:41:03 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/09 13:59:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/09 17:59:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_s_conv(t_datas *datas)
+t_list	*ft_get_s_arg(t_datas *datas, va_list ap)
 {
 	char	*arg;
 
-	if (!(arg = va_arg(datas->args, char *)))
+	if (!(arg = va_arg(ap, char *)))
 		return (NULL);
+	if (!(datas->args = lstnew(va_arg(ap, char *)))
+		return (NULL);
+	return (datas->args->next);
+}
+
+char	*ft_s_conv(t_datas *datas)
+{
+	char	*arg;
+
 	if (!(datas->result = ft_strjoin(datas->result, arg)))
 		return (NULL);
 	datas->len += ft_strlen(arg);
