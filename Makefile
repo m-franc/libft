@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/02/09 18:34:47 by mfranc           ###   ########.fr        #
+#    Updated: 2017/02/09 19:37:37 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,7 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/args/ft_ls.c	\
 		ft_printf/args/ft_p.c	\
 		ft_printf/args/ft_d.c	\
-		ft_printf/args/ft_lc.c	\
+		ft_printf/args/ft_ld.c	\
 		ft_printf/args/ft_i.c	\
 		ft_printf/args/ft_o.c	\
 		ft_printf/args/ft_lo.c	\
@@ -136,7 +136,6 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/args/ft_b.c	\
 		ft_printf/args/ft_n.c	\
 		ft_printf/ft_fill_buff.c		\
-		ft_printf/ft_array_funcs.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 

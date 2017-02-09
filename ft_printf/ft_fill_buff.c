@@ -6,13 +6,13 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/09 17:47:31 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/09 21:59:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_get_dataconv	g_convdatas[] =
+t_get_convs	g_get_convs[] =
 {
 	ft_get_s_conv, ft_get_ls_conv, ft_get_p_conv, ft_get_d_conv,
 	ft_get_ld_conv, ft_get_i_conv, ft_get_o_conv, ft_get_lo_conv,
@@ -47,7 +47,7 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 	while (CONVS && CONVS[i] != datas->flags[ft_strlen(datas->flags) - 1])
 		i++;
 	lastdatas = datas->result;
-	if (!(datas->result = g_convdatas[i](datas)))
+	if (!(datas->result = g_get_convs[i](datas)))
 		return (NULL);
 	ft_strdel(&lastdatas);
 	return (datas->result);

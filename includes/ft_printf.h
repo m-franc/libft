@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/09 18:08:58 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/09 22:27:00 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,57 +23,60 @@
 typedef struct	s_datas
 {
 	char		*result;
+	va_list		ap;
 	t_list		*args;
+	t_list		*tmp_args;
 	char		*flags;
 	int			len;
 }				t_datas;
 
 int				ft_printf(const char *buff, ...);
-void			ft_datas_init(t_datas *datas, va_list ap, char *buff);
-t_list			ft_get_argslist(va_list ap, char *buff);
+void			ft_datas_init(t_datas *datas, char *buff);
+void			ft_datas_delete(t_datas *datas);
+t_list			*ft_get_argslist(t_datas **datas, char *buff);
 char			*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 char			*ft_fill_buff(t_datas *datas, char *buff);
 char			*ft_get_convdatas(t_datas *datas, char *buff);
 char			*ft_get_lastdatas(t_datas *datas, char *buff);
 
 // 				get_args array functions
-char			*ft_get_s_conv(t_datas *datas, va_list ap);
-char			*ft_get_ls_conv(t_datas *datas, va_list ap);
-char			*ft_get_p_conv(t_datas *datas, va_list ap);
-char			*ft_get_d_conv(t_datas *datas, va_list ap);
-char			*ft_get_ld_conv(t_datas *datas, va_list ap);
-char			*ft_get_i_conv(t_datas *datas, va_list ap);
-char			*ft_get_o_conv(t_datas *datas, va_list ap);
-char			*ft_get_lo_conv(t_datas *datas, va_list ap);
-char			*ft_get_u_conv(t_datas *datas, va_list ap);
-char			*ft_get_lu_conv(t_datas *datas, va_list ap);
-char			*ft_get_x_conv(t_datas *datas, va_list ap);
-char			*ft_get_lx_conv(t_datas *datas, va_list ap);
-char			*ft_get_c_conv(t_datas *datas, va_list ap);
-char			*ft_get_lc_conv(t_datas *datas, va_list ap);
-char			*ft_get_b_conv(t_datas *datas, va_list ap);
-char			*ft_get_n_conv(t_datas *datas, va_list ap);
+char			*ft_get_s_conv(t_datas *datas);
+char			*ft_get_ls_conv(t_datas *datas);
+char			*ft_get_p_conv(t_datas *datas);
+char			*ft_get_d_conv(t_datas *datas);
+char			*ft_get_ld_conv(t_datas *datas);
+char			*ft_get_i_conv(t_datas *datas);
+char			*ft_get_o_conv(t_datas *datas);
+char			*ft_get_lo_conv(t_datas *datas);
+char			*ft_get_u_conv(t_datas *datas);
+char			*ft_get_lu_conv(t_datas *datas);
+char			*ft_get_x_conv(t_datas *datas);
+char			*ft_get_lx_conv(t_datas *datas);
+char			*ft_get_c_conv(t_datas *datas);
+char			*ft_get_lc_conv(t_datas *datas);
+char			*ft_get_b_conv(t_datas *datas);
+char			*ft_get_n_conv(t_datas *datas);
 
 //				convdatas array functions
-char			*ft_s_conv(t_datas *datas);
-char			*ft_ls_conv(t_datas *datas);
-char			*ft_p_conv(t_datas *datas);
-char			*ft_d_conv(t_datas *datas);
-char			*ft_ld_conv(t_datas *datas);
-char			*ft_i_conv(t_datas *datas);
-char			*ft_o_conv(t_datas *datas);
-char			*ft_lo_conv(t_datas *datas);
-char			*ft_u_conv(t_datas *datas);
-char			*ft_lu_conv(t_datas *datas);
-char			*ft_x_conv(t_datas *datas);
-char			*ft_lx_conv(t_datas *datas);
-char			*ft_c_conv(t_datas *datas);
-char			*ft_lc_conv(t_datas *datas);
-char			*ft_b_conv(t_datas *datas);
-char			*ft_n_conv(t_datas *datas);
+t_list			*ft_get_s_arg(t_datas *datas);
+t_list			*ft_get_ls_arg(t_datas *datas);
+t_list			*ft_get_p_arg(t_datas *datas);
+t_list			*ft_get_d_arg(t_datas *datas);
+t_list			*ft_get_ld_arg(t_datas *datas);
+t_list			*ft_get_i_arg(t_datas *datas);
+t_list			*ft_get_o_arg(t_datas *datas);
+t_list			*ft_get_lo_arg(t_datas *datas);
+t_list			*ft_get_u_arg(t_datas *datas);
+t_list			*ft_get_lu_arg(t_datas *datas);
+t_list			*ft_get_x_arg(t_datas *datas);
+t_list			*ft_get_lx_arg(t_datas *datas);
+t_list			*ft_get_c_arg(t_datas *datas);
+t_list			*ft_get_lc_arg(t_datas *datas);
+t_list			*ft_get_b_arg(t_datas *datas);
+t_list			*ft_get_n_arg(t_datas *datas);
 
-typedef	char	*(*t_dataconv)(t_datas *datas);
+typedef	char	*(*t_get_convs)(t_datas *datas);
 
-typedef t_list	*(*t_getargs)(t_datas *datas, va_list ap);
+typedef t_list	*(*t_get_args)(t_datas *datas);
 
 #endif
