@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/10 20:17:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/10 21:01:01 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,12 @@ void	ft_datas_init(t_datas *datas, char *buff)
 	datas->len = 0;
 }
 
-/*void	ft_datas_delete(t_datas *datas)
-  {
-  ft_lstdel(&datas->tmp_args);
-  ft_strdel(&(datas->result));
-  va_end(datas->ap);
-  }
-  */
+void	ft_datas_delete(t_datas *datas)
+{
+	ft_lstdel(&datas->tmp_args);
+	va_end(datas->ap);
+}
+
 int		ft_printf(const char *buff, ...)
 {
 	t_datas	datas;
@@ -107,9 +106,9 @@ int		ft_printf(const char *buff, ...)
 			return (-1);
 		if (!(datas.result = ft_fill_buff(&datas, (char*)buff)))
 			return (-1);
-		//		ft_datas_delete(&datas);
+		ft_datas_delete(&datas);
 	}
-	datas.len = ft_strlen(datas.result);
-	write(1, datas.result, datas.len);
+	write(1, datas.result, ft_strlen(datas.result));
+	ft_strdel(&(datas.result));
 	return (datas.len);
 }
