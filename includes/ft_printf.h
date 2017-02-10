@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/09 22:27:00 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/10 19:52:30 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # define CONVS 	"sSpdDioOuUxXcCbn%"
 # define MODIFS "hlhhlljz"
-# define FLAGS 	"#0-+*$L."
+# define FLAGS 	"#0123456789 -+*$L."
 
 typedef struct	s_datas
 {
@@ -33,7 +33,8 @@ typedef struct	s_datas
 int				ft_printf(const char *buff, ...);
 void			ft_datas_init(t_datas *datas, char *buff);
 void			ft_datas_delete(t_datas *datas);
-t_list			*ft_get_argslist(t_datas **datas, char *buff);
+t_list			*ft_get_argslist(t_datas *datas, char *buff);
+t_list			*ft_get_arg(t_datas *datas, char *buff);
 char			*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 char			*ft_fill_buff(t_datas *datas, char *buff);
 char			*ft_get_convdatas(t_datas *datas, char *buff);

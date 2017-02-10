@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/09 22:49:04 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/10 20:03:19 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,54 +20,71 @@ t_get_args	g_get_args[] =
 	ft_get_c_arg, ft_get_lc_arg, ft_get_b_arg, ft_get_n_arg,
 };
 
-t_list	*ft_get_argslist(t_datas **datas, char *buff)
+t_list	*ft_get_arg(t_datas *datas, char *buff)
+{
+	size_t	conv_index;
+	size_t	o;
+	size_t	i;
+	t_list	*new;
+
+	o = -1;
+	i = -1;
+	conv_index = ft_strspn(buff, FLAGS);
+	if (buff[conv_index] == '\0')
+		return (NULL);
+	while (++o < conv_index)
+		;
+	while (CONVS && CONVS[++i] != buff[conv_index])
+		;
+	if (!(new = g_get_args[i](datas)))
+		return (NULL);
+	return (new);
+}
+
+t_list	*ft_get_argslist(t_datas *datas, char *buff)
 {
 	t_list	*tmp;
+	t_list	*new;
 	size_t	conv_index;
 	size_t	i;
-	int j = 0;
-	size_t	o;
 
 	i = -1;
-	tmp = (*datas)->tmp_args;
-	tmp->next = (*datas)->tmp_args;
-	while (buff[++i] && tmp && tmp->next)
+	while (buff[++i] != '%')
+		;
+	if (!(tmp = ft_get_arg(datas, buff + (i + 1))))
+		return (NULL);
+	new = tmp;
+	while (buff[++i] && tmp)
 	{
-		o = -1;
 		conv_index = 0;
 		if (buff[i] == '%')
 		{
-			conv_index = ft_strcspn(buff + i, CONVS);
-			while (++o < conv_index)
-				;
-			if (!(tmp = g_get_args[o](*datas)))
+			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1))))
 				return (NULL);
-			ft_putendl(tmp->content);
 			tmp = tmp->next;
-			ft_putintendl(j++, 10, BASEUP);
-			i += conv_index;
+			i += ft_strlen(tmp->content);
 		}
-	}	
-	return ((*datas)->tmp_args);
+	}
+	return (new);
 }
 
 void	ft_datas_init(t_datas *datas, char *buff)
 {
 	datas->result = NULL;
-	if (!(datas->tmp_args = ft_get_argslist(&datas, buff)))
+	if (!(datas->tmp_args = ft_get_argslist(datas, buff)))
 		return ;
 	datas->args = datas->tmp_args;
 	datas->flags = NULL;
 	datas->len = 0;
 }
 
-void	ft_datas_delete(t_datas *datas)
-{
-	ft_lstdel(&datas->tmp_args);
-	ft_strdel(&(datas->result));
-	va_end(datas->ap);
-}
-
+/*void	ft_datas_delete(t_datas *datas)
+  {
+  ft_lstdel(&datas->tmp_args);
+  ft_strdel(&(datas->result));
+  va_end(datas->ap);
+  }
+  */
 int		ft_printf(const char *buff, ...)
 {
 	t_datas	datas;
@@ -90,7 +107,7 @@ int		ft_printf(const char *buff, ...)
 			return (-1);
 		if (!(datas.result = ft_fill_buff(&datas, (char*)buff)))
 			return (-1);
-//		ft_datas_delete(&datas);
+		//		ft_datas_delete(&datas);
 	}
 	datas.len = ft_strlen(datas.result);
 	write(1, datas.result, datas.len);
