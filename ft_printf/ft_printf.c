@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/10 20:03:19 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/10 20:17:53 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list	*ft_get_arg(t_datas *datas, char *buff)
 
 	o = -1;
 	i = -1;
-	conv_index = ft_strspn(buff, FLAGS);
+	conv_index = ft_strcspn(buff, CONVS);
 	if (buff[conv_index] == '\0')
 		return (NULL);
 	while (++o < conv_index)
