@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/10 21:01:01 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/13 11:14:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,15 @@ t_get_args	g_get_args[] =
 t_list	*ft_get_arg(t_datas *datas, char *buff)
 {
 	size_t	conv_index;
-	size_t	o;
 	size_t	i;
 	t_list	*new;
 
-	o = -1;
 	i = -1;
-	conv_index = ft_strcspn(buff, CONVS);
+	conv_index = ft_strspn(buff, FLAGS);
 	if (buff[conv_index] == '\0')
 		return (NULL);
-	while (++o < conv_index)
-		;
+	if (!(ft_strchr(CONVS, buff[conv_index])))
+		return (NULL);
 	while (CONVS && CONVS[++i] != buff[conv_index])
 		;
 	if (!(new = g_get_args[i](datas)))

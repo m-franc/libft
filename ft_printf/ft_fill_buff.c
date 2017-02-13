@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/10 15:08:48 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/13 12:12:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 	size_t	conv_index;
 	char	*lastdatas;
 
-	conv_index = ft_strcspn(buff, CONVS);
+	conv_index = ft_strspn(buff, FLAGS);
 	if (buff[conv_index] == '\0')
 		return (NULL);
 	if (!(datas->flags = ft_strsub(buff, 0, conv_index + 1)))
+		return (NULL);
+	if (!(ft_strchr(CONVS, datas->flags[ft_strlen(datas->flags) - 1])))
 		return (NULL);
 	i = 0;
 	while (CONVS && CONVS[i] != datas->flags[ft_strlen(datas->flags) - 1])
@@ -91,8 +93,9 @@ char	*ft_fill_buff(t_datas *datas, char *buff)
 		{
 			if (!(datas->result = ft_get_unconvdatas(datas, buff, o)))
 				return (NULL);
-			if (!(datas->result = ft_get_convdatas(datas, buff + ((i++) + 1))))
+			if (!(datas->result = ft_get_convdatas(datas, (buff + i + 1))))
 				return (NULL);
+			ft_putintendl(ft_strlen(datas->flags), 10, BASEUP);
 			i += ft_strlen(datas->flags);
 			o = i;
 			ft_strdel(&(datas->flags));
