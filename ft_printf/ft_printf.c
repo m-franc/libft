@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/13 11:14:07 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/13 17:54:34 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,15 @@ void	ft_datas_init(t_datas *datas, char *buff)
 	datas->len = 0;
 }
 
-void	ft_datas_delete(t_datas *datas)
+int		ft_launch_process(t_datas *datas, char *buff)
 {
+	ft_datas_init(datas, buff);
+	if (!(datas->args))
+		return (-1);
+	if (!(datas->result = ft_fill_buff(datas, (char*)buff)))
+		return (-1);
 	ft_lstdel(&datas->tmp_args);
-	va_end(datas->ap);
+	return (datas->len);
 }
 
 int		ft_printf(const char *buff, ...)
@@ -90,23 +95,21 @@ int		ft_printf(const char *buff, ...)
 	{
 		if (!(datas.result = ft_strdup((char*)buff)))
 			return (-1);
+		datas.len = ft_strlen(datas.result);
 	}
 	else if (buff[ft_strlen(buff) - 1] == '%')
 	{
 		if (!(datas.result = ft_strsub(buff, 0, ft_strlen(buff) - 1)))
 			return (-1);
+		datas.len = ft_strlen(datas.result);
 	}
 	else
 	{
 		va_start(datas.ap, buff);
-		ft_datas_init(&datas, (char *)buff);
-		if (!(datas.args))
+		if (!(datas.len = ft_launch_process(&datas, (char *)buff)))
 			return (-1);
-		if (!(datas.result = ft_fill_buff(&datas, (char*)buff)))
-			return (-1);
-		ft_datas_delete(&datas);
 	}
-	write(1, datas.result, ft_strlen(datas.result));
+	write(1, datas.result, datas.len);
 	ft_strdel(&(datas.result));
 	return (datas.len);
 }

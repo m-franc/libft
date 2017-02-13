@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/13 12:12:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/13 17:54:48 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 	size_t	conv_index;
 	char	*lastdatas;
 
-	conv_index = ft_strspn(buff, FLAGS);
+	conv_index = ft_strspn(buff + 1, FLAGS);
 	if (buff[conv_index] == '\0')
 		return (NULL);
-	if (!(datas->flags = ft_strsub(buff, 0, conv_index + 1)))
+	if (!(datas->flags = ft_strsub(buff, 0, conv_index)))
 		return (NULL);
-	if (!(ft_strchr(CONVS, datas->flags[ft_strlen(datas->flags) - 1])))
+	if (!(ft_strchr(CONVS, buff[conv_index + 1])))
 		return (NULL);
-	i = 0;
-	while (CONVS && CONVS[i] != datas->flags[ft_strlen(datas->flags) - 1])
-		i++;
+	i = -1;
+	while (CONVS && CONVS[++i] != buff[conv_index + 1])
+		;
 	lastdatas = datas->result;
 	if (!(datas->result = g_get_convs[i](datas)))
 		return (NULL);
@@ -93,16 +93,15 @@ char	*ft_fill_buff(t_datas *datas, char *buff)
 		{
 			if (!(datas->result = ft_get_unconvdatas(datas, buff, o)))
 				return (NULL);
-			if (!(datas->result = ft_get_convdatas(datas, (buff + i + 1))))
+			if (!(datas->result = ft_get_convdatas(datas, (buff + i))))
 				return (NULL);
-			ft_putintendl(ft_strlen(datas->flags), 10, BASEUP);
-			i += ft_strlen(datas->flags);
-			o = i;
+			i += ft_strlen(datas->flags) + 1;
+			o = i + 1;
 			ft_strdel(&(datas->flags));
 		}
 		else if (!(ft_strchr(buff + i, '%')))
 		{
-			if (!(datas->result = ft_get_lastdatas(datas, buff + (i - 1))))
+			if (!(datas->result = ft_get_lastdatas(datas, buff + i)))
 				return (NULL);
 			break ;
 		}
