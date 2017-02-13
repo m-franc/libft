@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/13 17:54:34 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/13 20:24:36 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,20 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 	return (new);
 }
 
-void	ft_datas_init(t_datas *datas, char *buff)
+int		ft_datas_init(t_datas *datas, char *buff)
 {
 	datas->result = NULL;
 	if (!(datas->tmp_args = ft_get_argslist(datas, buff)))
-		return ;
+		return (-1);
 	datas->args = datas->tmp_args;
 	datas->flags = NULL;
 	datas->len = 0;
+	return (0);
 }
 
 int		ft_launch_process(t_datas *datas, char *buff)
 {
-	ft_datas_init(datas, buff);
-	if (!(datas->args))
+	if (ft_datas_init(datas, buff) == -1)
 		return (-1);
 	if (!(datas->result = ft_fill_buff(datas, (char*)buff)))
 		return (-1);

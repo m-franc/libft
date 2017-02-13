@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/13 17:44:04 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/13 20:27:49 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_datas
 }				t_datas;
 
 int				ft_printf(const char *buff, ...);
-void			ft_datas_init(t_datas *datas, char *buff);
+int				ft_datas_init(t_datas *datas, char *buff);
 int				ft_launch_process(t_datas *datas, char *buff);
 t_list			*ft_get_argslist(t_datas *datas, char *buff);
 t_list			*ft_get_arg(t_datas *datas, char *buff);
