@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 20:13:43 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/13 18:20:55 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/13 19:17:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_get_s_conv(t_datas *datas)
 {
 	if (!(datas->result = ft_strjoin(datas->result, datas->args->content)))
 		return (NULL);
-	datas->len += ft_strlen(datas->args->content);
+	datas->len += datas->args->content_size;
 	datas->args = datas->args->next;
 	return (datas->result);
 }
