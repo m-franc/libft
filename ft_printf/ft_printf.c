@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/13 20:24:36 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/14 21:26:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_get_args	g_get_args[] =
 	ft_get_ld_arg, ft_get_i_arg, ft_get_o_arg, ft_get_lo_arg,
 	ft_get_u_arg, ft_get_lu_arg, ft_get_x_arg, ft_get_lx_arg,
 	ft_get_c_arg, ft_get_lc_arg, ft_get_b_arg, ft_get_n_arg,
+	ft_get_percent_arg,
 };
 
 t_list	*ft_get_arg(t_datas *datas, char *buff)

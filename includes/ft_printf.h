@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/13 20:27:49 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/14 21:25:05 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char			*ft_get_c_conv(t_datas *datas);
 char			*ft_get_lc_conv(t_datas *datas);
 char			*ft_get_b_conv(t_datas *datas);
 char			*ft_get_n_conv(t_datas *datas);
+char			*ft_get_percent_conv(t_datas *datas);
 
 //				convdatas array functions
 t_list			*ft_get_s_arg(t_datas *datas);
@@ -75,6 +76,7 @@ t_list			*ft_get_c_arg(t_datas *datas);
 t_list			*ft_get_lc_arg(t_datas *datas);
 t_list			*ft_get_b_arg(t_datas *datas);
 t_list			*ft_get_n_arg(t_datas *datas);
+t_list			*ft_get_percent_arg(t_datas *datas);
 
 typedef	char	*(*t_get_convs)(t_datas *datas);
 
