@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 21:05:58 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 21:23:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/15 20:55:15 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 t_list	*ft_get_n_arg(t_datas *datas)
 {
-	int		*arg;
-	char	*argcvd;
 	t_list	*new;
+	int		*len;
+	char	*msg;
 
-	if (!(arg = va_arg(datas->ap, int*)))
+	if (!(msg = ft_strdup("Here we get the len when it ask")))
 		return (NULL);
-	arg = &(datas->len);
-	if (!(argcvd = ft_itoa(*arg, 10, BASEUP)))
+	if (!(len = va_arg(datas->ap, int*)))
 		return (NULL);
-	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))
+	datas->cp_len = len;
+	ft_putintendl(*datas->cp_len, 10, BASEUP);
+	if (!(new = ft_lstnew(msg, sizeof(msg))))
 		return (NULL);
-	ft_strdel(&argcvd);
+	ft_strdel(&msg);
 	return (new);
 }
 
 char	*ft_get_n_conv(t_datas *datas)
 {
-	if (!(datas->result = ft_strjoin(datas->result, datas->args->content)))
-		return (NULL);
-	datas->len += datas->args->content_size;
+	int	*new;
+
+	new = datas->cp_len;
+	*new = datas->len;
 	datas->args = datas->args->next;
 	return (datas->result);
 }

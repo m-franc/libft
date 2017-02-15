@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_s.c                                             :+:      :+:    :+:   */
+/*   ft_star.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 20:13:43 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/15 15:41:17 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/15 19:12:45 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/15 20:28:56 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_list	*ft_get_s_arg(t_datas *datas)
+t_list	*ft_get_star_arg(t_datas *datas)
 {
-	char	*arg;
-	t_list	*new;
+	t_list	*star;
+	int		arg;
 
-	if (!(arg = va_arg(datas->ap, char*)))
+	if (!(arg = va_arg(datas->ap, int)))
 		return (NULL);
-	if (!(new = ft_lstnew(arg, ft_strlen(arg))))
+	if (!(star = ft_lstnew(&arg, sizeof(arg))))
 		return (NULL);
-	return (new);
-}
-
-char	*ft_get_s_conv(t_datas *datas)
-{
-	if (!(datas->result = ft_strjoin(datas->result, datas->args->content)))
-		return (NULL);
-	datas->len += datas->args->content_size;
-	datas->args = datas->args->next;
-	return (datas->result);
+	ft_putintendl(arg, 10, BASEUP);
+	return (star);
 }

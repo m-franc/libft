@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/15 13:05:00 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/15 20:49:52 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_datas
 	t_list		*args;
 	t_list		*tmp_args;
 	char		*flags;
+	int			*cp_len;
 	int			len;
 }				t_datas;
 
@@ -77,6 +78,7 @@ t_list			*ft_get_lc_arg(t_datas *datas);
 t_list			*ft_get_b_arg(t_datas *datas);
 t_list			*ft_get_n_arg(t_datas *datas);
 t_list			*ft_get_percent_arg(t_datas *datas);
+t_list			*ft_get_star_arg(t_datas *datas);
 
 typedef	char	*(*t_get_convs)(t_datas *datas);
 

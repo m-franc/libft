@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 20:13:30 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 21:05:18 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/15 15:52:14 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list		*ft_get_b_arg(t_datas *datas)
 
 	if (!(arg = va_arg(datas->ap, void*)))
 		return (NULL);
-	if (!(argcvd = ft_vtob(arg, 4)))
+	if (!(argcvd = ft_vtob(arg, 8)))
 		return (NULL);
 	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))
 		return (NULL);
