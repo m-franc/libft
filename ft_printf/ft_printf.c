@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 21:26:07 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/15 13:07:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_get_args	g_get_args[] =
 	ft_get_percent_arg,
 };
 
-t_list	*ft_get_arg(t_datas *datas, char *buff)
+t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
 {
 	size_t	conv_index;
 	size_t	i;
@@ -35,6 +35,8 @@ t_list	*ft_get_arg(t_datas *datas, char *buff)
 		return (NULL);
 	while (CONVS && CONVS[++i] != buff[conv_index])
 		;
+	if (CONVS[i] == '%')
+		*ci += conv_index + 2;
 	if (!(new = g_get_args[i](datas)))
 		return (NULL);
 	return (new);
@@ -50,7 +52,7 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 	i = -1;
 	while (buff[++i] != '%')
 		;
-	if (!(tmp = ft_get_arg(datas, buff + (i + 1))))
+	if (!(tmp = ft_get_arg(datas, buff + (i + 1), &i)))
 		return (NULL);
 	new = tmp;
 	while (buff[++i] && tmp)
@@ -58,10 +60,9 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 		conv_index = 0;
 		if (buff[i] == '%')
 		{
-			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1))))
+			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i)))
 				return (NULL);
 			tmp = tmp->next;
-			i += ft_strlen(tmp->content);
 		}
 	}
 	return (new);
@@ -72,6 +73,7 @@ int		ft_datas_init(t_datas *datas, char *buff)
 	datas->result = NULL;
 	if (!(datas->tmp_args = ft_get_argslist(datas, buff)))
 		return (-1);
+//	datas->tmp_args = ft_get_argslist(datas, buff);
 	datas->args = datas->tmp_args;
 	datas->flags = NULL;
 	datas->len = 0;

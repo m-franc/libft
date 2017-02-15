@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 21:24:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 21:24:42 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/15 10:36:03 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_get_percent_arg(t_datas *datas)
 {
-	int				arg;
+//	int				arg;
 	char			*argcvd;
 	t_list			*new;
 
-	if (!(arg = va_arg(datas->ap, int)))
-		return (NULL);
+//	if (!(arg = va_arg(datas->ap, int)))
+//		return (NULL);
 	if (!(argcvd = ft_straddchar(NULL, '%')))
 		return (NULL);
 	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))

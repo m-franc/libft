@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 21:25:05 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/15 13:05:00 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int				ft_printf(const char *buff, ...);
 int				ft_datas_init(t_datas *datas, char *buff);
 int				ft_launch_process(t_datas *datas, char *buff);
 t_list			*ft_get_argslist(t_datas *datas, char *buff);
-t_list			*ft_get_arg(t_datas *datas, char *buff);
+t_list			*ft_get_arg(t_datas *datas, char *buff, size_t *ci);
 char			*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 char			*ft_fill_buff(t_datas *datas, char *buff);
 char			*ft_get_convdatas(t_datas *datas, char *buff);
