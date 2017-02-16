@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/02/15 20:55:57 by mfranc           ###   ########.fr        #
+#    Updated: 2017/02/16 12:36:35 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,25 +119,25 @@ SRCS = 	mems/ft_memset.c				\
 		puts/ft_putptrendl_fd.c			\
 		puts/ft_putuintendl_fd.c		\
 		puts/ft_putuintendl.c			\
-		ft_printf/args/ft_s.c	\
-		ft_printf/args/ft_ls.c	\
-		ft_printf/args/ft_p.c	\
-		ft_printf/args/ft_d.c	\
-		ft_printf/args/ft_ld.c	\
-		ft_printf/args/ft_i.c	\
-		ft_printf/args/ft_o.c	\
-		ft_printf/args/ft_lo.c	\
-		ft_printf/args/ft_u.c	\
-		ft_printf/args/ft_lu.c	\
-		ft_printf/args/ft_x.c	\
-		ft_printf/args/ft_lx.c	\
-		ft_printf/args/ft_c.c	\
-		ft_printf/args/ft_lc.c	\
-		ft_printf/args/ft_b.c	\
-		ft_printf/args/ft_n.c	\
+		ft_printf/args/s/ft_s.c	\
+		ft_printf/args/ls/ft_ls.c	\
+		ft_printf/args/p/ft_p.c	\
+		ft_printf/args/d/ft_d.c	\
+		ft_printf/args/ld/ft_ld.c	\
+		ft_printf/args/i/ft_i.c	\
+		ft_printf/args/o/ft_o.c	\
+		ft_printf/args/lo/ft_lo.c	\
+		ft_printf/args/u/ft_u.c	\
+		ft_printf/args/lu/ft_lu.c	\
+		ft_printf/args/x/ft_x.c	\
+		ft_printf/args/lx/ft_lx.c	\
+		ft_printf/args/c/ft_c.c	\
+		ft_printf/args/ls/ft_lc.c	\
+		ft_printf/args/b/ft_b.c	\
+		ft_printf/args/n/ft_n.c	\
 		ft_printf/ft_fill_buff.c		\
-		ft_printf/args/ft_percent.c	\
-		ft_printf/args/ft_star.c	
+		ft_printf/args/percent/ft_percent.c	\
+		ft_printf/args/star/ft_star.c	
 
 OBJECTS = $(SRCS:%.c=%.o)
 
