@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 11:33:17 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/16 11:57:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 19:54:47 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long long	ft_atoi(const char *str)
 {
-	long long 	n;
-	long long 	result;
+	long long	n;
+	long long	result;
 
 	result = 0;
 	n = 1;

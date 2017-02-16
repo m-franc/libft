@@ -6,13 +6,13 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 13:38:43 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/18 16:29:26 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 19:57:40 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_complete_precision(char	**second, int l_sec)
+static char	*ft_complete_precision(char **second, int l_sec)
 {
 	char	*complete;
 

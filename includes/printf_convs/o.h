@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:57:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 16:00:56 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:39:19 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define O_H
 
-#include "../ft_printf.h"
+# include "../ft_printf.h"
 
 char			*ft_get_o_conv(t_datas *datas);
 t_list			*ft_get_o_arg(t_datas *datas);

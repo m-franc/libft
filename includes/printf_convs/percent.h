@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 16:08:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 16:08:41 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:41:04 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define PERCENT_H
 
-#include "../ft_printf.h"
+# include "../ft_printf.h"
 
 char			*ft_get_percent_conv(t_datas *datas);
 t_list			*ft_get_percent_arg(t_datas *datas);

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 20:02:43 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 20:13:09 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:28:03 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_get_lc_arg(t_datas *datas)
 {
-	wint_t 	arg;
+	wint_t	arg;
 	char	*argcvd;
 	t_list	*new;
 

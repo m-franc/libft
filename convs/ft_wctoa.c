@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:16:00 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 18:41:31 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 19:59:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static	char	*get4bytewchar(wint_t uchar)
 	int		tmp2;
 	int		tmp3;
 	char	*result;
-	
+
 	if (!(result = ft_strnew(5)))
 		return (NULL);
 	tmp = (uchar & 0xFC0) << 2;
@@ -37,7 +37,7 @@ static	char	*get3bytewchar(wint_t uchar)
 {
 	int				tmp;
 	int				tmp2;
-	char			*result;	
+	char			*result;
 
 	if (!(result = ft_strnew(4)))
 		return (NULL);

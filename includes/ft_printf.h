@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 19:21:22 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:37:12 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,6 @@
 
 # include <stdarg.h>
 # include "libft.h"
-
-typedef struct	s_datas
-{
-	char		*result;
-	va_list		ap;
-	t_list		*args;
-	t_list		*tmp_args;
-	t_list		*stars;
-	t_list		*tmp_stars;
-	char		*flags;
-	int			*tmp_len;
-	int			len;
-}				t_datas;
 
 # include "printf_convs/s.h"
 # include "printf_convs/ls.h"
@@ -51,6 +38,20 @@ typedef struct	s_datas
 # define CONVS 	"sSpdDioOuUxXcCbn%"
 # define MODIFS "hlhhlljz"
 # define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
+
+typedef struct	s_datas
+
+{
+	char		*result;
+	va_list		ap;
+	t_list		*args;
+	t_list		*tmp_args;
+	t_list		*stars;
+	t_list		*tmp_stars;
+	char		*flags;
+	int			*tmp_len;
+	int			len;
+}				t_datas;
 
 int				ft_printf(const char *buff, ...);
 int				ft_datas_init(t_datas *datas, char *buff);

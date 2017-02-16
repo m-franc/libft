@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:56:31 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 16:00:46 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:38:12 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define I_H
 
-#include "../ft_printf.h"
+# include "../ft_printf.h"
 
 char			*ft_get_i_conv(t_datas *datas);
 t_list			*ft_get_i_arg(t_datas *datas);

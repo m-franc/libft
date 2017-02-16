@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:08:13 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/22 19:46:23 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:46:51 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 size_t	ft_strlenuntil(const char *str, char c)
 {
 	size_t	i;
-	
+
 	i = 0;
-	while (str[i] != c)
+	while (str[i] && str[i] != c)
 		i++;
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:52:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 15:59:33 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:41:12 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define S_H
 
-#include "../ft_printf.h"
+# include "../ft_printf.h"
 
 char			*ft_get_s_conv(t_datas *datas);
 t_list			*ft_get_s_arg(t_datas *datas);

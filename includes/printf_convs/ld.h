@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:56:13 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 16:00:38 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:38:34 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define LD_H
 
-#include "../ft_printf.h"
+# include "../ft_printf.h"
 
 char			*ft_get_ld_conv(t_datas *datas);
 t_list			*ft_get_ld_arg(t_datas *datas);

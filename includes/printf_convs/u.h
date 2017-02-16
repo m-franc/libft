@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 16:01:23 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 16:02:36 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:41:46 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define U_H
 
-#include "../ft_printf.h"
+# include "../ft_printf.h"
 
 char			*ft_get_u_conv(t_datas *datas);
 t_list			*ft_get_u_arg(t_datas *datas);

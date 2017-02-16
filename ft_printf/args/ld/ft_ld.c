@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:53:12 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 18:57:27 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:28:40 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list	*ft_get_ld_arg(t_datas *datas)
 {
-	long int		arg;
-	char	*argcvd;
-	t_list	*new;
+	long int	arg;
+	char		*argcvd;
+	t_list		*new;
 
 	if (!(arg = va_arg(datas->ap, long int)))
 		return (NULL);

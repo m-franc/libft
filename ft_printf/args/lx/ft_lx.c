@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 19:42:06 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 19:46:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:30:42 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_get_lx_arg(t_datas *datas)
 {
-	unsigned long long 	arg;
+	unsigned long long	arg;
 	char				*argcvd;
 	t_list				*new;
 

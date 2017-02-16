@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:52:09 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/16 11:57:44 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 19:55:08 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 unsigned long long	ft_atoui(const char *str)
 {
-	unsigned long long 	result;
+	unsigned long long	result;
 
 	result = 0;
 	while (*str)

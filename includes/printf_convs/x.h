@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 16:04:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 16:05:41 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 20:41:57 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define X_H
 
-#include "../ft_printf.h"
+# include "../ft_printf.h"
 
 char			*ft_get_x_conv(t_datas *datas);
 t_list			*ft_get_x_arg(t_datas *datas);
