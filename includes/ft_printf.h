@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 18:12:25 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 19:21:22 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ typedef struct	s_datas
 	char		*result;
 	va_list		ap;
 	t_list		*args;
-	t_list		*stars;
 	t_list		*tmp_args;
+	t_list		*stars;
+	t_list		*tmp_stars;
 	char		*flags;
 	int			*tmp_len;
 	int			len;
