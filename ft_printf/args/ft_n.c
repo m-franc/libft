@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 21:05:58 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/15 20:55:15 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 11:54:10 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 t_list	*ft_get_n_arg(t_datas *datas)
 {
 	t_list	*new;
-	int		*len;
+	int		*cp_len;
 	char	*msg;
 
-	if (!(msg = ft_strdup("Here we get the len when it ask")))
+	if (!(msg = ft_strdup("Here we catch the tmp len datas")))
 		return (NULL);
-	if (!(len = va_arg(datas->ap, int*)))
+	if (!(cp_len = va_arg(datas->ap, int*)))
 		return (NULL);
-	datas->cp_len = len;
-	ft_putintendl(*datas->cp_len, 10, BASEUP);
+	datas->tmp_len = cp_len;
+	PSTR("LEN : ")
+	ft_putintendl(*datas->tmp_len, 10, BASEUP);
 	if (!(new = ft_lstnew(msg, sizeof(msg))))
 		return (NULL);
 	ft_strdel(&msg);
@@ -32,10 +33,10 @@ t_list	*ft_get_n_arg(t_datas *datas)
 
 char	*ft_get_n_conv(t_datas *datas)
 {
-	int	*new;
-
-	new = datas->cp_len;
-	*new = datas->len;
+	*datas->tmp_len = datas->len;
+//	write(1, datas->result, datas->len);
+//	ft_putintendl(datas->len, 10, BASEUP);
+//	ENDL
 	datas->args = datas->args->next;
 	return (datas->result);
 }
