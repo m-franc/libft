@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/02/16 12:36:35 by mfranc           ###   ########.fr        #
+#    Updated: 2017/02/16 12:38:40 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,7 +132,7 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/args/x/ft_x.c	\
 		ft_printf/args/lx/ft_lx.c	\
 		ft_printf/args/c/ft_c.c	\
-		ft_printf/args/ls/ft_lc.c	\
+		ft_printf/args/lc/ft_lc.c	\
 		ft_printf/args/b/ft_b.c	\
 		ft_printf/args/n/ft_n.c	\
 		ft_printf/ft_fill_buff.c		\
