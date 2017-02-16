@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_star.c                                          :+:      :+:    :+:   */
+/*   d.h                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 19:12:45 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 16:50:51 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/16 15:55:50 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/16 16:00:30 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef D_H
 
+# define D_H
 
-t_list	*ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff)
-{
-	t_list	*star;
-	int		arg;
-	size_t	i;
+#include "../ft_printf.h"
 
-	i = -1;
-	while (buff[++i] && i < conv_index)
-	{
-		if (buff[i] == '*')
-		{
-			if (!(arg = va_arg(datas->ap, int)))
-				return (NULL);
-			if (!(star = ft_lstnew(&arg, sizeof(arg))))
-				return (NULL);
-		}
-	}
-	return (star);
-}
+char			*ft_get_d_conv(t_datas *datas);
+t_list			*ft_get_d_arg(t_datas *datas);
+
+#endif

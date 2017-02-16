@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 12:17:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/16 16:24:13 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 
 # include <stdarg.h>
 # include "libft.h"
-
-# define CONVS 	"sSpdDioOuUxXcCbn%"
-# define MODIFS "hlhhlljz"
-# define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
 
 typedef struct	s_datas
 {
@@ -31,6 +27,29 @@ typedef struct	s_datas
 	int			len;
 }				t_datas;
 
+# include "printf_convs/s.h"
+# include "printf_convs/ls.h"
+# include "printf_convs/p.h"
+# include "printf_convs/d.h"
+# include "printf_convs/ld.h"
+# include "printf_convs/i.h"
+# include "printf_convs/o.h"
+# include "printf_convs/lo.h"
+# include "printf_convs/u.h"
+# include "printf_convs/lu.h"
+# include "printf_convs/x.h"
+# include "printf_convs/lx.h"
+# include "printf_convs/c.h"
+# include "printf_convs/lc.h"
+# include "printf_convs/b.h"
+# include "printf_convs/n.h"
+# include "printf_convs/percent.h"
+# include "printf_convs/star.h"
+
+# define CONVS 	"sSpdDioOuUxXcCbn%"
+# define MODIFS "hlhhlljz"
+# define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
+
 int				ft_printf(const char *buff, ...);
 int				ft_datas_init(t_datas *datas, char *buff);
 int				ft_launch_process(t_datas *datas, char *buff);
@@ -40,45 +59,6 @@ char			*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 char			*ft_fill_buff(t_datas *datas, char *buff);
 char			*ft_get_convdatas(t_datas *datas, char *buff);
 char			*ft_get_lastdatas(t_datas *datas, char *buff);
-
-// 				get_args array functions
-char			*ft_get_s_conv(t_datas *datas);
-char			*ft_get_ls_conv(t_datas *datas);
-char			*ft_get_p_conv(t_datas *datas);
-char			*ft_get_d_conv(t_datas *datas);
-char			*ft_get_ld_conv(t_datas *datas);
-char			*ft_get_i_conv(t_datas *datas);
-char			*ft_get_o_conv(t_datas *datas);
-char			*ft_get_lo_conv(t_datas *datas);
-char			*ft_get_u_conv(t_datas *datas);
-char			*ft_get_lu_conv(t_datas *datas);
-char			*ft_get_x_conv(t_datas *datas);
-char			*ft_get_lx_conv(t_datas *datas);
-char			*ft_get_c_conv(t_datas *datas);
-char			*ft_get_lc_conv(t_datas *datas);
-char			*ft_get_b_conv(t_datas *datas);
-char			*ft_get_n_conv(t_datas *datas);
-char			*ft_get_percent_conv(t_datas *datas);
-
-//				convdatas array functions
-t_list			*ft_get_s_arg(t_datas *datas);
-t_list			*ft_get_ls_arg(t_datas *datas);
-t_list			*ft_get_p_arg(t_datas *datas);
-t_list			*ft_get_d_arg(t_datas *datas);
-t_list			*ft_get_ld_arg(t_datas *datas);
-t_list			*ft_get_i_arg(t_datas *datas);
-t_list			*ft_get_o_arg(t_datas *datas);
-t_list			*ft_get_lo_arg(t_datas *datas);
-t_list			*ft_get_u_arg(t_datas *datas);
-t_list			*ft_get_lu_arg(t_datas *datas);
-t_list			*ft_get_x_arg(t_datas *datas);
-t_list			*ft_get_lx_arg(t_datas *datas);
-t_list			*ft_get_c_arg(t_datas *datas);
-t_list			*ft_get_lc_arg(t_datas *datas);
-t_list			*ft_get_b_arg(t_datas *datas);
-t_list			*ft_get_n_arg(t_datas *datas);
-t_list			*ft_get_percent_arg(t_datas *datas);
-t_list			*ft_get_star_arg(t_datas *datas);
 
 typedef	char	*(*t_get_convs)(t_datas *datas);
 
