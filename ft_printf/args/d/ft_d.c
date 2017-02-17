@@ -18,8 +18,7 @@ t_list	*ft_get_d_arg(t_datas *datas)
 	char	*argcvd;
 	t_list	*new;
 
-	if (!(arg = va_arg(datas->ap, int)))
-		return (NULL);
+	arg = va_arg(datas->ap, int)
 	if (!(argcvd = ft_itoa(arg, 10, BASEUP)))
 		return (NULL);
 	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))
