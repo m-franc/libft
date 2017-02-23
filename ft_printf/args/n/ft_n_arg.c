@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ld.c                                            :+:      :+:    :+:   */
+/*   ft_n_arg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/14 18:53:12 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 20:28:40 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/14 21:05:58 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/16 19:53:06 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_list	*ft_get_ld_arg(t_datas *datas)
+t_list	*ft_get_n_arg(t_datas *datas)
 {
-	long int	arg;
-	char		*argcvd;
-	t_list		*new;
+	t_list	*new;
+	int		*cp_len;
+	char	*msg;
 
-	if (!(arg = va_arg(datas->ap, long int)))
+	if (!(msg = ft_strdup("Here we catch the tmp len datas")))
 		return (NULL);
-	if (!(argcvd = ft_itoa(arg, 10, BASEUP)))
+	if (!(cp_len = va_arg(datas->ap, int*)))
 		return (NULL);
-	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))
+	datas->tmp_len = cp_len;
+	if (!(new = ft_lstnew(msg, sizeof(msg))))
 		return (NULL);
-	ft_strdel(&argcvd);
+	ft_strdel(&msg);
 	return (new);
-}
-
-char	*ft_get_ld_conv(t_datas *datas)
-{
-	if (!(datas->result = ft_strjoin(datas->result, datas->args->content)))
-		return (NULL);
-	datas->len += datas->args->content_size;
-	datas->args = datas->args->next;
-	return (datas->result);
 }

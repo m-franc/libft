@@ -30,7 +30,7 @@ static char	*ft_zero_precision(char *sec)
 	int	i;
 
 	i = 0;
-	if (!(sec = ft_memalloc(6)))
+	if (!(sec = ft_memalloc(6 * sizeof(*sec))))
 		return (NULL);
 	while (i < 6)
 		sec[i++] = '0';
@@ -83,8 +83,9 @@ char		*ft_ftoa(long double n, int base, char *bl)
 		n /= 10;
 		tmp *= 10;
 	}
+	ft_putintendl(tmp, 10, BASEUP);
 	second = ft_get_precision(tmp, base, bl);
-	if (!(getdot = ft_strjoin(entier, ".")))
+	if (!(getdot = ft_straddchar(entier, '.')))
 		return (NULL);
 	entier = getdot;
 	if (!(result = ft_strjoin(entier, second)))

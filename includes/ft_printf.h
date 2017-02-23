@@ -15,12 +15,13 @@
 
 # include <stdarg.h>
 # include "libft.h"
+# include "color.h"
 
 # define CONVS 	"sSpdDioOuUxXcCbn%"
 # define MODIFS "hlhhlljz"
 # define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
 
-typedef struct	s_datas
+typedef struct		s_datas
 {
 	char		*result;
 	va_list		ap;

@@ -15,7 +15,7 @@
 t_get_convs	g_get_convs[] =
 {
 	ft_get_s_conv, ft_get_ls_conv, ft_get_p_conv, ft_get_d_conv,
-	ft_get_ld_conv, ft_get_i_conv, ft_get_o_conv, ft_get_lo_conv,
+	ft_get_ld_conv, ft_get_d_conv, ft_get_o_conv, ft_get_lo_conv,
 	ft_get_u_conv, ft_get_lu_conv, ft_get_x_conv, ft_get_lx_conv,
 	ft_get_c_conv, ft_get_lc_conv, ft_get_b_conv, ft_get_n_conv,
 	ft_get_percent_conv,

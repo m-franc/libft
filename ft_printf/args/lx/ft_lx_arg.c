@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lx.c                                            :+:      :+:    :+:   */
+/*   ft_lx_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,13 +26,4 @@ t_list	*ft_get_lx_arg(t_datas *datas)
 		return (NULL);
 	ft_strdel(&argcvd);
 	return (new);
-}
-
-char	*ft_get_lx_conv(t_datas *datas)
-{
-	if (!(datas->result = ft_strjoin(datas->result, datas->args->content)))
-		return (NULL);
-	datas->len += datas->args->content_size;
-	datas->args = datas->args->next;
-	return (datas->result);
 }

@@ -119,24 +119,39 @@ SRCS = 	mems/ft_memset.c				\
 		puts/ft_putptrendl_fd.c			\
 		puts/ft_putuintendl_fd.c		\
 		puts/ft_putuintendl.c			\
-		ft_printf/args/s/ft_s.c	\
-		ft_printf/args/ls/ft_ls.c	\
-		ft_printf/args/p/ft_p.c	\
-		ft_printf/args/d/ft_d.c	\
-		ft_printf/args/ld/ft_ld.c	\
-		ft_printf/args/i/ft_i.c	\
-		ft_printf/args/o/ft_o.c	\
-		ft_printf/args/lo/ft_lo.c	\
-		ft_printf/args/u/ft_u.c	\
-		ft_printf/args/lu/ft_lu.c	\
-		ft_printf/args/x/ft_x.c	\
-		ft_printf/args/lx/ft_lx.c	\
-		ft_printf/args/c/ft_c.c	\
-		ft_printf/args/lc/ft_lc.c	\
-		ft_printf/args/b/ft_b.c	\
-		ft_printf/args/n/ft_n.c	\
+		ft_printf/args/s/ft_s_arg.c	\
+		ft_printf/convs/s/ft_s_conv.c	\
+		ft_printf/args/ls/ft_ls_arg.c	\
+		ft_printf/convs/ls/ft_ls_conv.c	\
+		ft_printf/args/p/ft_p_arg.c	\
+		ft_printf/convs/p/ft_p_conv.c	\
+		ft_printf/args/d/ft_d_arg.c	\
+		ft_printf/convs/d/ft_d_conv.c	\
+		ft_printf/args/ld/ft_ld_arg.c	\
+		ft_printf/convs/ld/ft_ld_conv.c	\
+		ft_printf/args/o/ft_o_arg.c	\
+		ft_printf/convs/o/ft_o_conv.c	\
+		ft_printf/args/lo/ft_lo_arg.c	\
+		ft_printf/convs/lo/ft_lo_conv.c	\
+		ft_printf/args/u/ft_u_arg.c	\
+		ft_printf/convs/u/ft_u_conv.c	\
+		ft_printf/args/lu/ft_lu_arg.c	\
+		ft_printf/convs/lu/ft_lu_conv.c	\
+		ft_printf/args/x/ft_x_arg.c	\
+		ft_printf/convs/x/ft_x_conv.c	\
+		ft_printf/args/lx/ft_lx_arg.c	\
+		ft_printf/convs/lx/ft_lx_conv.c	\
+		ft_printf/args/c/ft_c_arg.c	\
+		ft_printf/convs/c/ft_c_conv.c	\
+		ft_printf/args/lc/ft_lc_arg.c	\
+		ft_printf/convs/lc/ft_lc_conv.c	\
+		ft_printf/args/b/ft_b_arg.c	\
+		ft_printf/convs/b/ft_b_conv.c	\
+		ft_printf/args/n/ft_n_arg.c	\
+		ft_printf/convs/n/ft_n_conv.c	\
 		ft_printf/ft_fill_buff.c		\
-		ft_printf/args/percent/ft_percent.c	\
+		ft_printf/args/percent/ft_percent_arg.c	\
+		ft_printf/convs/percent/ft_percent_conv.c	\
 		ft_printf/args/star/ft_star.c	
 
 OBJECTS = $(SRCS:%.c=%.o)

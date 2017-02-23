@@ -15,7 +15,7 @@
 t_get_args	g_get_args[] =
 {
 	ft_get_s_arg, ft_get_ls_arg, ft_get_p_arg, ft_get_d_arg,
-	ft_get_ld_arg, ft_get_i_arg, ft_get_o_arg, ft_get_lo_arg,
+	ft_get_ld_arg, ft_get_d_arg, ft_get_o_arg, ft_get_lo_arg,
 	ft_get_u_arg, ft_get_lu_arg, ft_get_x_arg, ft_get_lx_arg,
 	ft_get_c_arg, ft_get_lc_arg, ft_get_b_arg, ft_get_n_arg,
 	ft_get_percent_arg,
