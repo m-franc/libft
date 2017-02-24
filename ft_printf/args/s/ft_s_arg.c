@@ -16,9 +16,10 @@ t_list	*ft_get_s_arg(t_datas *datas)
 {
 	char	*arg;
 	t_list	*new;
-
-	if (!(arg = va_arg(datas->ap, char*)))
-		return (NULL);
+	
+	if (ft_strchr(datas->flags, 'l'))
+		return (ft_get_ls_arg(datas));
+	arg = va_arg(datas->ap, char*);
 	if (!(new = ft_lstnew(arg, ft_strlen(arg))))
 		return (NULL);
 	return (new);

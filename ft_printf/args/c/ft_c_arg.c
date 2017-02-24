@@ -14,12 +14,13 @@
 
 t_list	*ft_get_c_arg(t_datas *datas)
 {
-	int				arg;
+	int			arg;
 	char			*argcvd;
 	t_list			*new;
 
-	if (!(arg = va_arg(datas->ap, int)))
-		return (NULL);
+	if (ft_strchr(datas->flags, 'l'))
+		return (ft_get_lc_arg(datas));
+	arg = va_arg(datas->ap, int);
 	if (!(argcvd = ft_straddchar(NULL, arg)))
 		return (NULL);
 	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))

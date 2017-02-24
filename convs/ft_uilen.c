@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_uilen(unsigned long long int n, int base)
+size_t	ft_uilen(unsigned long long int n, int base)
 {
 	int	i;
 

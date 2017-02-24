@@ -15,11 +15,10 @@
 t_list	*ft_get_lu_arg(t_datas *datas)
 {
 	unsigned long int	arg;
-	char				*argcvd;
-	t_list				*new;
+	char			*argcvd;
+	t_list			*new;
 
-	if (!(arg = va_arg(datas->ap, unsigned long int)))
-		return (NULL);
+	arg = va_arg(datas->ap, unsigned long int);
 	if (!(argcvd = ft_uitoa(arg, 10, BASEUP)))
 		return (NULL);
 	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))

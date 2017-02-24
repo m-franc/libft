@@ -14,13 +14,13 @@
 
 char	*ft_uitoa(unsigned long long n, int base, char *baselist)
 {
-	int		len;
+	size_t		len;
 	char	*result;
 
 	if (base >= 17 && base < 2)
 		return (NULL);
 	len = ft_uilen(n, base);
-	if (!(result = ft_memalloc(len)))
+	if (!(result = ft_strnew(len)))
 		return (NULL);
 	result[len--] = '\0';
 	while (n != 0)

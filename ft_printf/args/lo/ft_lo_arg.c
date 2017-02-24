@@ -14,13 +14,12 @@
 
 t_list	*ft_get_lo_arg(t_datas *datas)
 {
-	long int	arg;
-	char		*argcvd;
-	t_list		*new;
+	unsigned long int	arg;
+	char			*argcvd;
+	t_list			*new;
 
-	if (!(arg = va_arg(datas->ap, long int)))
-		return (NULL);
-	if (!(argcvd = ft_itoa(arg, 8, BASEUP)))
+	arg = va_arg(datas->ap, unsigned long int);
+	if (!(argcvd = ft_uitoa(arg, 8, BASEUP)))
 		return (NULL);
 	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))
 		return (NULL);

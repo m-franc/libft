@@ -25,12 +25,10 @@ t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
 {
 	size_t	conv_index;
 	size_t	i;
-	size_t	o;
 	char	*flags;
 	t_list	*new;
 
 	i = -1;
-	o = -1;
 	conv_index = ft_strspn(buff, FLAGS);
 	if (buff[conv_index] == '\0')
 		return (NULL);
@@ -46,7 +44,6 @@ t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
 		*ci += conv_index + 2;
 	if (!(new = g_get_args[i](datas)))
 		return (NULL);
-	ft_strdel(&(datas->flags));
 	return (new);
 }
 
@@ -71,6 +68,7 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i)))
 				return (NULL);
 			tmp = tmp->next;
+			ft_strdel(&(datas->flags));
 		}
 	}
 	return (new);

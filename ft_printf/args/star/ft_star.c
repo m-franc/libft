@@ -51,5 +51,6 @@ t_list	*ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff)
 			star = star->next;
 		}
 	}
+	ft_putlist(tmp);
 	return (tmp);
 }

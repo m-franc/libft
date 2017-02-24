@@ -102,7 +102,7 @@ void				ft_putuintendl(unsigned long long n,
 char				*ft_itoa(long long n, int base, char *baselist);
 char				*ft_uitoa(unsigned long long n, int base, char *baselist);
 int					ft_ilen(long long n, int base);
-int					ft_uilen(unsigned long long n, int base);
+size_t					ft_uilen(unsigned long long n, int base);
 char				*ft_ftoa(long double n, int base, char *bl);
 char				*ft_convbase(char *str,
 		int old_base, int new_base, char *baselist);
