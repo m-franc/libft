@@ -20,7 +20,7 @@ t_list	*ft_get_x_arg(t_datas *datas)
 
 	if (ft_strchr(datas->flags, 'l') || ft_strchr(datas->flags, 'j')
 			|| ft_strchr(datas->flags, 'z'))
-		arg = va_arg(datas->ap, unsigned long int);
+		arg = va_arg(datas->ap, unsigned long int);	
 	else
 	{
 		arg = va_arg(datas->ap, unsigned int);

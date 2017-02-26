@@ -83,7 +83,6 @@ char		*ft_ftoa(long double n, int base, char *bl)
 		n /= 10;
 		tmp *= 10;
 	}
-	ft_putintendl(tmp, 10, BASEUP);
 	second = ft_get_precision(tmp, base, bl);
 	if (!(getdot = ft_straddchar(entier, '.')))
 		return (NULL);

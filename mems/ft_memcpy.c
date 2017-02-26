@@ -20,12 +20,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	srcstr = (const char*)src;
 	deststr = (char*)dest;
-	i = 0;
-	while (i < n)
-	{
-		deststr[i] = srcstr[i];
-		i++;
-	}
-	deststr[i] = NULL;
+	i = -1;
+	while (++i < n)
+		*deststr++ = *srcstr++;
+	*deststr = 0;
 	return (dest);
 }
