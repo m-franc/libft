@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 20:25:26 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/27 21:23:27 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int		ft_datas_init(t_datas *datas, char *buff)
 	datas->args = datas->tmp_args;
 	datas->flags = NULL;
 	datas->len = 0;
+	datas->cplen = 0;
 	return (0);
 }
 
@@ -119,5 +120,5 @@ int		ft_printf(const char *buff, ...)
 	}
 	write(1, datas.result, datas.len);
 	ft_strdel(&(datas.result));
-	return (datas.len);
+	return (datas.len + datas.cplen);
 }

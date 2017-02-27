@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 20:37:12 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/27 21:23:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,21 @@
 
 typedef struct		s_datas
 {
-	char		*result;
-	va_list		ap;
-	t_list		*args;
-	t_list		*tmp_args;
-	t_list		*stars;
-	t_list		*tmp_stars;
-	char		*flags;
-	int		*tmp_len;
-	int		len;
-}			t_datas;
+	char			*result;
+	va_list			ap;
+	t_list			*args;
+	t_list			*tmp_args;
+	t_list			*stars;
+	t_list			*tmp_stars;
+	char			*flags;
+	int				*tmp_len;
+	int				len;
+	int				cplen;
+}					t_datas;
 
-int			ft_printf(const char *buff, ...);
-int			ft_datas_init(t_datas *datas, char *buff);
-int			ft_launch_process(t_datas *datas, char *buff);
+int				ft_printf(const char *buff, ...);
+int				ft_datas_init(t_datas *datas, char *buff);
+int				ft_launch_process(t_datas *datas, char *buff);
 t_list			*ft_get_argslist(t_datas *datas, char *buff);
 t_list			*ft_get_arg(t_datas *datas, char *buff, size_t *ci);
 char			*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
@@ -82,7 +83,6 @@ char			*ft_get_x_conv(t_datas *datas);
 char			*ft_get_lx_conv(t_datas *datas);
 char			*ft_get_x_conv(t_datas *datas);
 char			*ft_get_lx_conv(t_datas *datas);
-
 char			*ft_get_c_conv(t_datas *datas);
 char			*ft_get_lc_conv(t_datas *datas);
 char			*ft_get_b_conv(t_datas *datas);
@@ -92,5 +92,7 @@ char			*ft_get_percent_conv(t_datas *datas);
 typedef	char	*(*t_get_convs)(t_datas *datas);
 
 typedef t_list	*(*t_get_args)(t_datas *datas);
+
+typedef char	*(*t_get_s_flags)(t_datas *datas);
 
 #endif
