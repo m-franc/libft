@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 19:15:07 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 19:16:09 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/27 13:02:59 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_list	*ft_get_u_arg(t_datas *datas)
 		if (!(argcvd = ft_uitoa(arg, 10, BASEUP)))
 			return (NULL);
 	}
-	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))
+	if (!(new = ft_lststrnew(argcvd, ft_strlen(argcvd))))
 		return (NULL);
 	ft_strdel(&argcvd);
 	return (new);

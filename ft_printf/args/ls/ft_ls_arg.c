@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 20:13:30 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/14 18:43:52 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/27 12:54:15 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*ft_get_ls_arg(t_datas *datas)
 		return (NULL);
 	if (!(argcvd = ft_wstrtoa(arg)))
 		return (NULL);
-	if (!(new = ft_lstnew(argcvd, ft_wstrlen(arg))))
+	if (!(new = ft_lststrnew(argcvd, ft_wstrlen(arg))))
 		return (NULL);
 	ft_strdel(&argcvd);
 	return (new);

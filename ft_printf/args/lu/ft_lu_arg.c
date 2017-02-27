@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 20:29:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 20:29:31 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/27 12:54:41 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*ft_get_lu_arg(t_datas *datas)
 	arg = va_arg(datas->ap, unsigned long int);
 	if (!(argcvd = ft_uitoa(arg, 10, BASEUP)))
 		return (NULL);
-	if (!(new = ft_lstnew(argcvd, ft_strlen(argcvd))))
+	if (!(new = ft_lststrnew(argcvd, ft_strlen(argcvd))))
 		return (NULL);
 	ft_strdel(&argcvd);
 	return (new);

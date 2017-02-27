@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 20:45:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/27 12:48:47 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void				ft_putuintendl(unsigned long long n,
 char				*ft_itoa(long long n, int base, char *baselist);
 char				*ft_uitoa(unsigned long long n, int base, char *baselist);
 int					ft_ilen(long long n, int base);
-size_t					ft_uilen(unsigned long long n, int base);
+size_t				ft_uilen(unsigned long long n, int base);
 char				*ft_ftoa(long double n, int base, char *bl);
 char				*ft_convbase(char *str,
 		int old_base, int new_base, char *baselist);
@@ -141,6 +141,7 @@ int					ft_countword(char const *s);
 void				**ft_tabnew(size_t n);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lststrnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst);
 void				ft_lstdel(t_list **alst);
 void				ft_lstadd(t_list **alst, t_list *new);

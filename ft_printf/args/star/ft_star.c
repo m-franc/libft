@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 19:12:45 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/16 20:35:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/27 13:12:22 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ t_list	*ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff)
 			star = star->next;
 		}
 	}
+	ft_putlist(tmp);
 	return (tmp);
 }
