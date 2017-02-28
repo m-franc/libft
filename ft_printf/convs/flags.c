@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c_arg.c                                         :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/14 19:51:01 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/28 12:31:34 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/28 11:44:48 by mfranc            #+#    #+#             */
+/*   Updated: 2017/02/28 14:55:34 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_list	*ft_get_c_arg(t_datas *datas)
+void	ft_flags_init(t_datas *datas)
 {
-	int				*parg;
-	int				arg;
-	t_list			*new;
-
-	if (ft_strchr(datas->flags, 'l'))
-		return (ft_get_lc_arg(datas));
-	parg = &arg;
-	arg = va_arg(datas->ap, int);
-	if (!(new = ft_lststrnew(parg, sizeof(arg))))
-		return (NULL);
-	return (new);
+	t_flags	flags;
+	flags.un = ft_memcpy("", "&1", 2);
+	flags.deux = ft_memcpy("", " ", 1);
+	flags.trois = ft_memcpy("", "78h", 3);
+	PSTR((char*)&flags)
 }
