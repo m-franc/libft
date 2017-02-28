@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/28 14:56:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/28 22:01:42 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,26 @@ typedef struct		s_datas
 	int				*tmp_len;
 	int				len;
 	int				cplen;
+	int				dollar;
+	int				precision;
+	int				less;
+	int				zero;
+	int				diese;
+	int				plus;
+	int				space;
+	int				padding;
 }					t_datas;
-
-typedef struct		s_flags
-{
-	char			*un;
-	char			*deux;
-	char			*trois;
-}					t_flags;
 
 int					ft_printf(const char *buff, ...);
 int					ft_datas_init(t_datas *datas, char *buff);
 int					ft_launch_process(t_datas *datas, char *buff);
 t_list				*ft_get_argslist(t_datas *datas, char *buff);
-t_list				*ft_get_arg(t_datas *datas, char *buff, size_t *ci);
+t_list				*ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **tmp);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 char				*ft_fill_buff(t_datas *datas, char *buff);
 char				*ft_get_convdatas(t_datas *datas, char *buff);
 char				*ft_get_lastdatas(t_datas *datas, char *buff);
-void				ft_flags_init(t_datas *datas);
+int					ft_flags_init(t_datas *datas);
 
 // get from args list
 t_list				*ft_get_s_arg(t_datas *datas);
@@ -73,8 +74,9 @@ t_list				*ft_get_lc_arg(t_datas *datas);
 t_list				*ft_get_b_arg(t_datas *datas);
 t_list				*ft_get_n_arg(t_datas *datas);
 t_list				*ft_get_percent_arg(t_datas *datas);
-t_list				*ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff);
-t_list				*ft_get_star(t_datas *datas);
+t_list				*ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
+
+typedef t_list		*(*t_get_args)(t_datas *datas);
 
 //get conv from tlist
 char				*ft_get_s_conv(t_datas *datas);
@@ -98,8 +100,12 @@ char				*ft_get_n_conv(t_datas *datas);
 char				*ft_get_percent_conv(t_datas *datas);
 
 typedef	char		*(*t_get_convs)(t_datas *datas);
+
+// get flags from const char
+//int					ft_get_num(char *flags, t_datas *datas, size_t *i);
+
 	
-typedef t_list		*(*t_get_args)(t_datas *datas);
+//typedef	int			(*t_get_flags)(char *flags, t_datas *datas, size_t *i);
 
 typedef char		*(*t_get_s_flags)(t_datas *datas);
 

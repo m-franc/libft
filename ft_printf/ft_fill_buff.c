@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/28 13:15:54 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/02/28 21:21:37 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 	i = -1;
 	while (CONVS && CONVS[++i] != buff[conv_index + 1])
 		;
-	ft_flags_init(datas);
+//	if ((ft_flags_init(datas) == -1)
+//		return (NULL);
 	if (!(datas->result = g_get_convs[i](datas)))
 		return (NULL);
 	if (datas->result)
