@@ -6,51 +6,41 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 19:12:45 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/28 22:27:33 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/01 19:01:57 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_list	*ft_get_star(t_datas *datas)
+int		ft_get_star(t_datas *datas)
 {
-	char	*cp_arg;
 	int		arg;
-	t_list	*star;
 
-	if (!(arg = va_arg(datas->ap, int)))
-		return (NULL);
-	if (!(cp_arg = ft_itoa(arg, 10, BASEUP)))
-		return (NULL);
-	if (!(star = ft_lstnew(cp_arg, sizeof(cp_arg))))
-		return (NULL);
-	ft_strdel(&cp_arg);
-	return (star);
+	arg = va_arg(datas->ap, int);
+	return (arg);
 }
 
-t_list	*ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff, t_list **tmp)
+void	ft_get_num_flag(t_datas *datas, size_t conv_index, char *buff, t_list *tmp)
 {
-	t_list	*star;
-	t_list	*temp;
-	size_t	j = 0;
 	size_t	i;
 
 	i = -1;
-	while (buff[++i] != '*' && i < conv_index)
-		;
-	if (buff[i] != '*')
-		return (star);
-	if (!(star = ft_get_star(datas)))
-		return (NULL);
-	temp = star;
-	while (buff[++i] && i < conv_index && temp)
+	while (datas->flags[++i])
 	{
-		if (buff[i] == '*')
+		if (datas->flags[i] == '.')
 		{
-			if (!(star->next = ft_get_star(datas)))
-				return (NULL);
-			star = star->next;
+			if (datas->flags[i + 1] == '*')
+				tmp->precision = ft_get_star(datas);
+			else if (datas->flags[i + 1] <= '9' && datas->flags[i + 1] >= '0')
+				tmp->precision = ft_atoi(datas->flags + (i + 1));
+		}
+		else if (datas->flags[i] == '*')
+			tmp->padding = ft_get_star(datas);
+		else if (datas->flags[i] <= '9' && datas->flags[i] >= '0')
+		{
+			if (datas->flags[i + 1] == '$' && tmp->index == 0)
+				tmp->index = ft_atoi(datas->flags + i);
+			tmp->padding = ft_atoi(datas->flags + i);
 		}
 	}
-	return (temp);
 }
