@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/01 19:01:00 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/02 12:49:03 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,39 @@ t_get_args	g_get_args[] =
 	ft_get_percent_arg,
 };
 
-t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list *tmp)
+t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
 {
 	size_t	conv_index;
 	size_t	i;
 	char	*flags;
-	t_list	*new;
+	t_list	*tmp;
+	t_list	*tmptmp;
 
 	i = -1;
 	conv_index = ft_strspn(buff, FLAGS);
-	if (buff[conv_index] == '\0')
-		return (NULL);
-	if (!(ft_strchr(CONVS, buff[conv_index])))
+	if (buff[conv_index] == '\0' || !(ft_strchr(CONVS, buff[conv_index])))
 		return (NULL);
 	if (!(datas->flags = ft_strsub(buff, 0, conv_index)))
 		return (NULL);
-	ft_get_num_flag(datas, conv_index, buff, tmp);
+	tmp = ft_get_star_arg(datas, conv_index, buff);
 	while (CONVS && CONVS[++i] != buff[conv_index])
 		;
 	if (CONVS[i] == '%')
 		*ci += conv_index + 2;
-	if (!(new = g_get_args[i](datas)))
-		return (NULL);
-	return (new);
+	if (tmp)
+	{
+		tmptmp = tmp;
+		while (tmptmp->next)
+			tmptmp = tmptmp->next;
+		if (!(tmptmp->next = g_get_args[i](datas)))
+			return (NULL);
+	}
+	else
+	{
+		if (!(tmp = g_get_args[i](datas)))
+			return (NULL);	
+	}
+	return (tmp);
 }
 
 t_list	*ft_get_argslist(t_datas *datas, char *buff)
@@ -56,7 +66,7 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 	i = -1;
 	while (buff[++i] != '%')
 		;
-	if (!(tmp = ft_get_arg(datas, buff + (i + 1), &i, tmp)))
+	if (!(tmp = ft_get_arg(datas, buff + (i + 1), &i)))
 		return (NULL);
 	new = tmp;
 	while (buff[++i] && tmp)
@@ -64,7 +74,8 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 		conv_index = 0;
 		if (buff[i] == '%')
 		{
-			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i, tmp->next)))
+			if (buff[i] == '*')
+			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i)))
 				return (NULL);
 			tmp = tmp->next;
 			ft_strdel(&(datas->flags));
@@ -79,8 +90,7 @@ int		ft_datas_init(t_datas *datas, char *buff)
 	if (!(datas->tmp_args = ft_get_argslist(datas, buff)))
 		return (-1);
 	datas->args = datas->tmp_args;
-	PSTR("PADDING : ")
-	ft_putintendl(datas->args->padding, 10, BASEUP);
+	ft_putlist(datas->args);
 	datas->flags = NULL;
 	datas->len = 0;
 	datas->cplen = 0;

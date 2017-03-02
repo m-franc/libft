@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/01 18:41:15 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/02 12:44:08 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ int					ft_printf(const char *buff, ...);
 int					ft_datas_init(t_datas *datas, char *buff);
 int					ft_launch_process(t_datas *datas, char *buff);
 t_list				*ft_get_argslist(t_datas *datas, char *buff);
-t_list				*ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list *tmp);
+t_list				*ft_get_arg(t_datas *datas, char *buff, size_t *ci);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 char				*ft_fill_buff(t_datas *datas, char *buff);
 char				*ft_get_convdatas(t_datas *datas, char *buff);
 char				*ft_get_lastdatas(t_datas *datas, char *buff);
 int					ft_flags_init(t_datas *datas);
+t_list				*ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff);
 
 // get from args list
 t_list				*ft_get_s_arg(t_datas *datas);
@@ -66,7 +67,7 @@ t_list				*ft_get_lc_arg(t_datas *datas);
 t_list				*ft_get_b_arg(t_datas *datas);
 t_list				*ft_get_n_arg(t_datas *datas);
 t_list				*ft_get_percent_arg(t_datas *datas);
-void				ft_get_num_flag(t_datas *datas, size_t conv_index, char *buff, t_list *tmp);
+t_list				*ft_get_star(t_list *datas);
 
 typedef t_list		*(*t_get_args)(t_datas *datas);
 
