@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 12:49:03 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/02 20:55:18 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,28 @@ t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
 		return (NULL);
 	if (!(datas->flags = ft_strsub(buff, 0, conv_index)))
 		return (NULL);
-	tmp = ft_get_star_arg(datas, conv_index, buff);
+	if ((datas->star_list = ft_get_star_arg(datas,
+					conv_index, buff, &tmp)) == -1)
+		return (NULL);
 	while (CONVS && CONVS[++i] != buff[conv_index])
 		;
 	if (CONVS[i] == '%')
 		*ci += conv_index + 2;
-	if (tmp)
+	if (datas->star_list == 1)
 	{
 		tmptmp = tmp;
 		while (tmptmp->next)
 			tmptmp = tmptmp->next;
 		if (!(tmptmp->next = g_get_args[i](datas)))
 			return (NULL);
+		return (tmp);
 	}
 	else
 	{
 		if (!(tmp = g_get_args[i](datas)))
 			return (NULL);	
+		return (tmp);
 	}
-	return (tmp);
 }
 
 t_list	*ft_get_argslist(t_datas *datas, char *buff)
@@ -74,10 +77,10 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 		conv_index = 0;
 		if (buff[i] == '%')
 		{
-			if (buff[i] == '*')
+			while (tmp->next)
+				tmp = tmp->next;
 			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i)))
 				return (NULL);
-			tmp = tmp->next;
 			ft_strdel(&(datas->flags));
 		}
 	}
@@ -90,7 +93,6 @@ int		ft_datas_init(t_datas *datas, char *buff)
 	if (!(datas->tmp_args = ft_get_argslist(datas, buff)))
 		return (-1);
 	datas->args = datas->tmp_args;
-	ft_putlist(datas->args);
 	datas->flags = NULL;
 	datas->len = 0;
 	datas->cplen = 0;
@@ -104,7 +106,7 @@ int		ft_launch_process(t_datas *datas, char *buff)
 	if (!(datas->result = ft_fill_buff(datas, (char*)buff)))
 		return (-1);
 	ft_lstdel(&datas->tmp_args);
-	return (datas->len);
+	return (0);
 }
 
 int		ft_printf(const char *buff, ...)
@@ -126,7 +128,7 @@ int		ft_printf(const char *buff, ...)
 	else
 	{
 		va_start(datas.ap, buff);
-		if (!(datas.len = ft_launch_process(&datas, (char *)buff)))
+		if ((ft_launch_process(&datas, (char *)buff)) == -1)
 			return (-1);
 	}
 	write(1, datas.result, datas.len);

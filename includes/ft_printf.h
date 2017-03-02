@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 12:44:08 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/02 19:55:38 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct		s_datas
 	t_list			*tmp_stars;
 	char			*flags;
 	int				*tmp_len;
+	int				star_list;
 	int				len;
 	int				cplen;
 }					t_datas;
@@ -45,7 +46,7 @@ char				*ft_fill_buff(t_datas *datas, char *buff);
 char				*ft_get_convdatas(t_datas *datas, char *buff);
 char				*ft_get_lastdatas(t_datas *datas, char *buff);
 int					ft_flags_init(t_datas *datas);
-t_list				*ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff);
+int					ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
 
 // get from args list
 t_list				*ft_get_s_arg(t_datas *datas);
@@ -67,7 +68,7 @@ t_list				*ft_get_lc_arg(t_datas *datas);
 t_list				*ft_get_b_arg(t_datas *datas);
 t_list				*ft_get_n_arg(t_datas *datas);
 t_list				*ft_get_percent_arg(t_datas *datas);
-t_list				*ft_get_star(t_list *datas);
+t_list				*ft_get_star(t_datas *datas);
 
 typedef t_list		*(*t_get_args)(t_datas *datas);
 
