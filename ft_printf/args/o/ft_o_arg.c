@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 19:07:54 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/27 12:56:23 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/02 21:34:09 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_list	*ft_get_o_arg(t_datas *datas)
 {
 	unsigned int	arg;
-	char		*argcvd;
-	t_list		*new;
+	char			*argcvd;
+	t_list			*new;
 
 	if (ft_strchr(datas->flags, 'l') || ft_strchr(datas->flags, 'j')
 			|| ft_strchr(datas->flags, 'z'))

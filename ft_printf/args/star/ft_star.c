@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 19:12:45 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 20:52:10 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/02 21:35:31 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_list	*ft_get_star(t_datas *datas)
 	return (star);
 }
 
-int		ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff, t_list **tmp)
+int		ft_get_star_arg(t_datas *datas, size_t conv_index,
+		char *buff, t_list **tmp)
 {
 	t_list	*star;
 	size_t	i;
@@ -41,7 +42,7 @@ int		ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff, t_list **tmp
 		return (-1);
 	*tmp = star;
 	while (buff[++i] && i < conv_index && star)
-	{	
+	{
 		if (buff[i] == '*')
 		{
 			if (!(star->next = ft_get_star(datas)))

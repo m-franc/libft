@@ -6,86 +6,11 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 20:55:18 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/02 21:23:59 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-t_get_args	g_get_args[] =
-{
-	ft_get_s_arg, ft_get_ls_arg, ft_get_p_arg, ft_get_d_arg,
-	ft_get_ld_arg, ft_get_d_arg, ft_get_o_arg, ft_get_lo_arg,
-	ft_get_u_arg, ft_get_lu_arg, ft_get_x_arg, ft_get_lx_arg,
-	ft_get_c_arg, ft_get_lc_arg, ft_get_b_arg, ft_get_n_arg,
-	ft_get_percent_arg,
-};
-
-t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
-{
-	size_t	conv_index;
-	size_t	i;
-	char	*flags;
-	t_list	*tmp;
-	t_list	*tmptmp;
-
-	i = -1;
-	conv_index = ft_strspn(buff, FLAGS);
-	if (buff[conv_index] == '\0' || !(ft_strchr(CONVS, buff[conv_index])))
-		return (NULL);
-	if (!(datas->flags = ft_strsub(buff, 0, conv_index)))
-		return (NULL);
-	if ((datas->star_list = ft_get_star_arg(datas,
-					conv_index, buff, &tmp)) == -1)
-		return (NULL);
-	while (CONVS && CONVS[++i] != buff[conv_index])
-		;
-	if (CONVS[i] == '%')
-		*ci += conv_index + 2;
-	if (datas->star_list == 1)
-	{
-		tmptmp = tmp;
-		while (tmptmp->next)
-			tmptmp = tmptmp->next;
-		if (!(tmptmp->next = g_get_args[i](datas)))
-			return (NULL);
-		return (tmp);
-	}
-	else
-	{
-		if (!(tmp = g_get_args[i](datas)))
-			return (NULL);	
-		return (tmp);
-	}
-}
-
-t_list	*ft_get_argslist(t_datas *datas, char *buff)
-{
-	t_list	*tmp;
-	t_list	*new;
-	size_t	conv_index;
-	size_t	i;
-
-	i = -1;
-	while (buff[++i] != '%')
-		;
-	if (!(tmp = ft_get_arg(datas, buff + (i + 1), &i)))
-		return (NULL);
-	new = tmp;
-	while (buff[++i] && tmp)
-	{
-		conv_index = 0;
-		if (buff[i] == '%')
-		{
-			while (tmp->next)
-				tmp = tmp->next;
-			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i)))
-				return (NULL);
-			ft_strdel(&(datas->flags));
-		}
-	}
-	return (new);
-}
 
 int		ft_datas_init(t_datas *datas, char *buff)
 {

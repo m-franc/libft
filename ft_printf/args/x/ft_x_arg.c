@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 19:15:07 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/27 13:03:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/02 21:36:27 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 t_list	*ft_get_x_arg(t_datas *datas)
 {
-	unsigned long int 	arg;
-	char			*argcvd;
-	t_list			*new;
+	unsigned long int	arg;
+	char				*argcvd;
+	t_list				*new;
 
 	if (ft_strchr(datas->flags, 'l') || ft_strchr(datas->flags, 'j')
 			|| ft_strchr(datas->flags, 'z'))
-		arg = va_arg(datas->ap, unsigned long int);	
+		arg = va_arg(datas->ap, unsigned long int);
 	else
 	{
 		arg = va_arg(datas->ap, unsigned int);
