@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/03 11:29:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/03 19:59:47 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,9 @@ typedef	char		*(*t_get_convs)(t_datas *datas);
 
 	
 
-int					ft_get_num(t_datas *datas, char *strflag,
-		t_flags *flags, size_t *i);
+int					ft_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+int					ft_arg_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+int					ft_n_arg_precision(t_datas *datas, int n, t_flags *flags, size_t *i);
 
 typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 

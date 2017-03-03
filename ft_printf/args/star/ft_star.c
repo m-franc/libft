@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 19:12:45 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/03 12:22:21 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/03 20:50:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 t_list	*ft_get_star(t_datas *datas)
 {
-	int		*cp_arg;
+	char	*cp_arg;
 	int		arg;
 	t_list	*star;
 
 	arg = va_arg(datas->ap, int);
-	cp_arg = &arg;
+	if (!(cp_arg = ft_itoa(arg, 10, BASEUP)))
+		return (NULL);
 	if (!(star = ft_lstnew(cp_arg, sizeof(arg))))
 		return (NULL);
+	ft_strdel(&cp_arg);
 	return (star);
 }
 

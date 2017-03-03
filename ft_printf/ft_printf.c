@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 21:23:59 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/03 20:42:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		ft_datas_init(t_datas *datas, char *buff)
 	datas->result = NULL;
 	if (!(datas->tmp_args = ft_get_argslist(datas, buff)))
 		return (-1);
+	ft_putlist(datas->tmp_args);
 	datas->args = datas->tmp_args;
 	datas->flags = NULL;
 	datas->len = 0;
