@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 21:23:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/03 11:29:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,21 @@ typedef struct		s_datas
 	t_list			*tmp_stars;
 	char			*flags;
 	int				*tmp_len;
-	int				star_list;
 	int				len;
 	int				cplen;
 }					t_datas;
+
+typedef struct		s_flags
+{
+	int				dollar;
+	int				precision;
+	int				less;
+	int				zero;
+	int				diese;
+	int				plus;
+	int				space;
+	int				padding;
+}					t_flags;
 
 int					ft_printf(const char *buff, ...);
 int					ft_datas_init(t_datas *datas, char *buff);
@@ -100,7 +111,11 @@ typedef	char		*(*t_get_convs)(t_datas *datas);
 //int					ft_get_num(char *flags, t_datas *datas, size_t *i);
 
 	
-//typedef	int			(*t_get_flags)(char *flags, t_datas *datas, size_t *i);
+
+int					ft_get_num(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+
+typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 
 typedef char		*(*t_get_s_flags)(t_datas *datas);
 

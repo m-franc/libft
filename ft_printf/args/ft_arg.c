@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:01:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 21:23:57 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/03 11:29:37 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
 	size_t	conv_index;
 	size_t	i;
 	char	*flags;
+	int		stars;
 	t_list	*tmp;
 
 	i = -1;
@@ -55,14 +56,13 @@ t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
 		return (NULL);
 	if (!(datas->flags = ft_strsub(buff, 0, conv_index)))
 		return (NULL);
-	if ((datas->star_list = ft_get_star_arg(datas,
-					conv_index, buff, &tmp)) == -1)
+	if ((stars = ft_get_star_arg(datas, conv_index, buff, &tmp)) == -1)
 		return (NULL);
 	while (CONVS && CONVS[++i] != buff[conv_index])
 		;
 	if (CONVS[i] == '%')
 		*ci += conv_index + 2;
-	return (ft_get_option(tmp, datas->star_list, i, datas));
+	return (ft_get_option(tmp, stars, i, datas));
 }
 
 t_list	*ft_get_argslist(t_datas *datas, char *buff)
