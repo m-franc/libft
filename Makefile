@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/03/03 10:59:04 by mfranc           ###   ########.fr        #
+#    Updated: 2017/03/06 19:27:30 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -155,7 +155,9 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/convs/percent/ft_percent_conv.c	\
 		ft_printf/args/star/ft_star.c	\
 		ft_printf/args/ft_arg.c		\
-		ft_printf/convs/ft_flags.c	
+		ft_printf/convs/ft_parse_flags.c	\
+		ft_printf/convs/parse_flags/ft_precision.c	\
+		ft_printf/convs/parse_flags/ft_padding.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 

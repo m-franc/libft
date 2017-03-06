@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/06 16:20:04 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/06 19:25:42 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,13 +109,14 @@ char				*ft_get_percent_conv(t_datas *datas);
 typedef	char		*(*t_get_convs)(t_datas *datas);
 
 // get flags from const char
-//int					ft_get_num(char *flags, t_datas *datas, size_t *i);
-
-	
+//int					ft_get_num(char *flags, t_datas *datas, size_t *i);	
 
 int					ft_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 int					ft_arg_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 int					ft_n_arg_precision(t_datas *datas, int n, t_flags *flags, size_t *i);
+int					ft_padding(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+int					ft_arg_padding(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+int					ft_n_arg_padding(t_datas *datas, int n, t_flags *flags, size_t *i);
 
 typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 
