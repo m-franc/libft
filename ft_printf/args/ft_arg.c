@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:01:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/03 11:29:37 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/06 16:42:41 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_list	*ft_get_option(t_list *tmp, int stars, int option, t_datas *datas)
 	}
 }
 
-t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
+t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst)
 {
 	size_t	conv_index;
 	size_t	i;
@@ -55,6 +55,11 @@ t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci)
 	if (buff[conv_index] == '\0' || !(ft_strchr(CONVS, buff[conv_index])))
 		return (NULL);
 	if (!(datas->flags = ft_strsub(buff, 0, conv_index)))
+		return (NULL);
+	if (ft_strchr(datas->flags, '$') && !*lst)
+		datas->un_ord = 1;
+	if ((!ft_strchr(datas->flags, '$') && datas->un_ord == 1)
+		|| (ft_strchr(datas->flags, '$') && datas->un_ord == 0))
 		return (NULL);
 	if ((stars = ft_get_star_arg(datas, conv_index, buff, &tmp)) == -1)
 		return (NULL);
@@ -73,9 +78,10 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 	size_t	i;
 
 	i = -1;
+	tmp = NULL;
 	while (buff[++i] != '%')
 		;
-	if (!(tmp = ft_get_arg(datas, buff + (i + 1), &i)))
+	if (!(tmp = ft_get_arg(datas, buff + (i + 1), &i, &tmp)))
 		return (NULL);
 	new = tmp;
 	while (buff[++i] && tmp)
@@ -85,7 +91,7 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 		{
 			while (tmp->next)
 				tmp = tmp->next;
-			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i)))
+			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i, &tmp)))
 				return (NULL);
 			ft_strdel(&(datas->flags));
 		}
