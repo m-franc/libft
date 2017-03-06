@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/06 19:31:12 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/06 19:34:47 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ int		ft_padding(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		if (strflag[len + 1] == '$')
 			return (-1);
 		flags->padding = result;
-		PSTR("PADDING : ")
-		ft_putendl(flags->padding);
 		*i += len;
 		return (1);
 	}
