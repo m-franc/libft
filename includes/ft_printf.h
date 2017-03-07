@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/06 19:25:42 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/07 11:40:02 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define CONVS 	"sSpdDioOuUxXcCbn%"
 # define MODIFS "hlhhlljz"
-# define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
+# define FLAGS 	"#0123456789NRGYBPCGD -+*$L.hlhhlljz"
 
 typedef struct		s_datas
 {

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 11:44:48 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/06 19:31:13 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/07 11:38:08 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_get_flags	g_get_flags[] =
 {
-	ft_precision, ft_padding/* ft_get_less, ft_get_zero, ft_get_diese,
+	ft_precision, ft_padding /* ft_get_less, ft_get_zero, ft_get_diese,
 					ft_get_plus, ft_get_space*/
 };
 
@@ -36,7 +36,7 @@ int		ft_flags_init(t_datas *datas)
 	while (datas->flags[++i])
 	{
 		o = 0;
-		while (o < 1)
+		while (o < 2)
 		{
 			if ((g_get_flags[o++](datas, datas->flags + i, &flags, &i)) == -1)
 				return (-1);

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/06 19:10:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/07 11:19:58 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_n_arg_precision(t_datas *datas, int n, t_flags *flags, size_t *i)
 	t_list	*valist;
 
 	valist = datas->tmp_args;
-	while (n -- > 0 && valist)
+	while (n-- > 0 && valist)
 		valist = valist->next;
 	flags->precision = ft_atoi(valist->content);
 	*i += ft_ilen(n, 10) + 2;
