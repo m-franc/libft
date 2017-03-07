@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:01:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/07 21:08:10 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/07 23:00:20 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,17 @@ t_get_args	g_get_args[] =
 
 int		ft_get_option(t_list **tmp, int stars, int option, t_datas *datas)
 {
-	t_list	*tmptmp;
-
-	if (stars == 1)
+	if (*tmp)
 	{
-		tmptmp = *tmp;
-		while (tmptmp->next)
-			tmptmp = tmptmp->next;
-		if (!(tmptmp->next = g_get_args[option](datas)))
-			return (-1);
-		return (1);
+		if (!((*tmp)->next = g_get_args[option](datas)))
+			return (-1);	
 	}
 	else
 	{
-		if (*tmp)
-		{
-			if (!((*tmp)->next = g_get_args[option](datas)))
-				return (-1);	
-		}
-		else
-		{
-			if (!(*tmp = g_get_args[option](datas)))
-				return (-1);		
-		}
-		return (1);
+		if (!(*tmp = g_get_args[option](datas)))
+			return (-1);		
 	}
+	return (1);
 }
 
 int		verif_dollar(t_list **tmp, char *fstr)
@@ -110,6 +96,7 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 	int		argslist;
 
 	i = -1;
+	tmp = NULL;
 	while (buff[++i] != '%')
 		;
 	if ((argslist = ft_get_arg(datas, buff + (i + 1), &i, &tmp)) == -1)
