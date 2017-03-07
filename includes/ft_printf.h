@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/07 11:40:02 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/07 20:23:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,10 @@ int					ft_printf(const char *buff, ...);
 int					ft_datas_init(t_datas *datas, char *buff);
 int					ft_launch_process(t_datas *datas, char *buff);
 t_list				*ft_get_argslist(t_datas *datas, char *buff);
-t_list				*ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst);
-t_list				*ft_get_option(t_list *tmp, int stars, int option, t_datas *datas);
+int					ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst);
+int					verif_dollar(t_list **tmp, char *fstr);
+int					verif_dollar_star(t_list **tmp, char *fstr, size_t conv_index);
+int					ft_get_option(t_list **tmp, int stars, int option, t_datas *datas);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 char				*ft_fill_buff(t_datas *datas, char *buff);
 char				*ft_get_convdatas(t_datas *datas, char *buff);

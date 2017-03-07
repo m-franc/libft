@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 19:12:45 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/06 17:10:28 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/07 21:23:30 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,29 @@ t_list	*ft_get_star(t_datas *datas)
 	return (star);
 }
 
+int		verif_dollar_star(t_list **tmp, char *fstr, size_t conv_index)
+{
+	size_t	i;
+	int		number;
+
+	i = -1;
+	if (!*tmp)
+		return (0);
+	while (fstr[++i] && i < conv_index)
+	{
+		if (fstr[i] == '*')
+		{
+			number = ft_atoi(fstr + i + 1);
+			if (fstr[i + i] == '$')
+			{
+				if (number <= ft_listcount(*tmp))
+					return (1);
+			}
+		}
+	}
+	return (0);
+}
+
 int		ft_get_star_arg(t_datas *datas, size_t conv_index,
 		char *buff, t_list **tmp)
 {
@@ -38,6 +61,8 @@ int		ft_get_star_arg(t_datas *datas, size_t conv_index,
 		;
 	if (buff[i] != '*')
 		return (0);
+	if (verif_dollar_star(tmp, buff, conv_index) == 1)
+		return (0);
 	if (!(star = ft_get_star(datas)))
 		return (-1);
 	*tmp = star;
@@ -45,6 +70,8 @@ int		ft_get_star_arg(t_datas *datas, size_t conv_index,
 	{
 		if (buff[i] == '*')
 		{
+			if (verif_dollar_star(tmp, buff + i, conv_index) == 1)
+				return (0);
 			if (!(star->next = ft_get_star(datas)))
 				return (-1);
 			star = star->next;

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:01:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/07 13:08:18 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/07 21:08:10 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,55 +21,84 @@ t_get_args	g_get_args[] =
 	ft_get_percent_arg,
 };
 
-t_list	*ft_get_option(t_list *tmp, int stars, int option, t_datas *datas)
+int		ft_get_option(t_list **tmp, int stars, int option, t_datas *datas)
 {
 	t_list	*tmptmp;
 
 	if (stars == 1)
 	{
-		tmptmp = tmp;
+		tmptmp = *tmp;
 		while (tmptmp->next)
 			tmptmp = tmptmp->next;
 		if (!(tmptmp->next = g_get_args[option](datas)))
-			return (NULL);
-		return (tmp);
+			return (-1);
+		return (1);
 	}
 	else
 	{
-		if (!(tmp = g_get_args[option](datas)))
-			return (NULL);
-		return (tmp);
+		if (*tmp)
+		{
+			if (!((*tmp)->next = g_get_args[option](datas)))
+				return (-1);	
+		}
+		else
+		{
+			if (!(*tmp = g_get_args[option](datas)))
+				return (-1);		
+		}
+		return (1);
 	}
 }
 
-t_list	*ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst)
+int		verif_dollar(t_list **tmp, char *fstr)
+{
+	size_t	i;
+	int		number;
+
+	i = -1;
+	if (!*tmp)
+		return (0);
+	while (fstr[++i])
+	{
+		if (ft_isdigit(fstr[i]))
+		{
+			number = ft_atoi(fstr + i);
+			if (fstr[i + ft_ilen(number, 10)] == '$')
+			{
+				if (number <= ft_listcount(*tmp))
+					return (1);
+			}
+		}
+	}
+	return (0);
+}
+
+int		ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst)
 {
 	size_t	conv_index;
 	size_t	i;
 	char	*flags;
 	int		stars;
-	t_list	*tmp;
 
 	i = -1;
 	conv_index = ft_strspn(buff, FLAGS);
 	if (buff[conv_index] == '\0' || !(ft_strchr(CONVS, buff[conv_index])))
-		return (NULL);
+		return (-1);
 	if (!(datas->flags = ft_strsub(buff, 0, conv_index)))
-		return (NULL);
+		return (-1);
 	if (ft_strchr(datas->flags, '$') && !*lst)
 		datas->un_ord = 1;
-	if ((stars = ft_get_star_arg(datas, conv_index, buff, &tmp)) == -1)
-		return (NULL);
-	if (datas->un_ord == 1)
-	{
-		if (verif_dollar(&stars, lst, datas->falgs) == 0)
-			return (stars);
-	}
+	if (verif_dollar(lst, datas->flags) == 0 && datas->un_ord == 1)
+		return (0);
+	if ((stars = ft_get_star_arg(datas, conv_index, buff, lst)) == -1)
+		return (-1);
 	while (CONVS && CONVS[++i] != buff[conv_index])
 		;
 	if (CONVS[i] == '%')
 		*ci += conv_index + 2;
-	return (ft_get_option(tmp, stars, i, datas));
+	if (ft_get_option(lst, stars, i, datas) == -1)
+		return (-1);
+	return (1);
 }
 
 t_list	*ft_get_argslist(t_datas *datas, char *buff)
@@ -78,12 +107,12 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 	t_list	*new;
 	size_t	conv_index;
 	size_t	i;
+	int		argslist;
 
 	i = -1;
-	tmp = NULL;
 	while (buff[++i] != '%')
 		;
-	if (!(tmp = ft_get_arg(datas, buff + (i + 1), &i, &tmp)))
+	if ((argslist = ft_get_arg(datas, buff + (i + 1), &i, &tmp)) == -1)
 		return (NULL);
 	new = tmp;
 	while (buff[++i] && tmp)
@@ -93,7 +122,7 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 		{
 			while (tmp->next)
 				tmp = tmp->next;
-			if (!(tmp->next = ft_get_arg(datas, buff + (i + 1), &i, &tmp)))
+			if ((argslist = ft_get_arg(datas, buff + (i + 1), &i, &tmp)) == -1)
 				return (NULL);
 			ft_strdel(&(datas->flags));
 		}
