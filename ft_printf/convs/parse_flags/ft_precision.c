@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/07 11:19:58 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 18:02:51 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_arg_precision(t_datas *datas, char *strflag,
 	}
 	flags->precision = ft_atoi(datas->args->content);
 	datas->args = datas->args->next;
-	*i += 1;
+	*i += 2;
 	return (1);
 }
 
