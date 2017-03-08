@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:01:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/07 23:00:20 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 12:30:21 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,22 @@ t_get_args	g_get_args[] =
 
 int		ft_get_option(t_list **tmp, int stars, int option, t_datas *datas)
 {
+	t_list	*tmptmp;
+
 	if (*tmp)
 	{
-		if (!((*tmp)->next = g_get_args[option](datas)))
+		tmptmp = *tmp;
+		while (tmptmp->next)
+			tmptmp = tmptmp->next;
+		if (!(tmptmp->next = g_get_args[option](datas)))
 			return (-1);	
+//		PSTR("ON A NOTRE CONV : ")
+//		ft_putendl(tmptmp->next->content);
 	}
 	else
 	{
 		if (!(*tmp = g_get_args[option](datas)))
-			return (-1);		
+			return (-1);
 	}
 	return (1);
 }
@@ -74,7 +81,7 @@ int		ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst)
 		return (-1);
 	if (ft_strchr(datas->flags, '$') && !*lst)
 		datas->un_ord = 1;
-	if (verif_dollar(lst, datas->flags) == 0 && datas->un_ord == 1)
+	if (verif_dollar(lst, datas->flags) == 1 && datas->un_ord == 1)
 		return (0);
 	if ((stars = ft_get_star_arg(datas, conv_index, buff, lst)) == -1)
 		return (-1);
