@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:01:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 15:05:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 16:50:41 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_get_option(t_list **tmp, int stars, int option, t_datas *datas)
 		while (tmptmp->next)
 			tmptmp = tmptmp->next;
 		if (!(tmptmp->next = g_get_args[option](datas)))
-			return (-1);	
+			return (-1);
 	}
 	else
 	{
@@ -79,10 +79,10 @@ int		ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst)
 		return (-1);
 	if (ft_strchr(datas->flags, '$') && !*lst)
 		datas->un_ord = 1;
-	if (verif_dollar(lst, datas->flags) == 1 && datas->un_ord == 1)
-		return (0);
 	if ((stars = ft_get_star_arg(datas, conv_index, buff, lst)) == -1)
 		return (-1);
+	if (verif_dollar(lst, datas->flags) == 1 && datas->un_ord == 1)
+		return (0);
 	while (CONVS && CONVS[++i] != buff[conv_index])
 		;
 	if (CONVS[i] == '%')
@@ -98,13 +98,12 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 	t_list	*new;
 	size_t	conv_index;
 	size_t	i;
-	int		argslist;
 
 	i = -1;
 	tmp = NULL;
 	while (buff[++i] != '%')
 		;
-	if ((argslist = ft_get_arg(datas, buff + (i + 1), &i, &tmp)) == -1)
+	if ((ft_get_arg(datas, buff + (i + 1), &i, &tmp)) == -1)
 		return (NULL);
 	new = tmp;
 	while (buff[++i] && tmp)
@@ -114,7 +113,7 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 		{
 			while (tmp->next)
 				tmp = tmp->next;
-			if ((argslist = ft_get_arg(datas, buff + (i + 1), &i, &tmp)) == -1)
+			if ((ft_get_arg(datas, buff + (i + 1), &i, &tmp)) == -1)
 				return (NULL);
 			ft_strdel(&(datas->flags));
 		}

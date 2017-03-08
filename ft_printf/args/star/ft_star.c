@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 19:12:45 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 15:10:47 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 16:48:28 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,15 @@ t_list	*ft_get_star(t_datas *datas)
 
 int		verif_dollar_star(t_list **tmp, char *fstr, size_t conv_index)
 {
-	size_t	i;
 	int		number;
 
-	i = -1;
 	if (!*tmp)
 		return (0);
-	while (fstr[++i] && i < conv_index)
+	number = ft_atoi(fstr + 1);
+	if (*(fstr + 1 + ft_ilen(number, 10)) == '$')
 	{
-		if (fstr[i] == '*')
-		{
-			number = ft_atoi(fstr + i + 1);
-			if (fstr[i + i] == '$')
-			{
-				if (number <= ft_listcount(*tmp))
-					return (1);
-			}
-		}
+		if (number <= ft_listcount(*tmp))
+			return (1);
 	}
 	return (0);
 }
@@ -61,7 +53,7 @@ int		ft_list_exist(t_datas *datas, size_t conv_index,
 		;
 	if (buff[i] != '*')
 		return (0);
-	if (verif_dollar_star(tmp, buff + i, conv_index) == 1 && datas->un_ord == 1)
+	if (verif_dollar_star(tmp, datas->flags + i, conv_index) == 1)
 		return (0);
 	if (!((*tmp)->next = ft_get_star(datas)))
 		return (-1);
@@ -70,7 +62,7 @@ int		ft_list_exist(t_datas *datas, size_t conv_index,
 	{
 		if (buff[i] == '*')
 		{
-			if (verif_dollar_star(tmp, buff + i, conv_index) == 1)
+			if (verif_dollar_star(tmp, datas->flags + i, conv_index) == 1)
 				return (0);
 			if (!(star->next = ft_get_star(datas)))
 				return (-1);
@@ -98,7 +90,7 @@ int		ft_list_dont_exist(t_datas *datas, size_t conv_index,
 	{
 		if (buff[i] == '*')
 		{
-			if (verif_dollar_star(tmp, buff + i, conv_index) == 1)
+			if (verif_dollar_star(tmp, datas->flags + i, conv_index) == 1)
 				return (0);
 			if (!(star->next = ft_get_star(datas)))
 				return (-1);
