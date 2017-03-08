@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 15:07:33 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 19:15:57 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,11 @@ typedef	char		*(*t_get_convs)(t_datas *datas);
 // get flags from const char
 //int					ft_get_num(char *flags, t_datas *datas, size_t *i);	
 
+int					ft_space(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+int					ft_plus(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+int					ft_diese(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+int					ft_zero(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+int					ft_less(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 int					ft_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 int					ft_arg_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 int					ft_n_arg_precision(t_datas *datas, int n, t_flags *flags, size_t *i);

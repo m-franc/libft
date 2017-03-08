@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/01 18:48:28 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 19:24:43 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef	struct		s_list
 # define BASELW "0123456789abcdef"
 # define ENDL ft_putchar('\n');
 # define ABS(Value) Value < 0 ? -Value : Value
-# define PNBR(x, y, z) ft_putint(x, y, z);
+# define PNBR(x) ft_putintendl(x, 10, BASEUP);
 # define PSTR(x) ft_putstr(x);
 # define INTMIN -2147483648
 # define INTMAX 2147483647

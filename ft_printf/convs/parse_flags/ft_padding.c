@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 18:02:57 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 19:35:56 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		ft_padding(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 	{
 		result = ft_atoi(strflag);
 		len = ft_ilen(result, 10);
-		if (strflag[len + 1] == '$')
+		if (strflag[len] == '$')
 			return (flags->dollar = result - 1);
 		flags->padding = result;
 		*i += len - 1;
