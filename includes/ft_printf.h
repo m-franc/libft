@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/07 20:23:25 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 15:07:33 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ char				*ft_get_convdatas(t_datas *datas, char *buff);
 char				*ft_get_lastdatas(t_datas *datas, char *buff);
 int					ft_flags_init(t_datas *datas);
 int					ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
+int					ft_list_dont_exist(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
+int					ft_list_exist(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
 
 // get from args list
 t_list				*ft_get_s_arg(t_datas *datas);

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:01:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 12:30:21 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/08 15:05:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int		ft_get_option(t_list **tmp, int stars, int option, t_datas *datas)
 			tmptmp = tmptmp->next;
 		if (!(tmptmp->next = g_get_args[option](datas)))
 			return (-1);	
-//		PSTR("ON A NOTRE CONV : ")
-//		ft_putendl(tmptmp->next->content);
 	}
 	else
 	{
