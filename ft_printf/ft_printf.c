@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 17:54:36 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/09 20:23:53 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_launch_process(t_datas *datas, char *buff)
 		return (-1);
 	if (!(datas->result = ft_fill_buff(datas, (char*)buff)))
 		return (-1);
-	ft_lstdel(&datas->tmp_args);
+	ft_lstdel(&(datas->tmp_args));
 	return (0);
 }
 

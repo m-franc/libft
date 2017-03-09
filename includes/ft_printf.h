@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 19:15:57 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/09 20:09:23 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 # define CONVS 	"sSpdDioOuUxXcCbn%"
 # define MODIFS "hlhhlljz"
-# define FLAGS 	"#0123456789NRGYBPCGD -+*$L.hlhhlljz"
+# define FLAGS 	"#0123456789NRGYBPGD -+*$L.hlhhlljz"
+
 
 typedef struct		s_datas
 {
@@ -53,7 +54,7 @@ int					ft_datas_init(t_datas *datas, char *buff);
 int					ft_launch_process(t_datas *datas, char *buff);
 t_list				*ft_get_argslist(t_datas *datas, char *buff);
 int					ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst);
-int					verif_dollar(t_list **tmp, char *fstr);
+int					verif_dollar(t_list **tmp, char *fstr, int dollar);
 int					verif_dollar_star(t_list **tmp, char *fstr, size_t conv_index);
 int					ft_get_option(t_list **tmp, int stars, int option, t_datas *datas);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
@@ -112,9 +113,9 @@ char				*ft_get_percent_conv(t_datas *datas);
 
 typedef	char		*(*t_get_convs)(t_datas *datas);
 
-// get flags from const char
 //int					ft_get_num(char *flags, t_datas *datas, size_t *i);	
 
+// get flags from const char
 int					ft_space(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 int					ft_plus(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 int					ft_diese(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
@@ -129,6 +130,11 @@ int					ft_n_arg_padding(t_datas *datas, int n, t_flags *flags, size_t *i);
 
 typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 
-typedef char		*(*t_get_s_flags)(t_datas *datas);
+
+// get flags for d conv
+//
+//char				*ft_get_n_arg
+
+typedef char		*(*t_d_flags)(t_datas *datas, t_flags *flags);
 
 #endif

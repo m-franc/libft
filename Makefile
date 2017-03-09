@@ -6,13 +6,13 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/03/08 18:19:41 by mfranc           ###   ########.fr        #
+#    Updated: 2017/03/09 19:56:39 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address 
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 INCLUDES = includes
 
@@ -169,7 +169,7 @@ $(NAME) : $(OBJECTS)
 	ranlib $@
 
 %.o: %.c
-	$(CC) -c $< -o $@ -I $(INCLUDES)
+	$(CC) -g -c $< -o $@ -I $(INCLUDES)
 
 clean:
 	rm -f $(OBJECTS)

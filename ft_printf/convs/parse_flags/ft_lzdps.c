@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 18:17:56 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 19:32:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/09 18:07:54 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_less(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		flags->less = 1;
 		flags->zero = 0;	
 	}
+	return (1);
 }
 
 int	ft_zero(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
@@ -29,6 +30,7 @@ int	ft_zero(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		return (0);
 	else
 		flags->zero = 1;
+	return (1);
 }
 
 int	ft_diese(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
@@ -37,6 +39,7 @@ int	ft_diese(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		return (0);
 	else
 		flags->diese = 1;
+	return (1);
 }
 
 int	ft_plus(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
@@ -48,6 +51,7 @@ int	ft_plus(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		flags->plus = 1;
 		flags->space = 0;	
 	}
+	return (1);
 }
 
 int	ft_space(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
@@ -56,4 +60,5 @@ int	ft_space(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		return (0);
 	else
 		flags->space = 1;
+	return (1);
 }

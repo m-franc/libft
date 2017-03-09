@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:01:10 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 17:02:28 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/09 20:34:18 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,21 @@ int		ft_get_option(t_list **tmp, int stars, int option, t_datas *datas)
 	return (1);
 }
 
-int		verif_dollar(t_list **tmp, char *fstr)
+int		verif_dollar(t_list **tmp, char *fstr, int dollar)
 {
-	size_t	i;
 	int		number;
+	size_t	i;
 
 	i = -1;
 	if (!*tmp)
 		return (0);
-	while (fstr[++i])
-	{
-		if (ft_isdigit(fstr[i]))
-		{
-			number = ft_atoi(fstr + i);
-			if (fstr[i + ft_ilen(number, 10)] == '$')
-			{
-				if (number <= ft_listcount(*tmp))
-					return (1);
-			}
-		}
-	}
+	while (fstr[++i] && fstr[i] != '$')
+		;
+	if (fstr[i] == '\0')
+		return (-1);
+	number = ft_atoi(fstr + (i - 1));
+	if (number <= ft_listcount(*tmp))
+		return (1);	
 	return (0);
 }
 
@@ -81,7 +76,7 @@ int		ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst)
 		datas->un_ord = 1;
 	if ((stars = ft_get_star_arg(datas, conv_index, buff, lst)) == -1)
 		return (-1);
-	if (verif_dollar(lst, datas->flags) == 1 && datas->un_ord == 1)
+	if (verif_dollar(lst, datas->flags, datas->un_ord) == 1)
 		return (0);
 	while (CONVS && CONVS[++i] != buff[conv_index])
 		;
@@ -89,6 +84,7 @@ int		ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst)
 		*ci += conv_index + 2;
 	if (ft_get_option(lst, stars, i, datas) == -1)
 		return (-1);
+	ft_strdel(&(datas->flags));
 	return (1);
 }
 
@@ -115,7 +111,6 @@ t_list	*ft_get_argslist(t_datas *datas, char *buff)
 				tmp = tmp->next;
 			if ((ft_get_arg(datas, buff + (i + 1), &i, &tmp)) == -1)
 				return (NULL);
-			ft_strdel(&(datas->flags));
 		}
 	}
 	return (new);
