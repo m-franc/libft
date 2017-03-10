@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 18:13:03 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/10 19:17:56 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int		ft_n_arg_precision(t_datas *datas, int n, t_flags *flags, size_t *i)
 {
-	t_list	*valist;
+	va_list	copy;
+	int		star;
 
-	valist = datas->tmp_args;
-	while (n-- > 0 && valist)
-		valist = valist->next;
-	flags->precision = ft_atoi(valist->content);
+	va_copy(copy, datas->ap);
+	while (n-- > 0)
+		va_arg(copy, void *);
+	star = va_arg(copy, int);
+	va_end(copy);
+	flags->precision = star;
 	*i += ft_ilen(n, 10) + 2;
 	return (1);
 }
@@ -44,8 +47,7 @@ int		ft_arg_precision(t_datas *datas, char *strflag,
 		else
 			return (-1);
 	}
-	flags->precision = ft_atoi(datas->args->content);
-	datas->args = datas->args->next;
+	flags->precision = va_arg(datas->ap, int);
 	*i += 2;
 	return (1);
 }

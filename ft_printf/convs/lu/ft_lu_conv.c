@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:09 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 21:28:10 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/10 12:23:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 char	*ft_get_lu_conv(t_datas *datas)
 {
-	if (!(datas->result = ft_strjoin(datas->result, datas->args->content)))
+
+	unsigned long int	arg;
+	char				*argcvd;
+
+	arg = va_arg(datas->ap, unsigned long int);
+	if (!(argcvd = ft_uitoa(arg, 10, BASEUP)))
 		return (NULL);
-	datas->len += datas->args->content_size;
-	datas->args = datas->args->next;
+	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
+		return (NULL);
+	datas->len += ft_strlen(argcvd);
+	ft_strdel(&argcvd);
 	return (datas->result);
 }

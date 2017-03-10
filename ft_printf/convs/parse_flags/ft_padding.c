@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 19:35:56 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/10 19:55:59 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int		ft_n_arg_padding(t_datas *datas, int n, t_flags *flags, size_t *i)
 {
-	t_list	*valist;
+	va_list	copy;
+	int		star;
 
-	valist = datas->tmp_args;
-	while (n-- > 0 && valist)
-		valist = valist->next;
-	flags->padding = ft_atoi(valist->content);
+	va_copy(copy, datas->ap);
+	while (n-- > 0)
+		va_arg(copy, void *);
+	star = va_arg(copy, int);
+	va_end(copy);
+	flags->padding = star;
 	*i += ft_ilen(n, 10) + 1;
 	return (1);
 }
@@ -44,8 +47,7 @@ int		ft_arg_padding(t_datas *datas, char *strflag,
 		else
 			return (-1);
 	}
-	flags->padding = ft_atoi(datas->args->content);
-	datas->args = datas->args->next;
+	flags->padding = va_arg(datas->ap, int);
 	return (1);
 }
 

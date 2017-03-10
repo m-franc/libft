@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/09 15:47:18 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/10 19:43:12 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ t_get_convs	g_get_convs[] =
 	ft_get_c_conv, ft_get_lc_conv, ft_get_b_conv, ft_get_n_conv,
 	ft_get_percent_conv,
 };
+
+static char	*ft_exit(t_datas *datas)
+{
+	if (datas->result)
+		ft_strdel(&(datas->result));
+	if (datas->flags)
+		ft_strdel(&(datas->flags));
+	return (NULL);
+}
 
 char	*ft_get_lastdatas(t_datas *datas, char *buff)
 {
@@ -43,11 +52,11 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 		lastdatas = datas->result;
 	conv_index = ft_strspn(buff + 1, FLAGS);
 	if (buff[conv_index] == '\0')
-		return (NULL);
+		return (ft_exit(datas));
 	if (!(datas->flags = ft_strsub(buff, 1, conv_index)))
 		return (NULL);
 	if (!(ft_strchr(CONVS, buff[conv_index + 1])))
-		return (NULL);
+		return (ft_exit(datas));
 	i = -1;
 	while (CONVS && CONVS[++i] != buff[conv_index + 1])
 		;
@@ -55,7 +64,7 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 		return (NULL);
 	if (!(datas->result = g_get_convs[i](datas)))
 		return (NULL);
-	if (datas->result)
+	if (datas->result && buff[conv_index + 1] != 'n')
 		ft_strdel(&lastdatas);
 	return (datas->result);
 }

@@ -6,33 +6,22 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/09 20:23:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/10 18:54:55 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_datas_init(t_datas *datas, char *buff)
-{
-	datas->result = NULL;
-	datas->un_ord = 0;
-	datas->tmp_args = NULL;
-	if (!(datas->tmp_args = ft_get_argslist(datas, buff)))
-		return (-1);
-	datas->args = datas->tmp_args;
-	datas->flags = NULL;
-	datas->len = 0;
-	datas->cplen = 0;
-	return (0);
-}
-
 int		ft_launch_process(t_datas *datas, char *buff)
 {
-	if (ft_datas_init(datas, buff) == -1)
-		return (-1);
+	datas->result = NULL;
+	datas->flags = NULL;
+	datas->un_ord = 0;
+	datas->len = 0;
+	datas->cplen = 0;
 	if (!(datas->result = ft_fill_buff(datas, (char*)buff)))
 		return (-1);
-	ft_lstdel(&(datas->tmp_args));
+	va_end(datas->ap);
 	return (0);
 }
 

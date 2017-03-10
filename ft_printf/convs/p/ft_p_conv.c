@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:45 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 21:28:46 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/10 17:48:30 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 char	*ft_get_p_conv(t_datas *datas)
 {
-	if (!(datas->result = ft_strjoin(datas->result, datas->args->content)))
+	void	*arg;
+	char	*argcvd;
+
+	if (!(arg = va_arg(datas->ap, void*)))
 		return (NULL);
-	datas->len += datas->args->content_size;
-	datas->args = datas->args->next;
+	if (!(argcvd = ft_vtop(arg)))
+		return (NULL);
+	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
+		return (NULL);
+	datas->len += ft_strlen(argcvd);
+	ft_strdel(&argcvd);
 	return (datas->result);
 }

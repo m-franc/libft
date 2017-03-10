@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:51 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/02 21:28:52 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/10 17:59:20 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 char	*ft_get_percent_conv(t_datas *datas)
 {
-	if (!(datas->result = ft_strjoin(datas->result, datas->args->content)))
+	char			*argcvd;
+
+	if (!(argcvd = ft_straddchar(NULL, '%')))
 		return (NULL);
-	datas->len += datas->args->content_size;
-	datas->args = datas->args->next;
+	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
+		return (NULL);
+	datas->len += ft_strlen(argcvd);
+	ft_strdel(&argcvd);
 	return (datas->result);
 }
