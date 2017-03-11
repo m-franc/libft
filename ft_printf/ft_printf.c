@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/11 17:07:18 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/11 18:42:17 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ int		ft_printf(const char *buff, ...)
 	{
 		ft_putstr(buff);
 		return (ft_strlen(buff));
+	}
+	else if (buff[ft_strlen(buff) - 1] == '%')
+	{	
+		ft_putnstr(buff, (ft_strlen(buff) - 1));
+		return (ft_strlen(buff) - 1);
 	}
 	else
 	{
