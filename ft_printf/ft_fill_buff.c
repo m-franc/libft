@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/11 16:24:31 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/11 17:17:41 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 	conv_index = ft_strspn(buff + 1, FLAGS);
 	if (!(datas->flags = ft_strsub(buff, 1, conv_index)))
 		return (ft_exit(datas));
-	if (buff[conv_index + 1] == '\0')
-		return (ft_get_unconvdatas(datas, buff, 0));
+	ft_putchar(buff[conv_index + 1]);
 	if ((ft_flags_init(datas)) == -1)
 		return (ft_exit(datas));
 	if (!(ft_strchr(CONVS, buff[conv_index + 1])))
@@ -81,6 +80,7 @@ char	*ft_get_unconvdatas(t_datas *datas, char *buff, size_t o)
 	char	*ucvchar;
 	char	*lastdatas;
 
+	PSTR("CUCOU")
 	if (!(ucvchar = ft_strsub(buff, o, (ft_strlenuntil(buff + o, '%')))))
 		return (NULL);
 	if (!datas->result)

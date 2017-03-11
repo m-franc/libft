@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/11 16:24:05 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/11 17:07:18 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,21 @@ int		ft_launch_process(t_datas *datas, char *buff)
 int		ft_printf(const char *buff, ...)
 {
 	t_datas	datas;
+	char	*oo;
 
 	va_start(datas.ap, buff);
-	if ((ft_launch_process(&datas, (char *)buff)) == -1)
-		return (-1);
-	write(1, datas.result, datas.len);
-	return (datas.len + datas.cplen);
+	if (!(ft_strchr(buff, '%')))
+	{
+		ft_putstr(buff);
+		return (ft_strlen(buff));
+	}
+	else
+	{
+		if ((ft_launch_process(&datas, (char *)buff)) == -1)
+			return (-1);
+		oo = datas.result;
+		write(1, oo, datas.len);
+		ft_strdel(&oo);
+		return (datas.len + datas.cplen);	
+	}
 }
