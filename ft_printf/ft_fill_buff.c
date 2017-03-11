@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/11 18:35:02 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/11 20:09:49 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,12 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 	conv_index = ft_strspn(buff + 1, FLAGS);
 	if (!(datas->flags = ft_strsub(buff, 1, conv_index)))
 		return (ft_exit(datas));
-	if ((ft_flags_init(datas)) == -1)
+	if (ft_strchr(datas->flags, '$'))
+		datas->un_ord = 1;
+	if (!ft_strchr(datas->flags, '$') && datas->un_ord == 1)
 		return (ft_exit(datas));
-	if (buff[conv_index + 1] == '\0' || !(ft_strchr(CONVS, buff[conv_index + 1])))
+	if (buff[conv_index + 1] == '\0'
+			|| !(ft_strchr(CONVS, buff[conv_index + 1])))
 		return (ft_no_conv_manager(buff, datas, conv_index));
 	i = -1;
 	while (CONVS && CONVS[++i] != buff[conv_index + 1])
