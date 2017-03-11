@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:03 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/10 12:20:26 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/11 13:01:38 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_get_ls_conv(t_datas *datas)
 	{
 		if (!(argcvd = ft_wstrtoa(arg)))
 			return (NULL);	
-		datas->len += ft_wstrlen(argcvd);
+		datas->len += ft_wstrlen(arg);
 	}
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 		return (NULL);

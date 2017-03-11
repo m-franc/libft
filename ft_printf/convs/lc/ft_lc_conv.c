@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 19:21:02 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/10 11:42:15 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/11 16:03:30 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_get_lc_conv(t_datas *datas)
 		write(1, "\0", 1);
 		datas->len = 0;
 		if (!(datas->result = ft_strnew(0)))
-			return (NULL);
+			return (ft_exit(datas));
 		return (datas->result);
 	}
 	else

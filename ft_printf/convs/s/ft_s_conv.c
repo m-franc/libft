@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 20:06:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/10 18:03:20 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/11 16:24:29 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_get_s_conv(t_datas *datas)
 	char	*arg;
 
 	if (ft_strchr(datas->flags, 'l'))
-		return (ft_get_ls_arg(datas));
+		return (ft_get_ls_conv(datas));
 	arg = va_arg(datas->ap, char*);
 	if (arg == NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/10 11:40:14 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/11 15:52:28 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_get_c_conv(t_datas *datas)
 {
 	int				arg;
 
+	if (ft_strchr(datas->flags, 'l'))
+		return (ft_get_lc_conv(datas));
 	arg = va_arg(datas->ap, int);
 	if (arg == 0)
 	{
@@ -29,8 +31,6 @@ char	*ft_get_c_conv(t_datas *datas)
 	}
 	else
 	{
-		if (ft_strchr(datas->flags, 'l'))
-			return (ft_get_lc_conv(datas));
 		if (!(datas->result = ft_straddchar(datas->result, arg)))
 			return (NULL);
 		datas->len = ft_strlen(datas->result);
