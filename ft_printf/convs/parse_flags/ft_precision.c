@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/10 19:17:56 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/12 17:13:52 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,10 @@ int		ft_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		if (strflag[len + 1] == '$')
 			return (-1);
 		flags->precision = result;
-		*i += len;
+		*i += len + 1;
 		return (1);
 	}
-	return (0);
+	else 
+		flags->precision = 0;
+	return (1);
 }

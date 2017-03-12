@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/08 19:24:43 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/12 17:11:10 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ char				*ft_wctoa(wint_t uchar);
 char				*ft_wstrtoa(wchar_t *wstr);
 char				*ft_vtop(const void *value);
 void				ft_putnstr(const char *s, size_t n);
+void				ft_putstrcolor(char *str, char *color);
 void				ft_putendl(char const *s);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char const c, int fd);

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/11 20:01:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/12 19:39:13 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int					verif_dollar_star(t_list **tmp, char *fstr, size_t conv_index);
 int					ft_get_option(t_list **tmp, int stars, int option, t_datas *datas);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 char				*ft_exit(t_datas *datas);
+char				*ft_exit_conv(t_datas *datas, char *argcvd);
 char				*ft_fill_buff(t_datas *datas, char *buff);
 char				*ft_get_convdatas(t_datas *datas, char *buff);
 char				*ft_get_lastdatas(t_datas *datas, char *buff);
@@ -127,10 +128,13 @@ int					ft_n_arg_padding(t_datas *datas, int n, t_flags *flags, size_t *i);
 
 typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 
+
 // ====================================== d conv function ================================================
 char				*ft_launch_d_flags(t_datas *datas);
-
-
-typedef char		*(*t_d_flags)(t_datas *datas, t_flags *flags);
+int					ft_n_d(t_datas *datas, t_flags *flags);
+int					ft_d_space(char **argcvd, t_datas *datas, t_flags *flags);
+int					ft_d_precision(char **argcvd, t_datas *datas, t_flags *flags);
+int					ft_d_padding(char **argcvd, t_datas *datas, t_flags *flags);
+typedef int			(*t_d_flags)(char **argcvd, t_datas *datas, t_flags *flags);
 
 #endif
