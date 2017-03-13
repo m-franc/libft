@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 11:44:48 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 12:03:03 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 18:21:08 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,8 @@ t_get_flags	g_get_flags[] =
 	ft_space
 };
 
-int	ft_flags_init(t_datas *datas, t_flags *flags)
+static void	ft_prepare_init(t_flags *flags)
 {
-	size_t	i;
-	size_t	o;
-
-	i = 0;
 	flags->dollar = 0;
 	flags->precision = -1;
 	flags->less = 0;
@@ -37,15 +33,27 @@ int	ft_flags_init(t_datas *datas, t_flags *flags)
 	flags->plus = 0;
 	flags->space = 0;
 	flags->padding = 0;
-	while (datas->flags[i])
+}
+
+int			ft_flags_init(t_datas *datas, t_flags *flags)
+{
+	size_t	*i;
+	size_t	a;
+	size_t	o;
+
+	a = 0;
+	i = &a;
+	ft_prepare_init(flags);
+	while (datas->flags[*i])
 	{
 		o = 0;
 		while (o < 7)
 		{
-			if ((g_get_flags[o++](datas, datas->flags + i, flags, &i)) == -1)
+			if (ft_strspn(datas->flags + *i, "lhjz") > 0)
+				*i += 1;
+			if ((g_get_flags[o++](datas, datas->flags + *i, flags, i)) == -1)
 				return (-1);
 		}
-		i++;
 	}
 	return (0);
 }

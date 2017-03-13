@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/12 17:13:59 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 17:56:03 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		ft_arg_padding(t_datas *datas, char *strflag,
 		else
 			return (-1);
 	}
+	*i += 1;
 	flags->padding = va_arg(datas->ap, int);
 	return (1);
 }
@@ -65,9 +66,12 @@ int		ft_padding(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		result = ft_atoi(strflag);
 		len = ft_ilen(result, 10);
 		if (strflag[len] == '$')
+		{
+			*i += len + 1;
 			return (flags->dollar = result - 1);
+		}
 		flags->padding = result;
-		*i += len - 1;
+		*i += len;
 		return (1);
 	}
 	return (0);

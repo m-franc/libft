@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 12:15:27 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 18:57:31 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_n_arg_precision(t_datas *datas, int n, t_flags *flags, size_t *i)
 	star = va_arg(copy, int);
 	va_end(copy);
 	flags->precision = star;
-	*i += ft_ilen(n, 10) + 2;
+	*i += ft_ilen(n, 10) + 1;
 	return (1);
 }
 
@@ -48,7 +48,7 @@ int		ft_arg_precision(t_datas *datas, char *strflag,
 			return (-1);
 	}
 	flags->precision = va_arg(datas->ap, int);
-	*i += 2;
+	*i += 1;
 	return (1);
 }
 
@@ -60,6 +60,7 @@ int		ft_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 	if (strflag[0] != '.')
 		return (0);
 	flags->zero = 0;
+	*i += 1;
 	if (strflag[1] == '*')
 		return (ft_arg_precision(datas, strflag + 2, flags, i));
 	else if (strflag[1] >= '1' && strflag[1] <= '9')
@@ -69,7 +70,7 @@ int		ft_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		if (strflag[len + 1] == '$')
 			return (-1);
 		flags->precision = result;
-		*i += len + 1;
+		*i += len;
 		return (1);
 	}
 	else 

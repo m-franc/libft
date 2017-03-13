@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 12:17:25 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 18:39:16 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define CONVS 	"sSpdDioOuUxXcCbn%"
 # define MODIFS "hlhhlljz"
-# define FLAGS 	"#0123456789NRGYBPGD -+*$L.hlhhlljz"
+# define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
 
 
 typedef struct		s_datas
@@ -131,12 +131,15 @@ typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size
 
 // ====================================== d conv function ================================================
 char				*ft_launch_d_flags(t_datas *datas);
+char				*ft_launch_ld_flags(t_datas *datas);
 int					ft_n_d(t_datas *datas, t_flags *flags);
+long int			ft_n_ld(t_datas *datas, t_flags *flags);
 int					ft_d_space(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_zero(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_plus(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_precision(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_padding(char **argcvd, t_datas *datas, t_flags *flags);
-typedef int			(*t_d_flags)(char **argcvd, t_datas *datas, t_flags *flags);
+
+typedef int			(*t_flags_func)(char **argcvd, t_datas *datas, t_flags *flags);
 
 #endif
