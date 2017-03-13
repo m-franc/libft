@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/12 19:39:13 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 12:17:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size
 char				*ft_launch_d_flags(t_datas *datas);
 int					ft_n_d(t_datas *datas, t_flags *flags);
 int					ft_d_space(char **argcvd, t_datas *datas, t_flags *flags);
+int					ft_d_zero(char **argcvd, t_datas *datas, t_flags *flags);
+int					ft_d_plus(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_precision(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_padding(char **argcvd, t_datas *datas, t_flags *flags);
 typedef int			(*t_d_flags)(char **argcvd, t_datas *datas, t_flags *flags);

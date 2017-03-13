@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 11:44:48 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/12 17:13:29 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 12:03:03 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,5 @@ int	ft_flags_init(t_datas *datas, t_flags *flags)
 		}
 		i++;
 	}
-	ft_putstrcolor("VOICI LES FLAGS UTILISE : ", CYAN);
-	ENDL
-	PSTR("YA LA PRECISION : ")
-	PNBR(flags->precision)
-	PSTR("YA LE PADDING : ")
-	PNBR(flags->padding)
-	PSTR("YA LE DIESE : ")
-	PNBR(flags->diese)
-	PSTR("YA Le MOINS : ")
-	PNBR(flags->less)
-	PSTR("YA LE 0 : ")
-	PNBR(flags->zero)
-	PSTR("YA LESPACE : ")
-	PNBR(flags->space)
-	PSTR("YA LE PLUS: ")
-	PNBR(flags->plus)
-	ENDL
 	return (0);
 }

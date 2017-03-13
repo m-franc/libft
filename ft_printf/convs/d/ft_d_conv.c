@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 13:18:42 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/12 19:41:33 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 13:19:36 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_d_flags	g_d_flags[] = 
 {
-	ft_d_precision, ft_d_space, ft_d_padding,
+	ft_d_precision, ft_d_zero, ft_d_plus, ft_d_space, ft_d_padding,
 };
 
 int		ft_n_d(t_datas *datas, t_flags *flags)
@@ -50,7 +50,7 @@ char	*ft_launch_d_flags(t_datas *datas)
 		arg = (short)arg;
 	if (!(argcvd = ft_itoa(arg, 10, BASEUP)))
 		return (ft_exit_conv(datas, argcvd));
-	while (nb_flags < 3)
+	while (nb_flags < 5)
 	{
 		if ((g_d_flags[nb_flags++](&argcvd, datas, &flags)) == -1)
 			return (ft_exit_conv(datas, argcvd));

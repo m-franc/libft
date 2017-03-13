@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_num_precision.c                                 :+:      :+:    :+:   */
+/*   ft_d_plus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/12 15:27:31 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 12:32:31 by mfranc           ###   ########.fr       */
+/*   Created: 2017/03/12 19:29:22 by mfranc            #+#    #+#             */
+/*   Updated: 2017/03/13 12:09:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_d_padding(char **argcvd, t_datas *datas, t_flags *flags)
+int	ft_d_plus(char **argcvd, t_datas *datas, t_flags *flags)
 {
 	char	*tmp;
-	int		nb_o;
 
-	if (flags->padding == 0)
+	if (flags->plus == 0 || **argcvd == '-')
 		return (0);
-	nb_o = -1;
-	if (!(tmp = ft_strnew(flags->padding)))
+	if (!(tmp = ft_strnew(ft_strlen(*argcvd) + 1)))
 		return (-1);
-	if (flags->less == 1)
-	{
-		tmp = ft_strncpy(tmp, *argcvd, ft_strlen(*argcvd));	
-		nb_o = ft_strlen(*argcvd);
-		while (nb_o < flags->padding)
-			tmp[nb_o++] = ' ';
-		ft_strdel(argcvd);
-		*argcvd = tmp;
-		return (1);
-	}
-	while (++nb_o < ((flags->padding) - ((ft_strlen(*argcvd)))))
-		tmp[nb_o] = ' ';
+	tmp[0] = '+';
 	tmp = ft_strcat(tmp, *argcvd);
 	ft_strdel(argcvd);
 	*argcvd = tmp;
