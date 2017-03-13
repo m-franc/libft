@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   ft_o_diese.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 11:58:41 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 20:17:52 by mfranc           ###   ########.fr       */
+/*   Created: 2017/03/12 19:29:22 by mfranc            #+#    #+#             */
+/*   Updated: 2017/03/13 20:55:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_uitoa(unsigned long long n, int base, char *baselist)
+int	ft_o_diese(char **argcvd, t_datas *datas, t_flags *flags)
 {
-	size_t		len;
-	char	*result;
+	char	*tmp;
 
-	if (base >= 17 && base < 2)
-		return (NULL);
-	len = ft_uilen(n, base);
-	if (!(result = ft_strnew(len)))
-		return (NULL);
-	result[len--] = '\0';
-	while (n != 0)
-	{
-		result[len--] = baselist[n % base];
-		n /= base;
-	}
-	if (n == 0)
-		result[len] = baselist[n % base];
-	return (result);
+	if (flags->diese == 0 || **argcvd == '-')
+		return (0);
+	if (!(tmp = ft_strnew(ft_strlen(*argcvd) + 1)))
+		return (-1);
+	tmp[0] = '0';
+	tmp = ft_strcat(tmp, *argcvd);
+	ft_strdel(argcvd);
+	*argcvd = tmp;
+	return (1);
 }

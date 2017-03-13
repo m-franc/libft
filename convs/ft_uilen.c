@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:58:51 by mfranc            #+#    #+#             */
-/*   Updated: 2017/01/16 11:58:52 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 20:14:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_uilen(unsigned long long int n, int base)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (n == 0)

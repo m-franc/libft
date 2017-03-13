@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 18:39:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/13 20:43:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,31 +64,7 @@ int					ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff, t_list **
 int					ft_list_dont_exist(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
 int					ft_list_exist(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
 
-// get from args list
-/*t_list				*ft_get_s_arg(t_datas *datas);
-t_list				*ft_get_ls_arg(t_datas *datas);
-t_list				*ft_get_p_arg(t_datas *datas);
-t_list				*ft_get_d_arg(t_datas *datas);
-t_list				*ft_get_ld_arg(t_datas *datas);
-t_list				*ft_get_i_arg(t_datas *datas);
-t_list				*ft_get_o_arg(t_datas *datas);
-t_list				*ft_get_lo_arg(t_datas *datas);
-t_list				*ft_get_u_arg(t_datas *datas);
-t_list				*ft_get_lu_arg(t_datas *datas);
-t_list				*ft_get_x_arg(t_datas *datas);
-t_list				*ft_get_lx_arg(t_datas *datas);
-t_list				*ft_get_x_arg(t_datas *datas);
-t_list				*ft_get_lx_arg(t_datas *datas);
-t_list				*ft_get_c_arg(t_datas *datas);
-t_list				*ft_get_lc_arg(t_datas *datas);
-t_list				*ft_get_b_arg(t_datas *datas);
-t_list				*ft_get_n_arg(t_datas *datas);
-t_list				*ft_get_percent_arg(t_datas *datas);
-t_list				*ft_get_star(t_datas *datas);
-
-typedef t_list		*(*t_get_args)(t_datas *datas);
-*/
-//get conv from tlist
+//get conv from va_list
 char				*ft_get_s_conv(t_datas *datas);
 char				*ft_get_ls_conv(t_datas *datas);
 char				*ft_get_p_conv(t_datas *datas);
@@ -139,6 +115,12 @@ int					ft_d_zero(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_plus(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_precision(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_padding(char **argcvd, t_datas *datas, t_flags *flags);
+
+
+// ====================================== o conv function ================================================
+char				*ft_launch_o_flags(t_datas *datas);
+int					ft_n_o(t_datas *datas, t_flags *flags);
+int					ft_o_diese(char **argcvd, t_datas *datas, t_flags *flags);
 
 typedef int			(*t_flags_func)(char **argcvd, t_datas *datas, t_flags *flags);
 
