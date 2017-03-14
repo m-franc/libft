@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 19:29:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 20:55:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/14 15:53:26 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_o_diese(char **argcvd, t_datas *datas, t_flags *flags)
 {
 	char	*tmp;
 
-	if (flags->diese == 0 || **argcvd == '-')
+	if (flags->diese == 0 || flags->precision > ft_strlen(*argcvd))
 		return (0);
 	if (!(tmp = ft_strnew(ft_strlen(*argcvd) + 1)))
 		return (-1);

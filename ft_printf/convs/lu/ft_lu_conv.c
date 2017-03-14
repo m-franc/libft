@@ -5,21 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/02 21:28:09 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/10 12:23:25 by mfranc           ###   ########.fr       */
+/*   Created: 2017/03/02 21:27:49 by mfranc            #+#    #+#             */
+/*   Updated: 2017/03/14 17:38:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_lu_conv(t_datas *datas)
+t_flags_func	g_lu_flags[] =
 {
+	ft_d_precision, ft_d_zero, ft_d_padding,
+};
 
+unsigned long int			ft_n_lu(t_datas *datas, t_flags *flags)
+{
+	va_list				copy;
 	unsigned long int	arg;
-	char				*argcvd;
 
-	arg = va_arg(datas->ap, unsigned long int);
+	va_copy(copy, datas->ap);
+	while (flags->dollar-- > 0)
+		va_arg(copy, void *);
+	arg = va_arg(copy, unsigned long int);
+	va_end(copy);
+	return (arg);
+}
+
+static char					*ft_launch_lu_flags(t_datas *datas)
+{
+	char				*argcvd;
+	int					nb_flags;
+	unsigned long int	arg;
+	t_flags				flags;
+
+	if ((ft_flags_init(datas, &flags)) == -1)
+		return (ft_exit_conv(datas, argcvd));
+	nb_flags = 0;
+	if (datas->un_ord == 1)
+		arg = ft_n_lu(datas, &flags);
+	else
+		arg = va_arg(datas->ap, unsigned long int);
 	if (!(argcvd = ft_uitoa(arg, 10, BASEUP)))
+		return (ft_exit_conv(datas, argcvd));
+	while (nb_flags < 3)
+	{
+		if ((g_lu_flags[nb_flags++](&argcvd, datas, &flags)) == -1)
+			return (ft_exit_conv(datas, argcvd));
+	}
+	return (argcvd);
+}
+
+char			*ft_get_lu_conv(t_datas *datas)
+{
+	char		*argcvd;
+
+	if (!(argcvd = ft_launch_lu_flags(datas)))
 		return (NULL);
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 		return (NULL);

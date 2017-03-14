@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 20:43:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/14 17:37:37 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,7 @@ int					ft_n_arg_padding(t_datas *datas, int n, t_flags *flags, size_t *i);
 typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
 
 
-// ====================================== d conv function ================================================
-char				*ft_launch_d_flags(t_datas *datas);
-char				*ft_launch_ld_flags(t_datas *datas);
-int					ft_n_d(t_datas *datas, t_flags *flags);
-long int			ft_n_ld(t_datas *datas, t_flags *flags);
+// ====================================== d / nums flags function ================================================
 int					ft_d_space(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_zero(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_plus(char **argcvd, t_datas *datas, t_flags *flags);
@@ -117,10 +113,14 @@ int					ft_d_precision(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_padding(char **argcvd, t_datas *datas, t_flags *flags);
 
 
-// ====================================== o conv function ================================================
-char				*ft_launch_o_flags(t_datas *datas);
-int					ft_n_o(t_datas *datas, t_flags *flags);
+// ====================================== o flags function ================================================
 int					ft_o_diese(char **argcvd, t_datas *datas, t_flags *flags);
+
+unsigned int		ft_n_u(t_datas *datas, t_flags *flags);
+unsigned long int	ft_n_lu(t_datas *datas, t_flags *flags);
+// ====================================== x flags function ================================================
+int					ft_x_diese(char **argcvd, t_datas *datas, t_flags *flags);
+int					ft_lx_diese(char **argcvd, t_datas *datas, t_flags *flags);
 
 typedef int			(*t_flags_func)(char **argcvd, t_datas *datas, t_flags *flags);
 

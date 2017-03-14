@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:27:49 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 18:57:35 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/14 15:18:18 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_flags_func	g_ld_flags[] =
 	ft_d_precision, ft_d_zero, ft_d_plus, ft_d_space, ft_d_padding,
 };
 
-long int		ft_n_ld(t_datas *datas, t_flags *flags)
+static long int		ft_n_ld(t_datas *datas, t_flags *flags)
 {
 	va_list		copy;
 	long int	arg;
@@ -30,7 +30,7 @@ long int		ft_n_ld(t_datas *datas, t_flags *flags)
 	return (arg);
 }
 
-char			*ft_launch_ld_flags(t_datas *datas)
+static char			*ft_launch_ld_flags(t_datas *datas)
 {
 	char		*argcvd;
 	int			nb_flags;
@@ -54,9 +54,8 @@ char			*ft_launch_ld_flags(t_datas *datas)
 	return (argcvd);
 }
 
-char			*ft_get_ld_conv(t_datas *datas)
+char				*ft_get_ld_conv(t_datas *datas)
 {
-	long int	arg;
 	char		*argcvd;
 
 	if (!(argcvd = ft_launch_ld_flags(datas)))

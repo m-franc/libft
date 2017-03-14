@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 18:17:56 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/13 20:55:30 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/14 18:35:34 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ int	ft_diese(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		return (0);
 	else
 	{
-		if (flags->precision > 0)
-		{
-			*i += 1;
-			return (0);
-		}
 		flags->diese = 1;	
 		*i += 1;
 		return (1);
@@ -84,6 +79,7 @@ int	ft_space(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 			return (0);
 		}
 		flags->space = 1;	
+		*i += 1;
 		return (1);
 	}
 }
