@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 15:27:31 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/14 18:58:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/14 19:05:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_d_padding(char **argcvd, t_datas *datas, t_flags *flags)
 	char	*tmp;
 	int		nb_o;
 
-	if (flags->padding == 0 || ft_strlen(*argvcd) > datas->precision)
+	if (flags->padding == 0 || ft_strlen(*argcvd) > flags->padding)
 		return (0);
 	nb_o = -1;
 	if (!(tmp = ft_strnew(flags->padding)))
