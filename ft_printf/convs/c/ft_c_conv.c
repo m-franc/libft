@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 18:59:50 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/15 19:47:16 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_flags_func	g_c_flags[] =
 	ft_c_zero, ft_d_padding, ft_c_precision,
 };
 
-static char		*ft_launch_c_flags(char **argcvd,
+char			*ft_launch_c_flags(char **argcvd,
 		t_datas *datas, t_flags *flags)
 {
 	int			nb_flags;

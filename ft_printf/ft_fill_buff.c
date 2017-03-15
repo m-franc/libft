@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 18:27:59 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/15 19:53:05 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,21 @@ char	*ft_no_conv_manager(char *buff,
 {
 	char	*lastdatas;
 	char	*tmpsf;
+	t_flags	flags;
 
 	if (datas->result)
 		lastdatas = datas->result;
-	if (!(datas->result = ft_straddchar(datas->result, buff[conv_index + 1])))
-		return (ft_exit(datas));
+	if ((ft_flags_init(datas, &flags)) == -1)
+		return (NULL);
+	if (!(tmpsf = ft_straddchar(NULL, buff[conv_index + 1])))
+		return (NULL);
+	if (!(tmpsf = ft_launch_c_flags(&tmpsf, datas, &flags)))
+		return (ft_exit_conv(datas, tmpsf));
+	if (!(datas->result = ft_strjoin(datas->result, tmpsf)))
+		return (ft_exit_conv(datas, tmpsf));
 	if (datas->result)
 		ft_strdel(&lastdatas);
+	ft_strdel(&tmpsf);
 	datas->len = ft_strlen(datas->result);
 	return (datas->result);
 }
@@ -59,11 +67,11 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 		lastdatas = datas->result;
 	conv_index = ft_strspn(buff + 1, FLAGS);
 	if (!(datas->flags = ft_strsub(buff, 1, conv_index)))
-		return (ft_exit(datas));
+		return (NULL);
 	if (ft_strchr(datas->flags, '$'))
 		datas->un_ord = 1;
 	if (!ft_strchr(datas->flags, '$') && datas->un_ord == 1)
-		return (ft_exit(datas));
+		return (NULL);
 	if (buff[conv_index + 1] == '\0'
 			|| !(ft_strchr(CONVS, buff[conv_index + 1])))
 		return (ft_no_conv_manager(buff, datas, conv_index));
@@ -71,7 +79,7 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 	while (CONVS && CONVS[++i] != buff[conv_index + 1])
 		;
 	if (!(datas->result = g_get_convs[i](datas)))
-		return (ft_exit(datas));
+		return (NULL);
 	if (datas->result && buff[conv_index + 1] != 'n')
 		ft_strdel(&lastdatas);
 	return (datas->result);
