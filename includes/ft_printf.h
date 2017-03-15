@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/14 19:21:22 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/15 12:15:03 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,16 +111,21 @@ int					ft_d_zero(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_plus(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_precision(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_d_padding(char **argcvd, t_datas *datas, t_flags *flags);
-
+int					ft_n_d(t_datas *datas, t_flags *flags);
 
 // ====================================== o flags function ================================================
 int					ft_o_diese(char **argcvd, t_datas *datas, t_flags *flags);
 
+// ====================================== u flags function ================================================
 unsigned int		ft_n_u(t_datas *datas, t_flags *flags);
 unsigned long int	ft_n_lu(t_datas *datas, t_flags *flags);
+
 // ====================================== x flags function ================================================
 int					ft_x_diese(char **argcvd, t_datas *datas, t_flags *flags);
 int					ft_lx_diese(char **argcvd, t_datas *datas, t_flags *flags);
+
+// ====================================== o flags function ================================================
+void				ft_aff_nulchar(t_datas *datas);
 
 typedef int			(*t_flags_func)(char **argcvd, t_datas *datas, t_flags *flags);
 

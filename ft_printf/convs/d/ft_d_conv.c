@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 13:18:42 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/14 15:17:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/15 12:09:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_flags_func	g_d_flags[] =
 	ft_d_precision, ft_d_zero, ft_d_plus, ft_d_space, ft_d_padding,
 };
 
-static int	ft_n_d(t_datas *datas, t_flags *flags)
+int			ft_n_d(t_datas *datas, t_flags *flags)
 {
 	va_list	copy;
 	int		arg;

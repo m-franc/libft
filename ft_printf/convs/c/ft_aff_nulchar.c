@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_x_diese.c                                       :+:      :+:    :+:   */
+/*   ft_aff_nulchar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/14 16:01:23 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 10:58:28 by mfranc           ###   ########.fr       */
+/*   Created: 2017/03/15 12:13:05 by mfranc            #+#    #+#             */
+/*   Updated: 2017/03/15 12:13:33 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_x_diese(char **argcvd, t_datas *datas, t_flags *flags)
+static void	ft_aff_nulchar(t_datas *datas)
 {
-	char	*tmp;
-
-	if (flags->diese == 0)
-		return (0);
-	flags->precision -= 2;
-	if (!(tmp = ft_strnew(ft_strlen(*argcvd) + 2)))
-		return (-1);
-	tmp[0] = '0';
-	tmp[1] = 'x';
-	tmp = ft_strcat(tmp, *argcvd);
-	ft_strdel(argcvd);
-	*argcvd = tmp;
-	return (1);
+	datas->cplen = datas->len + datas->cplen + 1;
+	write(1, datas->result, datas->len);
+	write(1, "\0", 1);
+	datas->len = 0;
 }
