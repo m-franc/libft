@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/03/14 19:48:48 by mfranc           ###   ########.fr        #
+#    Updated: 2017/03/15 12:47:17 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,7 +150,8 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/convs/d/ft_d_zero.c	\
 		ft_printf/convs/o/ft_o_diese.c	\
 		ft_printf/convs/x/ft_x_diese.c	\
-		ft_printf/convs/lx/ft_lx_diese.c
+		ft_printf/convs/lx/ft_lx_diese.c	\
+		ft_printf/convs/c/ft_aff_nulchar.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 

@@ -6,19 +6,37 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 12:30:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/15 12:46:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*ft_c_exist(t_datas *datas, t_flags *flags, int arg)
+t_flags_func	g_c_flags[] = 
 {
-	char	*argcvd;
+	ft_d_zero, ft_d_padding
+};
+
+static char		*ft_launch_c_flags(char **argcvd, t_datas *datas, t_flags *flags)
+{
+	int			nb_flags;
+
+	nb_flags = 0;
+	while (nb_flags < 2)
+	{
+		if ((g_c_flags[nb_flags](argcvd, datas, flags)) == -1)
+			return (NULL);
+	}
+	return (*argcvd);
+}
+
+static char		*ft_c_exist(t_datas *datas, t_flags *flags, int arg)
+{
+	char		*argcvd;
 
 	if (!(argcvd = ft_straddchar(NULL, arg)))
 		return (NULL);
-	if (!(argcvd = ft_launch_c_flags(datas, &argcvd, flags)))
+	if (!(argcvd = ft_launch_c_flags(&argcvd, datas, flags)))
 		return (NULL);
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 		return (NULL);
@@ -27,16 +45,16 @@ static char	*ft_c_exist(t_datas *datas, t_flags *flags, int arg)
 	return (datas->result);
 }
 
-static char	*ft_c_dont_exist(t_datas *datas, t_flags *flags, int arg)
+static char		*ft_c_dont_exist(t_datas *datas, t_flags *flags, int arg)
 {
-	char	*argcvd;
+	char		*argcvd;
 
 	if (!(argcvd = ft_straddchar(NULL, arg)))
 		return (NULL);
 	if (flags->less == 1)
 	{
 		ft_aff_nulchar(datas);
-		if (!(argcvd = ft_launch_c_flags(datas, &argcvd, flags)))
+		if (!(argcvd = ft_launch_c_flags(&argcvd, datas, flags)))
 			return (NULL);
 		if (!(datas->result = ft_strdup(argcvd)))
 			return (NULL);
@@ -44,7 +62,7 @@ static char	*ft_c_dont_exist(t_datas *datas, t_flags *flags, int arg)
 	}
 	else
 	{
-		if (!(argcvd = ft_launch_c_flags(datas, &argcvd, flags)))
+		if (!(argcvd = ft_launch_c_flags(&argcvd, datas, flags)))
 			return (NULL);
 		if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 			return (NULL);
@@ -56,10 +74,10 @@ static char	*ft_c_dont_exist(t_datas *datas, t_flags *flags, int arg)
 	return (datas->result);
 }
 
-static char	*ft_prepare_c_conv(t_datas *datas)
+static char		*ft_prepare_c_conv(t_datas *datas)
 {
-	t_flags	flags;
-	int		arg;
+	t_flags		flags;
+	int			arg;
 
 	if ((ft_flags_init(datas, &flags)) == -1)
 		return (NULL);
@@ -80,9 +98,9 @@ static char	*ft_prepare_c_conv(t_datas *datas)
 	return (datas->result);
 }
 
-char		*ft_get_c_conv(t_datas *datas)
+char			*ft_get_c_conv(t_datas *datas)
 {
-	char	*argcvd;
+	char		*argcvd;
 
 	if (ft_strchr(datas->flags, 'l'))
 		return (ft_get_lc_conv(datas));
