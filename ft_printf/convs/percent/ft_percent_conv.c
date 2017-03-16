@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_percent_conv.c                                  :+:      :+:    :+:   */
+/*   ft_c_conv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/02 21:28:51 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/10 17:59:20 by mfranc           ###   ########.fr       */
+/*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
+/*   Updated: 2017/03/16 12:17:18 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_percent_conv(t_datas *datas)
+char			*ft_get_percent_conv(t_datas *datas)
 {
-	char			*argcvd;
+	char		*argcvd;
+	t_flags		flags;
 
 	if (!(argcvd = ft_straddchar(NULL, '%')))
 		return (NULL);
-	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
+	if ((ft_flags_init(datas, &flags)) == -1)
 		return (NULL);
-	datas->len += ft_strlen(argcvd);
+	if (!(argcvd = ft_launch_c_flags(&argcvd, datas, &flags)))
+		return (ft_exit_conv(datas, argcvd));
+	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
+		return (ft_exit_conv(datas, argcvd));
+	datas->len = ft_strlen(datas->result);
 	ft_strdel(&argcvd);
 	return (datas->result);
 }
+
