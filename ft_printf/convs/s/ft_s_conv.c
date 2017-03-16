@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 20:06:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 15:14:08 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/16 15:41:56 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char		*ft_launch_s_flags(char **argcvd,
 	}
 	return (*argcvd);
 }
-
 
 char		*ft_n_s(t_datas *datas, t_flags *flags)
 {

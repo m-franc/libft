@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 17:48:03 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/16 20:42:50 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_launch_process(t_datas *datas, char *buff)
 	datas->un_ord = 0;
 	datas->len = 0;
 	datas->cplen = 0;
+	datas->pointer = 0;
 	if (!(datas->result = ft_fill_buff(datas, (char*)buff)))
 		return (-1);
 	va_end(datas->ap);

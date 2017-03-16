@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 15:23:27 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/16 20:42:53 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct		s_datas
 	int				len;
 	int				cplen;
 	int				un_ord;
+	int				pointer;
 }					t_datas;
 
 typedef struct		s_flags
@@ -134,6 +135,7 @@ int					ft_c_precision(char **argcvd, t_datas *datas, t_flags *flags);
 // ====================================== s functions ====================================
 char				*ft_n_s(t_datas *datas, t_flags *flags);
 int					ft_s_precision(char **argcvd, t_datas *datas, t_flags *flags);
+int					ft_ls_precision(char **argcvd, t_datas *datas, t_flags *flags);
 typedef int			(*t_flags_func)(char **argcvd, t_datas *datas, t_flags *flags);
 
 

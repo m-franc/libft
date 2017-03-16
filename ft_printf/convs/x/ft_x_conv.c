@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 18:15:27 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/16 20:42:51 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static char				*ft_get_long_x(t_datas *datas, t_flags *flags)
 		arg = va_arg(datas->ap, unsigned long int);
 	if (!(argcvd = ft_uitoa(arg, 16, BASELW)))
 		return (NULL);
+	if (datas->pointer == 1)
+		flags->diese = 1;
 	return (argcvd);
 }
 
@@ -59,7 +61,7 @@ static char				*ft_launch_x_flags(t_datas *datas)
 		return (ft_exit_conv(datas, argcvd));
 	nb_flags = 0;
 	if (ft_strchr(datas->flags, 'z') || ft_strchr(datas->flags, 'j')
-			|| ft_strchr(datas->flags, 'l'))
+			|| ft_strchr(datas->flags, 'l') || datas->pointer == 1)
 	{
 		if (!(argcvd = ft_get_long_x(datas, &flags)))
 			return (ft_exit_conv(datas, argcvd));
