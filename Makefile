@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/03/16 20:33:45 by mfranc           ###   ########.fr        #
+#    Updated: 2017/03/16 21:34:40 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,6 +131,7 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/convs/lu/ft_lu_conv.c	\
 		ft_printf/convs/x/ft_x_conv.c	\
 		ft_printf/convs/lx/ft_lx_conv.c	\
+		ft_printf/convs/w/ft_w_conv.c	\
 		ft_printf/convs/c/ft_c_conv.c	\
 		ft_printf/convs/lc/ft_lc_conv.c	\
 		ft_printf/convs/b/ft_b_conv.c	\

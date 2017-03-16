@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 12:36:58 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 20:02:08 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/16 21:55:20 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int			ft_ls_precision(char **argcvd, t_datas *datas, t_flags *flags)
 
 	if (flags->precision == -1 || flags->precision >= ft_strlen(*argcvd))
 		return (0);
-//	wihile (argcvd[0][flags->precision] & 0x)
+//	while (!(argcvd[0][flags->precision] & 0xF0)
+//			|| !(argcvd[0][flags->precision] & 0xE0)
+//			|| !(argcvd[0][flags->precision] & 0xC0))
+//	while (argcvd[0][flags->precision] & 0x80)
 //	{
 //		PSTR("LOCTET : ")
 //		ft_putbits(&argcvd[0][flags->precision], 1);

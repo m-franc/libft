@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 20:00:17 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/16 22:04:57 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_get_convs	g_get_convs[] =
 	ft_get_s_conv, ft_get_ls_conv, ft_get_p_conv, ft_get_d_conv,
 	ft_get_ld_conv, ft_get_d_conv, ft_get_o_conv, ft_get_lo_conv,
 	ft_get_u_conv, ft_get_lu_conv, ft_get_x_conv, ft_get_lx_conv,
-	ft_get_c_conv, ft_get_lc_conv, ft_get_b_conv, ft_get_n_conv,
-	ft_get_percent_conv,
+	ft_get_w_conv, ft_get_c_conv, ft_get_lc_conv, ft_get_b_conv,
+	ft_get_n_conv, ft_get_percent_conv,
 };
 
 char	*ft_get_lastdatas(t_datas *datas, char *buff)
@@ -80,8 +80,9 @@ char	*ft_get_convdatas(t_datas *datas, char *buff)
 		;
 	if (!(datas->result = g_get_convs[i](datas)))
 		return (NULL);
-	if (datas->result && buff[conv_index + 1] != 'n')
-		ft_strdel(&lastdatas);
+//	if (datas->result && (buff[conv_index + 1] != 'n'
+//				|| buff[conv_index + 1] != 'w'))
+//		ft_strdel(&lastdatas);
 	return (datas->result);
 }
 

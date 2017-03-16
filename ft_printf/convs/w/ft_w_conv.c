@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_n_conv.c                                        :+:      :+:    :+:   */
+/*   ft_w_conv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/02 21:28:27 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 21:39:33 by mfranc           ###   ########.fr       */
+/*   Created: 2017/03/16 21:32:24 by mfranc            #+#    #+#             */
+/*   Updated: 2017/03/16 22:01:13 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_n_conv(t_datas *datas)
+char	*ft_get_w_conv(t_datas *datas)
 {
-	int		*cp_len;
+	va_list	cpy;
+	int		fd;
+	t_flags	flags;
 
-	if (!(cp_len = va_arg(datas->ap, int*)))
+	if ((ft_flags_init(datas, &flags)) == -1)
 		return (NULL);
-	datas->tmp_len = cp_len;
-	*datas->tmp_len = datas->len;
+	if (datas->un_ord == 1)
+	{
+		va_copy(cpy, datas->ap);
+		while (flags.dollar-- > 0)
+			va_arg(cpy, void *);
+		fd = va_arg(cpy, int);
+		va_end(cpy);
+	}
+	else
+		fd = va_arg(datas->ap, int);
+	datas->fd = fd;
 	return (datas->result);
 }

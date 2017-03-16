@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 20:42:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/16 21:34:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "libft.h"
 # include "color.h"
 
-# define CONVS 	"sSpdDioOuUxXcCbn%"
+# define CONVS 	"sSpdDioOuUxXwcCbn%"
 # define MODIFS "hlhhlljz"
 # define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
 
@@ -32,6 +32,7 @@ typedef struct		s_datas
 	int				cplen;
 	int				un_ord;
 	int				pointer;
+	int				fd;
 }					t_datas;
 
 typedef struct		s_flags
@@ -78,8 +79,7 @@ char				*ft_get_u_conv(t_datas *datas);
 char				*ft_get_lu_conv(t_datas *datas);
 char				*ft_get_x_conv(t_datas *datas);
 char				*ft_get_lx_conv(t_datas *datas);
-char				*ft_get_x_conv(t_datas *datas);
-char				*ft_get_lx_conv(t_datas *datas);
+char				*ft_get_w_conv(t_datas *datas);
 char				*ft_get_c_conv(t_datas *datas);
 char				*ft_get_lc_conv(t_datas *datas);
 char				*ft_get_b_conv(t_datas *datas);
