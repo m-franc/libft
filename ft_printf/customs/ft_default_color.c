@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_s_precision.c                                   :+:      :+:    :+:   */
+/*   ft_default_color.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/16 12:36:58 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 19:34:17 by mfranc           ###   ########.fr       */
+/*   Created: 2017/03/17 16:08:08 by mfranc            #+#    #+#             */
+/*   Updated: 2017/03/17 19:34:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_s_precision(char **argcvd, t_datas *datas, t_flags *flags)
+int			ft_default_color(char **s, char *buffpc, int *i)
 {
-	char	*tmp;
+	char	*d;
+	char	*new;
+	char	*color;
 
-	if (flags->precision == -1 || flags->precision >= ft_strlen(*argcvd))
-		return (0);
-	if (!(tmp = ft_strsub(*argcvd, 0, flags->precision)))
+	if (!(d = ft_strdup("{eoc}")))
 		return (-1);
-	ft_strdel(argcvd);
-	*argcvd = tmp;
+	if (!(ft_strnstr(*s + *i, d, ft_strlen(d))))
+		return (ft_exit_color(d));
+	if (!(color = ft_strjoin(buffpc, DEFAULT)))
+		return (-1);
+	*i += ft_strlen(d);
+	if (!(new = ft_strjoin(color, (*s + *i))))
+		return (-1);
+	ft_strdel(&d);
+	ft_strdel(s);
+	ft_strdel(&color);
+	ft_strdel(&buffpc);
+	*s = new;
 	return (1);
 }

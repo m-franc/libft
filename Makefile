@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/03/17 12:58:56 by mfranc           ###   ########.fr        #
+#    Updated: 2017/03/17 18:12:44 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,7 +157,9 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/convs/c/ft_c_precision.c	\
 		ft_printf/convs/ls/ft_ls_precision.c	\
 		ft_printf/ft_last_datasmanager.c	\
-		ft_printf/ft_buff_customer.c
+		ft_printf/customs/ft_buff_customer.c	\
+		ft_printf/customs/ft_default_color.c	\
+		ft_printf/customs/ft_blue.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 
