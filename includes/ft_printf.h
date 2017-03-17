@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 11:44:51 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/17 12:50:13 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,13 @@ int					verif_dollar_star(t_list **tmp, char *fstr, size_t conv_index);
 int					ft_get_option(t_list **tmp, int stars, int option, t_datas *datas);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 void				ft_last_datasmanager(t_datas *datas, char conv, char **lastdatas);
+int					ft_buff_customer(char **ucvchar);
 char				*ft_exit(t_datas *datas);
 char				*ft_exit_conv(t_datas *datas, char *argcvd);
 char				*ft_fill_buff(t_datas *datas, char *buff);
 int					ft_get_convdatas(t_datas *datas, char *buff);
 char				*ft_get_lastdatas(t_datas *datas, char *buff);
 int					ft_flags_init(t_datas *datas, t_flags *flags);
-int					ft_get_star_arg(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
-int					ft_list_dont_exist(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
-int					ft_list_exist(t_datas *datas, size_t conv_index, char *buff, t_list **tmp);
 
 //get conv from va_list
 char				*ft_get_s_conv(t_datas *datas);

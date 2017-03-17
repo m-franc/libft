@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 11:47:14 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/17 12:10:06 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ char	*ft_get_unconvdatas(t_datas *datas, char *buff, size_t o)
 	char	*lastdatas;
 
 	if (!(ucvchar = ft_strsub(buff, o, (ft_strlenuntil(buff + o, '%')))))
+		return (NULL);
+	if ((ft_buff_customer(ucvchar)) == -1)
 		return (NULL);
 	if (!datas->result)
 	{
