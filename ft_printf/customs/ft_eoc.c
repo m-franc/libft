@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:08:08 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 19:39:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/17 20:16:51 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			ft_eoc(char **s, char *buffpc, int *i)
 		return (-1);
 	if (!(ft_strnstr(*s + *i, eoc, ft_strlen(eoc))))
 		return (ft_exit_color(eoc));
-	if (!(color = ft_strjoin(buffpc, DEFAULT)))
+	if (!(color = ft_strjoin(buffpc, EOC)))
 		return (-1);
 	*i += ft_strlen(eoc);
 	if (!(new = ft_strjoin(color, (*s + *i))))

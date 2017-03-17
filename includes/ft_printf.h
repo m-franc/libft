@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 19:55:43 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/17 20:15:40 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include "libft.h"
-# include "color.h"
+# include "custom.h"
 
 # define CONVS 	"sSpdDioOuUxXwcCbn%"
 # define MODIFS "hlhhlljz"
