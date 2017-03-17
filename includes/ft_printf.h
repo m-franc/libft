@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 19:33:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/17 19:55:43 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,14 @@ int					ft_flags_init(t_datas *datas, t_flags *flags);
 int					ft_buff_customer(char **ucvchar);
 
 int					ft_blue(char **s, char *buffpc, int *i);
-int					ft_default_color(char **s, char *buffpc, int *i);
+int					ft_red(char **s, char *buffpc, int *i);
+int					ft_green(char **s, char *buffpc, int *i);
+int					ft_black(char **s, char *buffpc, int *i);
+int					ft_yellow(char **s, char *buffpc, int *i);
+int					ft_purple(char **s, char *buffpc, int *i);
+int					ft_cyan(char **s, char *buffpc, int *i);
+int					ft_grey(char **s, char *buffpc, int *i);
+int					ft_eoc(char **s, char *buffpc, int *i);
 int					ft_exit_color(char *color);
 
 typedef int			(*t_customs)(char **s, char *buffpc, int *i);

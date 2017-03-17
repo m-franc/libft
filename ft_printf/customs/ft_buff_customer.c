@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 12:10:33 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 19:33:30 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/17 19:56:33 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 t_customs	g_customs[] = 
 {
-	ft_blue, ft_default_color,
+	ft_blue, ft_red, ft_black, ft_purple, ft_cyan,
+	ft_yellow, ft_green, ft_grey, ft_eoc,
 };
 
 int			ft_exit_color(char *color)
@@ -32,7 +33,7 @@ static int	ft_find_custom(char **s, int *i)
 	j = 0;
 	if (!(buffpc = ft_strsub(*s, 0, *i)))
 		return (-1);
-	while (j < 2)
+	while (j < 9)
 	{
 		process = g_customs[j](s, buffpc, i);
 		if (process == -1)
