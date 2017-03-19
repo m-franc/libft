@@ -131,11 +131,11 @@ char	*ft_fill_buff(t_datas *datas, char *buff)
 			o = i + 1;
 			ft_strdel(&(datas->flags));
 		}
-		else if (!(ft_strchr(buff + i, '%')))
+		else if ((!(ft_strchr(buff + i, '%')))
+			&& i == (ft_strlen(buff) - 1))
 		{
 			if (!(datas->result = ft_get_lastdatas(datas, buff + i)))
 				return (ft_exit(datas));
-			break ;
 		}
 	}
 	return (datas->result);

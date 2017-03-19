@@ -53,7 +53,7 @@ int		ft_printf(const char *buff, ...)
 			return (-1);
 		oo = datas.result;
 		write(datas.fd, oo, datas.len);
-		ft_strdel(&oo);
+		ft_strdel(&oo);	
 		return (datas.len + datas.cplen);	
 	}
 }
