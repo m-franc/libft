@@ -77,6 +77,15 @@ int					ft_purple(char **s, char *buffpc, int *i);
 int					ft_cyan(char **s, char *buffpc, int *i);
 int					ft_grey(char **s, char *buffpc, int *i);
 int					ft_eoc(char **s, char *buffpc, int *i);
+int					ft_bold(char **s, char *buffpc, int *i);
+int					ft_dim(char **s, char *buffpc, int *i);
+int					ft_eos(char **s, char *buffpc, int *i);
+int					ft_underlined(char **s, char *buffpc, int *i);
+int					ft_blink(char **s, char *buffpc, int *i);
+int					ft_reverse(char **s, char *buffpc, int *i);
+int					ft_reverse(char **s, char *buffpc, int *i);
+int					ft_italic(char **s, char *buffpc, int *i);
+int					ft_hidden(char **s, char *buffpc, int *i);
 int					ft_exit_color(char *color);
 
 typedef int			(*t_customs)(char **s, char *buffpc, int *i);

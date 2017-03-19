@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "color.h"
+#include "custom.h"
 
 void	ft_putstrcolor(char *str, char *color)
 {
 	ft_putstr(color);
 	ft_putstr(str);
-	ft_putstr(DEFAULT);
+	ft_putstr(EOC);
 }

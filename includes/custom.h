@@ -26,7 +26,8 @@
 
 # define BOLD     		"\e[1m"
 # define DIM      		"\e[2m"
-# define UNDERLINED     "\e[4m"
+# define ITALIC     		"\e[3m"
+# define UNDERLINED     	"\e[4m"
 # define BLINK     		"\e[5m"
 # define REVERSE   		"\e[7m"
 # define HIDDEN    		"\e[8m"

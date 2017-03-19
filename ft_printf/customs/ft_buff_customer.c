@@ -15,7 +15,9 @@
 t_customs	g_customs[] = 
 {
 	ft_blue, ft_red, ft_black, ft_purple, ft_cyan,
-	ft_yellow, ft_green, ft_grey, ft_eoc,
+	ft_yellow, ft_green, ft_grey, ft_eoc, ft_bold,
+	ft_dim, ft_underlined, ft_blink, ft_reverse,
+	ft_hidden, ft_italic, ft_eos,
 };
 
 int			ft_exit_color(char *color)
@@ -33,7 +35,7 @@ static int	ft_find_custom(char **s, int *i)
 	j = 0;
 	if (!(buffpc = ft_strsub(*s, 0, *i)))
 		return (-1);
-	while (j < 9)
+	while (j < 17)
 	{
 		process = g_customs[j](s, buffpc, i);
 		if (process == -1)

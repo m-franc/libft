@@ -166,7 +166,15 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/customs/ft_purple.c	\
 		ft_printf/customs/ft_cyan.c	\
 		ft_printf/customs/ft_grey.c	\
-		ft_printf/customs/ft_blue.c
+		ft_printf/customs/ft_blue.c	\
+		ft_printf/customs/ft_bold.c	\
+		ft_printf/customs/ft_dim.c	\
+		ft_printf/customs/ft_eos.c	\
+		ft_printf/customs/ft_underlined.c	\
+		ft_printf/customs/ft_blink.c	\
+		ft_printf/customs/ft_reverse.c	\
+		ft_printf/customs/ft_hidden.c	\
+		ft_printf/customs/ft_italic.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 
