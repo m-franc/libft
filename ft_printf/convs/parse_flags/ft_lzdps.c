@@ -75,7 +75,10 @@ int	ft_space(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 {
 	(void)datas;
 	if (strflag[0] != ' ')
+	{
+		*i += 1;
 		return (0);
+	}
 	else
 	{
 		if (flags->plus == 1)
