@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int			ft_lx_diese(char **argcvd, t_datas *datas, t_flags *flags)
+int			ft_lx_diese(char **argcvd, t_flags *flags)
 {
 	char	*tmp;
 

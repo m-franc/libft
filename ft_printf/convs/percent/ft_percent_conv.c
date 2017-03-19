@@ -21,7 +21,7 @@ char			*ft_get_percent_conv(t_datas *datas)
 		return (NULL);
 	if ((ft_flags_init(datas, &flags)) == -1)
 		return (NULL);
-	if (!(argcvd = ft_launch_c_flags(&argcvd, datas, &flags)))
+	if (!(argcvd = ft_launch_c_flags(&argcvd, &flags)))
 		return (ft_exit_conv(datas, argcvd));
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 		return (ft_exit_conv(datas, argcvd));

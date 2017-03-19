@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_d_zero(char **argcvd, t_datas *datas, t_flags *flags)
+int	ft_d_zero(char **argcvd, t_flags *flags)
 {
 	if (flags->zero == 0 || flags->padding == 0 || flags->precision != -1)
 		return (0);
@@ -20,11 +20,11 @@ int	ft_d_zero(char **argcvd, t_datas *datas, t_flags *flags)
 	{
 		flags->precision = flags->padding;
 		flags->padding = 0;
-		return (ft_d_precision(argcvd, datas, flags));
+		return (ft_d_precision(argcvd, flags));
 	}
 }
 
-int	ft_c_zero(char **argcvd, t_datas *datas, t_flags *flags)
+int	ft_c_zero(char **argcvd, t_flags *flags)
 {
 	if (flags->zero == 0 || flags->padding == 0)
 		return (0);
@@ -32,6 +32,6 @@ int	ft_c_zero(char **argcvd, t_datas *datas, t_flags *flags)
 	{
 		flags->precision = flags->padding;
 		flags->padding = 0;
-		return (ft_c_precision(argcvd, datas, flags));
+		return (ft_c_precision(argcvd, flags));
 	}
 }

@@ -16,7 +16,7 @@ char				*ft_vtob(const void *c, size_t size)
 {
 	unsigned char	msq;
 	char			*result;
-	int				i;
+	size_t				i;
 	size_t			o;
 
 	i = 0;

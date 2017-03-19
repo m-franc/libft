@@ -37,6 +37,7 @@ static char	*ft_launch_d_flags(t_datas *datas)
 	int		arg;
 	t_flags	flags;
 
+	argcvd = NULL;
 	if ((ft_flags_init(datas, &flags)) == -1)
 		return (ft_exit_conv(datas, argcvd));
 	nb_flags = 0;
@@ -52,7 +53,7 @@ static char	*ft_launch_d_flags(t_datas *datas)
 		return (ft_exit_conv(datas, argcvd));
 	while (nb_flags < 5)
 	{
-		if ((g_d_flags[nb_flags++](&argcvd, datas, &flags)) == -1)
+		if ((g_d_flags[nb_flags++](&argcvd, &flags)) == -1)
 			return (ft_exit_conv(datas, argcvd));
 	}
 	return (argcvd);

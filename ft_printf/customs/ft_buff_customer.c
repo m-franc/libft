@@ -51,7 +51,6 @@ static int	ft_find_custom(char **s, int *i)
 int			ft_buff_customer(char **ucvchar)
 {
 	int		i;
-	char	*tmp;
 
 	if (!(ft_strchr(ucvchar[0], '{')))
 		return (0);

@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
-CC = gcc
+CC = gcc $(FLAGS)
 
 INCLUDES = includes
 

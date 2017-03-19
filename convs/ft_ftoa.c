@@ -42,8 +42,8 @@ static char	*ft_get_precision(long double n, int base, char *bl)
 {
 	char	*sec;
 	char	*cp;
-	int		i;
 
+	sec = NULL;
 	if (n == 0)
 	{
 		if (!(sec = ft_zero_precision(sec)))

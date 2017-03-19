@@ -17,15 +17,14 @@ t_flags_func	g_ls_flags[] =
 	ft_ls_precision, ft_c_zero, ft_d_padding
 };
 
-static char	*ft_launch_ls_flags(char **argcvd,
-		t_datas *datas, t_flags *flags)
+static char	*ft_launch_ls_flags(char **argcvd, t_flags *flags)
 {
 	int			nb_flags;
 
 	nb_flags = 0;
 	while (nb_flags < 3)
 	{
-		if ((g_ls_flags[nb_flags++](argcvd, datas, flags)) == -1)
+		if ((g_ls_flags[nb_flags++](argcvd, flags)) == -1)
 			return (NULL);
 	}
 	return (*argcvd);
@@ -63,7 +62,7 @@ char		*ft_get_ls_conv(t_datas *datas)
 		arg = va_arg(datas->ap, wchar_t *);
 	if (!(argcvd = ft_get_argcvd(&arg)))
 		return (NULL);
-	if (!(argcvd = ft_launch_ls_flags(&argcvd, datas, &flags)))
+	if (!(argcvd = ft_launch_ls_flags(&argcvd, &flags)))
 		return (ft_exit_conv(datas, argcvd));
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 		return (ft_exit_conv(datas, argcvd));

@@ -50,7 +50,7 @@ int	ft_no_conv_manager(char *buff,
 		return (-1);
 	if (!(tmpsf = ft_straddchar(NULL, buff[conv_index + 1])))
 		return (-1);
-	if (!(tmpsf = ft_launch_c_flags(&tmpsf, datas, &flags)))
+	if (!(tmpsf = ft_launch_c_flags(&tmpsf, &flags)))
 		return (-1);
 	if (!(datas->result = ft_strjoin(datas->result, tmpsf)))
 		return (-1);

@@ -12,11 +12,11 @@
 
 #include "ft_printf.h"
 
-int	ft_o_diese(char **argcvd, t_datas *datas, t_flags *flags)
+int	ft_o_diese(char **argcvd, t_flags *flags)
 {
 	char	*tmp;
 
-	if (flags->diese == 0 || flags->precision > ft_strlen(*argcvd))
+	if (flags->diese == 0 || flags->precision > (int)ft_strlen(*argcvd))
 		return (0);
 	if (!(tmp = ft_strnew(ft_strlen(*argcvd) + 1)))
 		return (-1);

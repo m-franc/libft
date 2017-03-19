@@ -12,11 +12,12 @@
 
 #include "ft_printf.h"
 
-int			ft_s_precision(char **argcvd, t_datas *datas, t_flags *flags)
+int			ft_s_precision(char **argcvd, t_flags *flags)
 {
 	char	*tmp;
 
-	if (flags->precision == -1 || flags->precision >= ft_strlen(*argcvd))
+	if (flags->precision == -1
+	|| flags->precision >= (int)ft_strlen(*argcvd))
 		return (0);
 	if (!(tmp = ft_strsub(*argcvd, 0, flags->precision)))
 		return (-1);

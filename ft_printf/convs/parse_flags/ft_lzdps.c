@@ -14,6 +14,7 @@
 
 int	ft_less(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 {
+	(void)datas;
 	if (strflag[0] != '-')
 		return (0);	
 	else
@@ -27,6 +28,7 @@ int	ft_less(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 
 int	ft_zero(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 {
+	(void)datas;
 	if (strflag[0] != '0' || flags->precision != -1)
 		return (0);
 	else
@@ -44,6 +46,7 @@ int	ft_zero(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 
 int	ft_diese(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 {
+	(void)datas;
 	if (strflag[0] != '#')
 		return (0);
 	else
@@ -56,6 +59,7 @@ int	ft_diese(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 
 int	ft_plus(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 {
+	(void)datas;
 	if (strflag[0] != '+')
 		return (0);
 	else
@@ -69,6 +73,7 @@ int	ft_plus(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 
 int	ft_space(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 {
+	(void)datas;
 	if (strflag[0] != ' ')
 		return (0);
 	else

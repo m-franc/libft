@@ -17,14 +17,14 @@ t_flags_func	g_lc_flags[] =
 	ft_c_zero, ft_d_padding, ft_c_precision,
 };
 
-static char		*ft_launch_lc_flags(char **argcvd, t_datas *datas, t_flags *flags)
+static char		*ft_launch_lc_flags(char **argcvd, t_flags *flags)
 {
 	int			nb_flags;
 
 	nb_flags = 0;
 	while (nb_flags < 3)
 	{
-		if ((g_lc_flags[nb_flags++](argcvd, datas, flags)) == -1)
+		if ((g_lc_flags[nb_flags++](argcvd, flags)) == -1)
 			return (NULL);
 	}
 	return (*argcvd);
@@ -36,7 +36,7 @@ static char		*ft_lc_exist(t_datas *datas, t_flags *flags, int arg)
 
 	if (!(argcvd = ft_wctoa(arg)))
 		return (NULL);
-	if (!(argcvd = ft_launch_lc_flags(&argcvd, datas, flags)))
+	if (!(argcvd = ft_launch_lc_flags(&argcvd, flags)))
 		return (ft_exit_conv(datas, argcvd));
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 		return (ft_exit_conv(datas, argcvd));
@@ -54,7 +54,7 @@ static char		*ft_lc_dont_exist(t_datas *datas, t_flags *flags, wint_t arg)
 	if (flags->less == 1)
 	{
 		ft_aff_nulchar(datas);
-		if (!(argcvd = ft_launch_lc_flags(&argcvd, datas, flags)))
+		if (!(argcvd = ft_launch_lc_flags(&argcvd, flags)))
 			return (ft_exit_conv(datas, argcvd));
 		if (!(datas->result = ft_strdup(argcvd)))
 			return (ft_exit_conv(datas, argcvd));
@@ -62,7 +62,7 @@ static char		*ft_lc_dont_exist(t_datas *datas, t_flags *flags, wint_t arg)
 	}
 	else
 	{
-		if (!(argcvd = ft_launch_lc_flags(&argcvd, datas, flags)))
+		if (!(argcvd = ft_launch_lc_flags(&argcvd, flags)))
 			return (ft_exit_conv(datas, argcvd));
 		if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 			return (ft_exit_conv(datas, argcvd));

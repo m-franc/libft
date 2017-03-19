@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_d_plus(char **argcvd, t_datas *datas, t_flags *flags)
+int	ft_d_plus(char **argcvd, t_flags *flags)
 {
 	char	*tmp;
 
