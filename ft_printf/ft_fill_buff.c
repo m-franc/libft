@@ -54,6 +54,7 @@ int	ft_no_conv_manager(char *buff,
 		return (-1);
 	if (datas->result)
 		ft_strdel(&lastdatas);
+	datas->len += ft_strlen(tmpsf);
 	ft_strdel(&tmpsf);
 	return (1);
 }
@@ -121,7 +122,7 @@ char	*ft_fill_buff(t_datas *datas, char *buff)
 	o = 0;
 	while (buff[++i])
 	{
-		if (buff[i] == '%' && buff[i + 1] != '\0')
+		if (buff[i] == '%')
 		{
 			if (!(datas->result = ft_get_unconvdatas(datas, buff, o)))
 				return (ft_exit(datas));
