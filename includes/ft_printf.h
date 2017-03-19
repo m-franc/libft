@@ -50,12 +50,9 @@ typedef struct		s_flags
 int					ft_printf(const char *buff, ...);
 int					ft_datas_init(t_datas *datas, char *buff);
 int					ft_launch_process(t_datas *datas, char *buff);
-t_list				*ft_get_argslist(t_datas *datas, char *buff);
-int					ft_get_arg(t_datas *datas, char *buff, size_t *ci, t_list **lst);
-int					verif_dollar(t_list **tmp, char *fstr, int dollar);
-int					verif_dollar_star(t_list **tmp, char *fstr, size_t conv_index);
-int					ft_get_option(t_list **tmp, int stars, int option, t_datas *datas);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
+int				ft_no_conv_manager(char *buff,
+t_datas *datas, size_t conv_index);
 void				ft_last_datasmanager(t_datas *datas, char conv, char **lastdatas);
 char				*ft_exit(t_datas *datas);
 char				*ft_exit_conv(t_datas *datas, char *argcvd);

@@ -47,11 +47,6 @@ int		ft_printf(const char *buff, ...)
 		ft_putstr(buff);
 		return (ft_strlen(buff));
 	}
-	else if (buff[ft_strlen(buff) - 1] == '%')
-	{	
-		ft_putnstr(buff, (ft_strlen(buff) - 1));
-		return (ft_strlen(buff) - 1);
-	}
 	else
 	{
 		if ((ft_launch_process(&datas, (char *)buff)) == -1)

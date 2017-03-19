@@ -35,7 +35,7 @@ char	*ft_get_lastdatas(t_datas *datas, char *buff)
 	return (datas->result);
 }
 
-char	*ft_no_conv_manager(char *buff,
+int	ft_no_conv_manager(char *buff,
 		t_datas *datas, size_t conv_index)
 {
 	char	*lastdatas;
@@ -45,18 +45,17 @@ char	*ft_no_conv_manager(char *buff,
 	if (datas->result)
 		lastdatas = datas->result;
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (NULL);
+		return (-1);
 	if (!(tmpsf = ft_straddchar(NULL, buff[conv_index + 1])))
-		return (NULL);
+		return (-1);
 	if (!(tmpsf = ft_launch_c_flags(&tmpsf, datas, &flags)))
-		return (ft_exit_conv(datas, tmpsf));
+		return (-1);
 	if (!(datas->result = ft_strjoin(datas->result, tmpsf)))
-		return (ft_exit_conv(datas, tmpsf));
+		return (-1);
 	if (datas->result)
 		ft_strdel(&lastdatas);
 	ft_strdel(&tmpsf);
-	datas->len = ft_strlen(datas->result);
-	return (datas->result);
+	return (1);
 }
 
 int		ft_get_convdatas(t_datas *datas, char *buff)
@@ -73,12 +72,10 @@ int		ft_get_convdatas(t_datas *datas, char *buff)
 		datas->un_ord = 1;
 	if (!ft_strchr(datas->flags, '$') && datas->un_ord == 1)
 		return (-1);
-	if (buff[conv_index + 1] == '\0'
-			|| !(ft_strchr(CONVS, buff[conv_index + 1])))
-	{
-		datas->result = ft_no_conv_manager(buff, datas, conv_index);
-		return (1);	
-	}
+	if (buff[conv_index + 1] == '\0')
+		return (0);
+	if (!(ft_strchr(CONVS, buff[conv_index + 1])))
+		return (ft_no_conv_manager(buff, datas, conv_index));
 	i = -1;
 	while (CONVS && CONVS[++i] != buff[conv_index + 1])
 		;
