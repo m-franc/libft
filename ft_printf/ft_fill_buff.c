@@ -21,15 +21,17 @@ t_get_convs	g_get_convs[] =
 	ft_get_n_conv, ft_get_percent_conv,
 };
 
-char	*ft_get_lastdatas(t_datas *datas, char *buff)
+char	*ft_get_lastdatas(t_datas *datas, char *buff, size_t i)
 {
 	char	*lastchars;
 
 	lastchars = datas->result;
-	if (!(datas->result = ft_strjoin(datas->result, buff)))
-		return (NULL);
+	if (i > ft_strlen(buff))
+		return (datas->result);
+	if (!(datas->result = ft_strjoin(datas->result, buff + i)))
+		return (ft_exit(datas));
 	if ((ft_buff_customer(&(datas->result))) == -1)
-		return (NULL);
+		return (ft_exit(datas));
 	datas->len = ft_strlen(datas->result);
 	ft_strdel(&lastchars);
 	return (datas->result);
@@ -132,12 +134,8 @@ char	*ft_fill_buff(t_datas *datas, char *buff)
 			o = i + 1;
 			ft_strdel(&(datas->flags));
 		}
-		else if ((!(ft_strchr(buff + i, '%')))
-			&& i == (ft_strlen(buff) - 1))
-		{
-			if (!(datas->result = ft_get_lastdatas(datas, buff + i)))
-				return (ft_exit(datas));
-		}
+		else if (!(ft_strchr(buff + i, '%')))
+			return (ft_get_lastdatas(datas, buff, i));
 	}
 	return (datas->result);
 }

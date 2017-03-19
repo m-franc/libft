@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 char	*ft_itoa(long long n, int base, char *baselist)
 {
@@ -20,7 +21,9 @@ char	*ft_itoa(long long n, int base, char *baselist)
 	if (base >= 17 && base < 2)
 		return (NULL);
 	len = ft_ilen(n, base);
-	if (!(result = ft_memalloc(len + 1)))
+	if (n == LONG_MIN)
+		return (ft_strdup("-9223372036854775808"));
+	if (!(result = ft_strnew(len)))
 		return (NULL);
 	if (n < 0 && base == 10)
 		result[0] = '-';

@@ -58,7 +58,7 @@ char				*ft_exit(t_datas *datas);
 char				*ft_exit_conv(t_datas *datas, char *argcvd);
 char				*ft_fill_buff(t_datas *datas, char *buff);
 int					ft_get_convdatas(t_datas *datas, char *buff);
-char				*ft_get_lastdatas(t_datas *datas, char *buff);
+char				*ft_get_lastdatas(t_datas *datas, char *buff, size_t i);
 int					ft_flags_init(t_datas *datas, t_flags *flags);
 
 

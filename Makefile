@@ -14,6 +14,8 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
+CC = gcc
+
 INCLUDES = includes
 
 SRCS = 	mems/ft_memset.c				\
