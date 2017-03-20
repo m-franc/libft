@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 11:50:41 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/20 20:53:09 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ static char				*ft_get_long_x(t_datas *datas, t_flags *flags)
 		arg = ft_n_lu(datas, flags);
 	else
 		arg = va_arg(datas->ap, unsigned long int);
+	if (datas->pointer == 1)
+	{
+		flags->pointer = 1;	
+		flags->diese = 1;
+	}
 	if (!(argcvd = ft_uitoa(arg, 16, BASELW)))
 		return (NULL);
-	if (datas->pointer == 1)
-		flags->diese = 1;
 	return (argcvd);
 }
 
@@ -46,6 +49,8 @@ static char				*ft_get_x(t_datas *datas, t_flags *flags)
 		arg = (unsigned char)arg;
 	else if (ft_strchr(datas->flags, 'h'))
 		arg = (unsigned short)arg;
+	PSTR("ON A LE FLAG : ")
+	PNBR(flags->diese)
 	if (!(argcvd = ft_uitoa(arg, 16, BASELW)))
 		return (NULL);
 	return (argcvd);
@@ -90,5 +95,7 @@ char					*ft_get_x_conv(t_datas *datas)
 		return (NULL);
 	datas->len += ft_strlen(argcvd);
 	ft_strdel(&argcvd);
+	if (datas->pointer == 1)
+		datas->pointer = 0;
 	return (datas->result);
 }

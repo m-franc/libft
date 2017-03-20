@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 11:55:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/20 20:48:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct		s_flags
 	int				less;
 	int				zero;
 	int				diese;
+	int				pointer;
 	int				plus;
 	int				space;
 	int				padding;

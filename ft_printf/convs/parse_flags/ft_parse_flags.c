@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 11:44:48 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 14:53:06 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/20 20:50:50 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	ft_prepare_init(t_flags *flags)
 	flags->less = 0;
 	flags->zero = 0;
 	flags->diese = 0;
+	flags->pointer = 0;
 	flags->plus = 0;
 	flags->space = 0;
 	flags->padding = 0;
