@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 11:44:48 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 14:41:08 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/20 11:26:36 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,26 @@ static void	ft_prepare_init(t_flags *flags)
 
 int			ft_flags_init(t_datas *datas, t_flags *flags)
 {
-	size_t	*i;
+	size_t	*p;
 	size_t	a;
+	size_t	i;
 	size_t	o;
 
 	a = 0;
-	i = &a;
+	i = 0;
+	p = &a;
 	ft_prepare_init(flags);
-	while (datas->flags[*i])
+	while (datas->flags[i])
 	{
 		o = 0;
 		while (o < 7)
 		{
-			if (ft_strspn(datas->flags + *i, "lhjz") > 0)
-				*i += 1;
-			if ((g_get_flags[o++](datas, datas->flags + *i, flags, i)) == -1)
+			if (ft_strspn(datas->flags + i, "lhjz") > 0)
+				i++;
+			if ((g_get_flags[o++](datas, datas->flags + i, flags, p)) == -1)
 				return (-1);
 		}
+		i += *p;
 	}
 	return (0);
 }

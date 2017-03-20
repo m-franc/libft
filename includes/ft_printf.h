@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 20:15:40 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/20 11:55:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define CONVS 	"sSpdDioOuUxXwcCbn%"
 # define MODIFS "hlhhlljz"
 # define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
-
 
 typedef struct		s_datas
 {
@@ -141,6 +140,8 @@ unsigned int		ft_n_u(t_datas *datas, t_flags *flags);
 unsigned long int	ft_n_lu(t_datas *datas, t_flags *flags);
 
 // ====================================== x functions ====================================
+int					ft_x_precision(char **argcvd, t_flags *flags);
+int					ft_x_zero(char **argcvd, t_flags *flags);
 int					ft_x_diese(char **argcvd, t_flags *flags);
 int					ft_lx_diese(char **argcvd, t_flags *flags);
 

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 15:26:59 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 20:21:43 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/20 11:25:49 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 # define BOLD     		"\e[1m"
 # define DIM      		"\e[2m"
-# define ITALIC     		"\e[3m"
-# define UNDERLINED     	"\e[4m"
+# define ITALIC     	"\e[3m"
+# define UNDERLINED     "\e[4m"
 # define BLINK     		"\e[5m"
 # define REVERSE   		"\e[7m"
 # define HIDDEN    		"\e[8m"
