@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 21:57:12 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/20 14:26:30 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int		ft_printf(const char *buff, ...)
 	t_datas	datas;
 	char	*oo;
 
+	if (!buff)
+		return (-1);
 	va_start(datas.ap, buff);
 	datas.fd = 1;
 	if (!(ft_strchr(buff, '%')))

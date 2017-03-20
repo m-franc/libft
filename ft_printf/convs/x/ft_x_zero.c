@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:09:39 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 11:51:27 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/20 17:41:08 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ int	ft_x_zero(char **argcvd, t_flags *flags)
 	else
 	{
 		flags->precision = flags->padding;
+		if (flags->diese == 1)
+			flags->precision -= 2;
 		flags->padding = 0;
+		if (flags->precision < (int)ft_strlen(*argcvd))
+			return (0);
 		return (ft_x_precision(argcvd, flags));
 	}
 }
