@@ -6,15 +6,11 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 15:27:31 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/21 17:07:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/21 17:47:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//static void	ft_argisneg(char **argcvd, t_flags *flags, int *i, int *n)
-//{
-//}
 
 int		ft_d_precision(char **argcvd, t_flags *flags)
 {
