@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 20:21:31 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/21 19:34:22 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		ft_printf(const char *buff, ...)
 	}
 	else
 	{
+		if (ft_strlen(buff) == 1)
+			return (0);
 		if ((ft_launch_process(&datas, (char *)buff)) == -1)
 			return (-1);
 		oo = datas.result;

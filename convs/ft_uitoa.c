@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:58:41 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/21 18:12:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/21 18:54:22 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ char	*ft_uitoa(unsigned long long n, int base, char *baselist)
 	if (!(result = ft_strnew(len)))
 		return (NULL);
 	result[len--] = '\0';
+	if (n == 0)
+		result[len] = baselist[n % base];
 	while (n != 0)
 	{
 		result[len--] = baselist[n % base];
 		n /= base;
 	}
-	if (n == 0)
-		result[len] = baselist[n % base];
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 12:36:58 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 17:05:48 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/21 19:09:41 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int			ft_ls_precision(char **argcvd, t_flags *flags)
 //		ENDL
 //		flags->precision -= 1;
 //	}
-	PSTR("LA PRECISION : ")
-	PNBR(flags->precision)
 	if (!(tmp = ft_strsub(*argcvd, 0, flags->precision)))
 		return (-1);
 	ft_strdel(argcvd);
