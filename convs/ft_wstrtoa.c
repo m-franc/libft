@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/04 13:05:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/02/05 17:31:09 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/21 17:10:58 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char	*ft_wstrtoa(wchar_t *str)
 	char	*currc;
 
 	if (!str)
+	{
 		return (NULL);
-	if (!(result = ft_memalloc(ft_wstrlen(str))))
+	}
+	if (!(result = ft_strnew(ft_wstrlen(str))))
 		return (NULL);
 	while (*str)
 	{

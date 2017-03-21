@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 20:53:09 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/21 16:15:29 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ static char				*ft_get_x(t_datas *datas, t_flags *flags)
 		arg = (unsigned char)arg;
 	else if (ft_strchr(datas->flags, 'h'))
 		arg = (unsigned short)arg;
-	PSTR("ON A LE FLAG : ")
-	PNBR(flags->diese)
 	if (!(argcvd = ft_uitoa(arg, 16, BASELW)))
 		return (NULL);
 	return (argcvd);
