@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 19:43:02 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/22 18:59:09 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_flags_func	g_lc_flags[] = 
 {
-	ft_c_zero, ft_d_padding, ft_c_precision,
+	ft_c_zero, ft_d_padding,
 };
 
 static char		*ft_launch_lc_flags(char **argcvd, t_flags *flags)
@@ -22,7 +22,7 @@ static char		*ft_launch_lc_flags(char **argcvd, t_flags *flags)
 	int			nb_flags;
 
 	nb_flags = 0;
-	while (nb_flags < 3)
+	while (nb_flags < 2)
 	{
 		if ((g_lc_flags[nb_flags++](argcvd, flags)) == -1)
 			return (NULL);

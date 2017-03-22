@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 20:48:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/22 18:58:45 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,6 @@ void				ft_aff_nulchar(t_datas *datas);
 void				ft_aff_nulchar_clean(t_datas *datas);
 char				*ft_launch_c_flags(char **argcvd, t_flags *flags);
 int					ft_c_zero(char **argcvd, t_flags *flags);
-int					ft_c_precision(char **argcvd, t_flags *flags);
 
 // ====================================== s functions ====================================
 char				*ft_n_s(t_datas *datas, t_flags *flags);

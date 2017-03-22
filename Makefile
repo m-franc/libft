@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/03/22 18:19:04 by mfranc           ###   ########.fr        #
+#    Updated: 2017/03/22 18:57:56 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -158,7 +158,6 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/convs/lx/ft_lx_diese.c	\
 		ft_printf/convs/c/ft_aff_nulchar.c	\
 		ft_printf/convs/s/ft_s_precision.c	\
-		ft_printf/convs/c/ft_c_precision.c	\
 		ft_printf/convs/ls/ft_ls_precision.c	\
 		ft_printf/ft_last_datasmanager.c	\
 		ft_printf/customs/ft_buff_customer.c	\
