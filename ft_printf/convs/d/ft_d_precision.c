@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 15:27:31 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/22 18:05:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/22 18:34:27 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_d_precision(char **argcvd, t_flags *flags)
 	if (**argcvd == '0' && flags->precision == 0)
 		n = 1;
 	else if (flags->precision < 0
-			|| flags->precision <= (int)ft_strlen(*argcvd))
+			|| flags->precision < (int)ft_strlen(*argcvd))
 		return (0);
 	if (**argcvd == '-')
 		n = 1;	
