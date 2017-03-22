@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 12:36:58 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/21 19:09:41 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/22 15:13:13 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			ft_ls_precision(char **argcvd, t_flags *flags)
 {
 	char	*tmp;
 
-	if (flags->precision == -1
+	if (flags->precision < 0
 		|| flags->precision >= (int)ft_strlen(*argcvd))
 		return (0);
 //	while (!(argcvd[0][flags->precision] & 0xF0)
