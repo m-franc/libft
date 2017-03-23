@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:09:39 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/23 12:48:58 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/23 14:51:50 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	ft_d_zero(char **argcvd, t_flags *flags)
 	if (**argcvd == '-')
 		tmp[0] = '-';
 	nb_o = n;
-	if (flags->plus == 1)
+	if ((flags->plus == 1 || flags->space == 1) && n == 0)
 		flags->padding -= 1;
-	while (++nb_o < (int)((flags->padding + n) - ((ft_strlen(*argcvd - n)))))
-		tmp[nb_o] = '0';
+	while (nb_o < (int)((flags->padding + n) - ((ft_strlen(*argcvd)))))
+		tmp[nb_o++] = '0';
 	tmp = ft_strcat(tmp, *argcvd + n);
 	ft_strdel(argcvd);
 	*argcvd = tmp;
@@ -56,6 +56,7 @@ int	ft_c_zero(char **argcvd, t_flags *flags)
 		tmp = ft_strcat(tmp, *argcvd);
 		ft_strdel(argcvd);
 		*argcvd = tmp;
+		flags->padding = 0;
 		return (1);
 	}
 }
