@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 18:17:56 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 11:19:02 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/23 11:37:19 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_less(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 int	ft_zero(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 {
 	(void)datas;
-	if (strflag[0] != '0' || flags->precision != -1)
+	if (strflag[0] != '0')
 		return (0);
 	else
 	{
