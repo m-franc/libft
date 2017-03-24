@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_num_precision.c                                 :+:      :+:    :+:   */
+/*   ft_c_precision.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 15:27:31 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 15:23:02 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 16:50:02 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,13 @@ static int	ft_right_padding(char *tmp, char **argcvd, t_flags *flags)
 	return (1);
 }
 
-int			ft_d_padding(char **argcvd, t_flags *flags)
+int			ft_c_padding(char **argcvd, t_flags *flags)
 {
 	char	*tmp;
 	int		nb_o;
 
 	if (flags->padding == 0)
 		return (0);
-	if (flags->padding < 0)
-	{
-		flags->padding *= -1;
-		flags->less = 1;
-	}
 	if ((int)ft_strlen(*argcvd) > flags->padding)
 		return (0);
 	nb_o = -1;

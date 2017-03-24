@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/22 18:58:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 16:25:28 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,9 @@ int					ft_lx_diese(char **argcvd, t_flags *flags);
 
 // ====================================== c functions ====================================
 void				ft_aff_nulchar(t_datas *datas);
+int					ft_zero_right_padding(char **argcvd, t_flags *flags, t_datas *datas);
+int					ft_zero_left_padding(char **argcvd, t_flags *flags, t_datas *datas);
+int					ft_c_padding(char **argcvd, t_flags *flags);
 void				ft_aff_nulchar_clean(t_datas *datas);
 char				*ft_launch_c_flags(char **argcvd, t_flags *flags);
 int					ft_c_zero(char **argcvd, t_flags *flags);

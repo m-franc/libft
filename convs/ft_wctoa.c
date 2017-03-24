@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:16:00 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/07 19:21:02 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 16:57:52 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static	char	*get2bytewchar(wint_t uchar)
 
 char			*ft_wctoa(wint_t uchar)
 {
+	if (uchar > MB_CUR_MAX)
+		return (NULL);
 	if (uchar >= 0 && uchar <= 127)
 		return (ft_straddchar(NULL, uchar));
 	else if (uchar >= 128 && uchar <= 2047)

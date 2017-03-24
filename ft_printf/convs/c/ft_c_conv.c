@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/22 18:57:10 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 16:41:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_flags_func	g_c_flags[] = 
 {
-	ft_c_zero, ft_d_padding,
+	ft_c_zero, ft_c_padding,
 };
 
 char			*ft_launch_c_flags(char **argcvd, t_flags *flags)
@@ -51,25 +51,22 @@ static char		*ft_c_dont_exist(t_datas *datas, t_flags *flags, int arg)
 
 	if (!(argcvd = ft_straddchar(NULL, arg)))
 		return (NULL);
+	if (flags->padding < 0)
+	{
+		flags->padding *= -1;
+		flags->less = 1;
+	}
+	if (flags->padding != 0)
+		flags->padding -= 1;
 	if (flags->less == 1)
 	{
-		ft_aff_nulchar(datas);
-		if (!(argcvd = ft_launch_c_flags(&argcvd, flags)))
+		if ((ft_zero_right_padding(&argcvd, flags, datas)) == -1)
 			return (ft_exit_conv(datas, argcvd));
-		if (!(datas->result = ft_strdup(argcvd)))
-			return (ft_exit_conv(datas, argcvd));
-		ft_strdel(&argcvd);
 	}
 	else
 	{
-		if (!(argcvd = ft_launch_c_flags(&argcvd, flags)))
+		if ((ft_zero_left_padding(&argcvd, flags, datas)) == -1)
 			return (ft_exit_conv(datas, argcvd));
-		if (!(datas->result = ft_strjoin(datas->result, argcvd)))
-			return (ft_exit_conv(datas, argcvd));
-		ft_aff_nulchar_clean(datas);
-		if (!(datas->result = ft_strnew(0)))
-			return (ft_exit_conv(datas, argcvd));
-		ft_strdel(&argcvd);
 	}
 	return (datas->result);
 }
@@ -87,8 +84,6 @@ static char		*ft_prepare_c_conv(t_datas *datas)
 		arg = va_arg(datas->ap, int);
 	if (arg == 0)
 	{
-		if (flags.padding != 0)
-			flags.padding -= 1;
 		if (!(datas->result = ft_c_dont_exist(datas, &flags, arg)))
 			return (NULL);
 	}

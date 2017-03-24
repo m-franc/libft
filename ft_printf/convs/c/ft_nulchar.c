@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_aff_nulchar.c                                   :+:      :+:    :+:   */
+/*   ft_nulchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/15 12:13:05 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 21:56:20 by mfranc           ###   ########.fr       */
+/*   Created: 2017/03/24 16:07:36 by mfranc            #+#    #+#             */
+/*   Updated: 2017/03/24 16:48:26 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,28 @@ void	ft_aff_nulchar(t_datas *datas)
 	write(datas->fd, datas->result, datas->len);
 	write(1, "\0", 1);
 	datas->len = 0;
+}
+
+int	ft_zero_right_padding(char **argcvd, t_flags *flags, t_datas *datas)
+{
+	ft_aff_nulchar(datas);
+	if (!(*argcvd = ft_launch_c_flags(argcvd, flags)))
+		return (-1);
+	if (!(datas->result = ft_strdup(*argcvd)))
+		return (-1);
+	ft_strdel(argcvd);
+	return (1);
+}
+
+int	ft_zero_left_padding(char **argcvd, t_flags *flags, t_datas *datas)
+{
+	if (!(*argcvd = ft_launch_c_flags(argcvd, flags)))
+		return (-1);
+	if (!(datas->result = ft_strjoin(datas->result, *argcvd)))
+		return (-1);
+	ft_aff_nulchar_clean(datas);
+	if (!(datas->result = ft_strnew(0)))
+		return (-1);
+	ft_strdel(argcvd);
+	return (1);
 }
