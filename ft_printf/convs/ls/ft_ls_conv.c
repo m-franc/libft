@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 20:06:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/21 17:37:56 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:34:38 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*ft_get_argcvd(wchar_t **argcvd)
 	char	*newarg;
 
 	if (*argcvd == NULL)
-	{	
+	{
 		if (!(newarg = ft_strdup("(null)")))
 			return (NULL);
 		return (newarg);

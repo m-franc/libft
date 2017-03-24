@@ -6,12 +6,11 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/14 15:18:39 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:40:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 t_flags_func	g_o_flags[] =
 {
@@ -60,7 +59,7 @@ static char			*ft_launch_o_flags(t_datas *datas)
 	return (argcvd);
 }
 
-char			*ft_get_o_conv(t_datas *datas)
+char				*ft_get_o_conv(t_datas *datas)
 {
 	char			*argcvd;
 

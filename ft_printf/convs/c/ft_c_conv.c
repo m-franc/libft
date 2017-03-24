@@ -6,13 +6,13 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 16:41:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:32:35 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_flags_func	g_c_flags[] = 
+t_flags_func	g_c_flags[] =
 {
 	ft_c_zero, ft_c_padding,
 };
@@ -103,4 +103,3 @@ char			*ft_get_c_conv(t_datas *datas)
 		return (NULL);
 	return (datas->result);
 }
-

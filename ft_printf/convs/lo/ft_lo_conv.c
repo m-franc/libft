@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:27:49 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/14 15:24:18 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:30:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_flags_func	g_lo_flags[] =
 
 static unsigned long int	ft_n_lo(t_datas *datas, t_flags *flags)
 {
-	va_list				copy;
-	unsigned long int	arg;
+	va_list					copy;
+	unsigned long int		arg;
 
 	va_copy(copy, datas->ap);
 	while (flags->dollar-- > 0)
@@ -32,10 +32,10 @@ static unsigned long int	ft_n_lo(t_datas *datas, t_flags *flags)
 
 static char					*ft_launch_lo_flags(t_datas *datas)
 {
-	char				*argcvd;
-	int					nb_flags;
-	unsigned long int	arg;
-	t_flags				flags;
+	char					*argcvd;
+	int						nb_flags;
+	unsigned long int		arg;
+	t_flags					flags;
 
 	argcvd = NULL;
 	if ((ft_flags_init(datas, &flags)) == -1)
@@ -55,9 +55,9 @@ static char					*ft_launch_lo_flags(t_datas *datas)
 	return (argcvd);
 }
 
-char			*ft_get_lo_conv(t_datas *datas)
+char						*ft_get_lo_conv(t_datas *datas)
 {
-	char		*argcvd;
+	char					*argcvd;
 
 	if (!(argcvd = ft_launch_lo_flags(datas)))
 		return (NULL);

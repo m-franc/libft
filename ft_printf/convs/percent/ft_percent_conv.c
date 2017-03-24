@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/16 12:17:18 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:42:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ char			*ft_get_percent_conv(t_datas *datas)
 	ft_strdel(&argcvd);
 	return (datas->result);
 }
-

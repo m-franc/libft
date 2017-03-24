@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:14:08 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/14 12:18:47 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:25:23 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char				*ft_vtob(const void *c, size_t size)
 {
 	unsigned char	msq;
 	char			*result;
-	size_t				i;
+	size_t			i;
 	size_t			o;
 
 	i = 0;

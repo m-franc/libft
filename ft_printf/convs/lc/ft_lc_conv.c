@@ -6,13 +6,13 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/22 18:59:09 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:35:54 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_flags_func	g_lc_flags[] = 
+t_flags_func	g_lc_flags[] =
 {
 	ft_c_zero, ft_d_padding,
 };
@@ -105,7 +105,7 @@ char			*ft_get_lc_conv(t_datas *datas)
 		while (flags.dollar-- > 0)
 			va_arg(copy, void *);
 		arg = va_arg(copy, wint_t);
-		va_end(copy);	
+		va_end(copy);
 	}
 	else
 		arg = va_arg(datas->ap, wint_t);
@@ -113,23 +113,3 @@ char			*ft_get_lc_conv(t_datas *datas)
 		return (NULL);
 	return (datas->result);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:00:55 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/23 11:37:31 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:45:50 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		ft_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i)
 		*i += len;
 		return (1);
 	}
-	else 
+	else
 		flags->precision = 0;
 	return (1);
 }

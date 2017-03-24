@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/22 17:36:07 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:56:41 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ int		ft_printf(const char *buff, ...)
 		oo = datas.result;
 		write(datas.fd, oo, datas.len);
 		ft_strdel(&oo);
-		return (datas.len + datas.cplen);	
+		return (datas.len + datas.cplen);
 	}
 }

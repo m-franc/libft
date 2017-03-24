@@ -6,13 +6,13 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 13:18:42 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/22 17:21:10 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:28:49 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_flags_func	g_d_flags[] = 
+t_flags_func	g_d_flags[] =
 {
 	ft_d_precision, ft_d_zero, ft_d_plus, ft_d_space, ft_d_padding,
 };

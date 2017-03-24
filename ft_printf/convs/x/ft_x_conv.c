@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/21 18:12:19 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:49:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 t_flags_func	g_x_flags[] =
 {
-	ft_x_precision, ft_x_zero, ft_x_diese, ft_d_padding,
+	ft_x_precision,
+	ft_x_zero,
+	ft_x_diese,
+	ft_d_padding,
 };
 
 static char				*ft_get_long_x(t_datas *datas, t_flags *flags)
@@ -28,7 +31,7 @@ static char				*ft_get_long_x(t_datas *datas, t_flags *flags)
 		arg = va_arg(datas->ap, unsigned long int);
 	if (datas->pointer == 1)
 	{
-		flags->pointer = 1;	
+		flags->pointer = 1;
 		flags->diese = 1;
 	}
 	if (!(argcvd = ft_uitoa(arg, 16, BASELW)))

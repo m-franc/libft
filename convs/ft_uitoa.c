@@ -6,16 +6,16 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:58:41 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/21 18:54:22 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:25:13 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_uitoa(unsigned long long n, int base, char *baselist)
+char			*ft_uitoa(unsigned long long n, int base, char *baselist)
 {
 	size_t		len;
-	char	*result;
+	char		*result;
 
 	if (base >= 17 && base < 2)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 15:27:31 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 15:23:02 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:28:19 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	ft_right_padding(char *tmp, char **argcvd, t_flags *flags)
 {
 	int	nb_o;
 
-	tmp = ft_strncpy(tmp, *argcvd, ft_strlen(*argcvd));	
+	tmp = ft_strncpy(tmp, *argcvd, ft_strlen(*argcvd));
 	nb_o = ft_strlen(*argcvd);
 	while (nb_o < flags->padding)
 		tmp[nb_o++] = ' ';

@@ -6,13 +6,13 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 12:10:33 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 14:45:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:52:51 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_customs	g_customs[] = 
+t_customs	g_customs[] =
 {
 	ft_blue, ft_red, ft_black, ft_purple, ft_cyan,
 	ft_yellow, ft_green, ft_grey, ft_eoc, ft_bold,

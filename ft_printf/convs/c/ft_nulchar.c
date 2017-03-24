@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:07:36 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 16:48:26 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:27:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_aff_nulchar(t_datas *datas)
 	datas->len = 0;
 }
 
-int	ft_zero_right_padding(char **argcvd, t_flags *flags, t_datas *datas)
+int		ft_zero_right_padding(char **argcvd, t_flags *flags, t_datas *datas)
 {
 	ft_aff_nulchar(datas);
 	if (!(*argcvd = ft_launch_c_flags(argcvd, flags)))
@@ -42,7 +42,7 @@ int	ft_zero_right_padding(char **argcvd, t_flags *flags, t_datas *datas)
 	return (1);
 }
 
-int	ft_zero_left_padding(char **argcvd, t_flags *flags, t_datas *datas)
+int		ft_zero_left_padding(char **argcvd, t_flags *flags, t_datas *datas)
 {
 	if (!(*argcvd = ft_launch_c_flags(argcvd, flags)))
 		return (-1);
