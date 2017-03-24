@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/22 17:32:48 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 18:35:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_get_lastdatas(t_datas *datas, char *buff, size_t i)
 	return (datas->result);
 }
 
-int	ft_no_conv_manager(char *buff,
+int		ft_no_conv_manager(char *buff,
 		t_datas *datas, size_t conv_index)
 {
 	char	*lastdatas;

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:59:56 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 18:32:10 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,10 @@ int					ft_printf(const char *buff, ...);
 int					ft_datas_init(t_datas *datas, char *buff);
 int					ft_launch_process(t_datas *datas, char *buff);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
-int				ft_no_conv_manager(char *buff,
+int					ft_no_conv_manager(char *buff,
 t_datas *datas, size_t conv_index);
-void				ft_last_datasmanager(t_datas *datas, char conv, char **lastdatas);
+void				ft_last_datasmanager(t_datas *datas,
+		char conv, char **lastdatas);
 char				*ft_exit(t_datas *datas);
 char				*ft_exit_conv(t_datas *datas, char *argcvd);
 char				*ft_fill_buff(t_datas *datas, char *buff);
@@ -106,19 +107,31 @@ char				*ft_get_percent_conv(t_datas *datas);
 
 typedef	char		*(*t_get_convs)(t_datas *datas);
 
-int					ft_space(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_plus(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_diese(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_zero(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_less(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_arg_precision(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_n_arg_precision(t_datas *datas, int n, t_flags *flags, size_t *i);
-int					ft_padding(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_arg_padding(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
-int					ft_n_arg_padding(t_datas *datas, int n, t_flags *flags, size_t *i);
+int					ft_space(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_plus(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_diese(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_zero(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_less(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_precision(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_arg_precision(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_n_arg_precision(t_datas *datas, int n,
+		t_flags *flags, size_t *i);
+int					ft_padding(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_arg_padding(t_datas *datas, char *strflag,
+		t_flags *flags, size_t *i);
+int					ft_n_arg_padding(t_datas *datas, int n,
+		t_flags *flags, size_t *i);
 
-typedef	int			(*t_get_flags)(t_datas *datas, char *strflag, t_flags *flags, size_t *i);
+typedef	int			(*t_get_flags)(t_datas *datas,
+		char *strflag, t_flags *flags, size_t *i);
 
 int					ft_d_space(char **argcvd, t_flags *flags);
 int					ft_d_zero(char **argcvd, t_flags *flags);
@@ -138,8 +151,10 @@ int					ft_x_diese(char **argcvd, t_flags *flags);
 int					ft_lx_diese(char **argcvd, t_flags *flags);
 
 void				ft_aff_nulchar(t_datas *datas);
-int					ft_zero_right_padding(char **argcvd, t_flags *flags, t_datas *datas);
-int					ft_zero_left_padding(char **argcvd, t_flags *flags, t_datas *datas);
+int					ft_zero_right_padding(char **argcvd,
+		t_flags *flags, t_datas *datas);
+int					ft_zero_left_padding(char **argcvd,
+		t_flags *flags, t_datas *datas);
 int					ft_c_padding(char **argcvd, t_flags *flags);
 void				ft_aff_nulchar_clean(t_datas *datas);
 char				*ft_launch_c_flags(char **argcvd, t_flags *flags);
@@ -149,6 +164,5 @@ char				*ft_n_s(t_datas *datas, t_flags *flags);
 int					ft_s_precision(char **argcvd, t_flags *flags);
 int					ft_ls_precision(char **argcvd, t_flags *flags);
 typedef int			(*t_flags_func)(char **argcvd, t_flags *flags);
-
 
 #endif
