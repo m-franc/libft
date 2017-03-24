@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:16:00 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 16:57:52 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:22:34 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static	char	*get4bytewchar(wint_t uchar)
 {
-	int		tmp;
-	int		tmp2;
-	int		tmp3;
-	char	*result;
+	int			tmp;
+	int			tmp2;
+	int			tmp3;
+	char		*result;
 
 	if (!(result = ft_strnew(5)))
 		return (NULL);
@@ -35,9 +35,9 @@ static	char	*get4bytewchar(wint_t uchar)
 
 static	char	*get3bytewchar(wint_t uchar)
 {
-	int				tmp;
-	int				tmp2;
-	char			*result;
+	int			tmp;
+	int			tmp2;
+	char		*result;
 
 	if (!(result = ft_strnew(4)))
 		return (NULL);
@@ -70,15 +70,13 @@ static	char	*get2bytewchar(wint_t uchar)
 
 char			*ft_wctoa(wint_t uchar)
 {
-	if (uchar > MB_CUR_MAX)
-		return (NULL);
-	if (uchar >= 0 && uchar <= 127)
+	if ((uchar >= 0 && uchar <= 127) && MB_CUR_MAX >= 1)
 		return (ft_straddchar(NULL, uchar));
-	else if (uchar >= 128 && uchar <= 2047)
+	else if ((uchar >= 128 && uchar <= 2047) && MB_CUR_MAX >= 2)
 		return (get2bytewchar(uchar));
-	else if (uchar >= 2048 && uchar <= 65535)
+	else if ((uchar >= 2048 && uchar <= 65535) && MB_CUR_MAX >= 3)
 		return (get3bytewchar(uchar));
-	else if (uchar >= 65536 && uchar <= 1114111)
+	else if ((uchar >= 65536 && uchar <= 1114111) && MB_CUR_MAX >= 4)
 		return (get4bytewchar(uchar));
 	return (NULL);
 }
