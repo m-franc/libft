@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/04 13:05:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/21 17:38:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 19:40:35 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@ char	*ft_wstrtoa(wchar_t *str)
 	char	*currc;
 
 	if (!str)
-	{
 		return (NULL);
-	}
 	if (!(result = ft_strnew(ft_wstrlen(str))))
 		return (NULL);
 	while (*str)
 	{
 		if (!(currc = ft_wctoa(*str++)))
+		{
+			ft_strdel(&result);
 			return (NULL);
+		}
 		result = ft_strcat(result, currc);
 		ft_strdel(&currc);
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_s_conv.c                                        :+:      :+:    :+:   */
+/*   ft_ls_conv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 20:06:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:34:38 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 19:39:54 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char		*ft_get_ls_conv(t_datas *datas)
 	else
 		arg = va_arg(datas->ap, wchar_t *);
 	if (!(argcvd = ft_get_argcvd(&arg)))
-		return (NULL);
+		return (ft_exit_conv(datas, argcvd));
 	if (!(argcvd = ft_launch_ls_flags(&argcvd, &flags)))
 		return (ft_exit_conv(datas, argcvd));
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))

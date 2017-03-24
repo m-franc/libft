@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:35:54 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 19:07:16 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_flags_func	g_lc_flags[] =
 {
-	ft_c_zero, ft_d_padding,
+	ft_c_zero, ft_c_padding,
 };
 
 static char		*ft_launch_lc_flags(char **argcvd, t_flags *flags)
@@ -35,7 +35,7 @@ static char		*ft_lc_exist(t_datas *datas, t_flags *flags, int arg)
 	char		*argcvd;
 
 	if (!(argcvd = ft_wctoa(arg)))
-		return (NULL);
+		return (ft_exit(datas));
 	if (!(argcvd = ft_launch_lc_flags(&argcvd, flags)))
 		return (ft_exit_conv(datas, argcvd));
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
@@ -51,25 +51,22 @@ static char		*ft_lc_dont_exist(t_datas *datas, t_flags *flags, wint_t arg)
 
 	if (!(argcvd = ft_wctoa(arg)))
 		return (NULL);
+	if (flags->padding < 0)
+	{
+		flags->padding *= -1;
+		flags->less = 1;
+	}
+	if (flags->padding != 0)
+		flags->padding -= 1;
 	if (flags->less == 1)
 	{
-		ft_aff_nulchar(datas);
-		if (!(argcvd = ft_launch_lc_flags(&argcvd, flags)))
+		if ((ft_zero_right_padding(&argcvd, flags, datas)) == -1)
 			return (ft_exit_conv(datas, argcvd));
-		if (!(datas->result = ft_strdup(argcvd)))
-			return (ft_exit_conv(datas, argcvd));
-		ft_strdel(&argcvd);
 	}
 	else
 	{
-		if (!(argcvd = ft_launch_lc_flags(&argcvd, flags)))
+		if ((ft_zero_left_padding(&argcvd, flags, datas)) == -1)
 			return (ft_exit_conv(datas, argcvd));
-		if (!(datas->result = ft_strjoin(datas->result, argcvd)))
-			return (ft_exit_conv(datas, argcvd));
-		ft_aff_nulchar_clean(datas);
-		if (!(datas->result = ft_strnew(0)))
-			return (ft_exit_conv(datas, argcvd));
-		ft_strdel(&argcvd);
 	}
 	return (datas->result);
 }
@@ -78,8 +75,6 @@ static char		*ft_prepare_lc_conv(t_datas *datas, t_flags *flags, wint_t arg)
 {
 	if (arg == 0)
 	{
-		if (flags->padding != 0)
-			flags->padding -= 1;
 		if (!(datas->result = ft_lc_dont_exist(datas, flags, arg)))
 			return (NULL);
 	}
