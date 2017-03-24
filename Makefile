@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/03/24 16:26:49 by mfranc           ###   ########.fr        #
+#    Updated: 2017/03/24 21:17:27 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -146,6 +146,7 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/convs/parse_flags/ft_lzdps.c		\
 		puts/ft_putstrcolor.c				\
 		ft_printf/convs/ft_exit_conv.c		\
+		ft_printf/ft_exit_last.c			\
 		ft_printf/convs/d/ft_d_precision.c		\
 		ft_printf/convs/x/ft_x_precision.c		\
 		ft_printf/convs/x/ft_x_zero.c		\

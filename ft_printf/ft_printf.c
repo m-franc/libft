@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:56:41 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 22:03:32 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_exit(t_datas *datas)
 		ft_strdel(&(datas->result));
 	if (datas->flags)
 		ft_strdel(&(datas->flags));
+	datas->len = -1;
 	return (NULL);
 }
 
@@ -54,7 +55,7 @@ int		ft_printf(const char *buff, ...)
 		if (ft_strlen(buff) == 1)
 			return (0);
 		if ((ft_launch_process(&datas, (char *)buff)) == -1)
-			return (-1);
+			return (datas.len);
 		oo = datas.result;
 		write(datas.fd, oo, datas.len);
 		ft_strdel(&oo);

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:27:49 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:35:00 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 20:48:41 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_flags_func	g_lu_flags[] =
 {
-	ft_d_precision, ft_d_zero, ft_d_padding,
+	ft_d_precision, ft_o_zero, ft_d_padding,
 };
 
 unsigned long int		ft_n_lu(t_datas *datas, t_flags *flags)

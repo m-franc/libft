@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 18:32:10 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 22:15:54 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ t_datas *datas, size_t conv_index);
 void				ft_last_datasmanager(t_datas *datas,
 		char conv, char **lastdatas);
 char				*ft_exit(t_datas *datas);
+int					ft_exit_current(t_datas *datas);
+int					ft_exit_noconv(t_datas *datas, char *tmpsf);
+char				*ft_exit_unconv(t_datas *datas, char *ucvchar);
 char				*ft_exit_conv(t_datas *datas, char *argcvd);
 char				*ft_fill_buff(t_datas *datas, char *buff);
 int					ft_get_convdatas(t_datas *datas, char *buff);
@@ -82,7 +85,9 @@ int					ft_reverse(char **s, char *buffpc, int *i);
 int					ft_reverse(char **s, char *buffpc, int *i);
 int					ft_italic(char **s, char *buffpc, int *i);
 int					ft_hidden(char **s, char *buffpc, int *i);
-int					ft_exit_color(char *color);
+int					ft_exit_clrnofind(char *color);
+int					ft_exit_color_error(char *color);
+int					ft_exit_multicolor(char *color, char *multicolor);
 
 typedef int			(*t_customs)(char **s, char *buffpc, int *i);
 
@@ -141,6 +146,7 @@ int					ft_d_padding(char **argcvd, t_flags *flags);
 int					ft_n_d(t_datas *datas, t_flags *flags);
 
 int					ft_o_diese(char **argcvd, t_flags *flags);
+int					ft_o_zero(char **argcvd, t_flags *flags);
 
 unsigned int		ft_n_u(t_datas *datas, t_flags *flags);
 unsigned long int	ft_n_lu(t_datas *datas, t_flags *flags);

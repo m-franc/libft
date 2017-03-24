@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 19:02:20 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 18:47:43 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 22:35:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ int		ft_no_conv_manager(char *buff,
 	if (datas->result)
 		lastdatas = datas->result;
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (-1);
+		return (ft_exit_current(datas));
 	if (!(tmpsf = ft_straddchar(NULL, buff[conv_index + 1])))
-		return (-1);
+		return (ft_exit_current(datas));
 	if (!(tmpsf = ft_launch_c_flags(&tmpsf, &flags)))
-		return (-1);
+		return (ft_exit_noconv(datas, tmpsf));
 	if (!(datas->result = ft_strjoin(datas->result, tmpsf)))
-		return (-1);
+		return (ft_exit_noconv(datas, tmpsf));
 	if (datas->result)
 		ft_strdel(&lastdatas);
 	datas->len += ft_strlen(tmpsf);
@@ -70,11 +70,11 @@ int		ft_get_convdatas(t_datas *datas, char *buff)
 	lastdatas = datas->result;
 	conv_index = ft_strspn(buff + 1, FLAGS);
 	if (!(datas->flags = ft_strsub(buff, 1, conv_index)))
-		return (-1);
+		return (ft_exit_current(datas));
 	if (ft_strchr(datas->flags, '$'))
 		datas->un_ord = 1;
 	if (!ft_strchr(datas->flags, '$') && datas->un_ord == 1)
-		return (-1);
+		return (ft_exit_current(datas));
 	if (buff[conv_index + 1] == '\0')
 		return (0);
 	if (!(ft_strchr(CONVS, buff[conv_index + 1])))
@@ -94,9 +94,9 @@ char	*ft_get_unconvdatas(t_datas *datas, char *buff, size_t o)
 	char	*lastdatas;
 
 	if (!(ucvchar = ft_strsub(buff, o, (ft_strlenuntil(buff + o, '%')))))
-		return (NULL);
+		return (ft_exit(datas));
 	if ((ft_buff_customer(&ucvchar)) == -1)
-		return (NULL);
+		return (ft_exit_unconv(datas, ucvchar));
 	if (!datas->result)
 	{
 		lastdatas = NULL;
@@ -107,7 +107,7 @@ char	*ft_get_unconvdatas(t_datas *datas, char *buff, size_t o)
 	{
 		lastdatas = datas->result;
 		if (!(datas->result = ft_strjoin(datas->result, ucvchar)))
-			return (NULL);
+			return (ft_exit_unconv(datas, ucvchar));
 		datas->len += ft_strlen(ucvchar);
 		ft_strdel(&ucvchar);
 		ft_strdel(&lastdatas);
@@ -127,9 +127,9 @@ char	*ft_fill_buff(t_datas *datas, char *buff)
 		if (buff[i] == '%')
 		{
 			if (!(datas->result = ft_get_unconvdatas(datas, buff, o)))
-				return (ft_exit(datas));
+				return (NULL);
 			if ((ft_get_convdatas(datas, (buff + i))) == -1)
-				return (ft_exit(datas));
+				return (NULL);
 			i += ft_strlen(datas->flags) + 1;
 			o = i + 1;
 			ft_strdel(&(datas->flags));

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:08:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:49:00 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 22:18:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int			ft_blue(char **s, char *buffpc, int *i)
 	if (!(blue = ft_strdup("{blue}")))
 		return (-1);
 	if (!(ft_strnstr(*s + *i, blue, ft_strlen(blue))))
-		return (ft_exit_color(blue));
+		return (ft_exit_clrnofind(blue));
 	if (!(color = ft_strjoin(buffpc, BLUE)))
-		return (-1);
+		return (ft_exit_color_error(blue));
 	*i += ft_strlen(blue);
 	if (!(new = ft_strjoin(color, (*s + *i))))
-		return (-1);
+		return (ft_exit_multicolor(blue, color));
 	ft_strdel(&blue);
 	ft_strdel(s);
 	ft_strdel(&color);

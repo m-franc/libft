@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:40:07 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 20:49:03 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_flags_func	g_o_flags[] =
 {
-	ft_d_precision, ft_d_zero, ft_o_diese, ft_d_padding,
+	ft_d_precision, ft_o_zero, ft_o_diese, ft_d_padding,
 };
 
 static unsigned int	ft_n_o(t_datas *datas, t_flags *flags)

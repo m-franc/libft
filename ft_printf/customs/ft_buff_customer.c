@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 12:10:33 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:52:51 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/24 22:33:20 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,26 @@ t_customs	g_customs[] =
 	ft_hidden, ft_italic, ft_eos,
 };
 
-int			ft_exit_color(char *color)
+int			ft_exit_clrnofind(char *color)
 {
-	ft_strdel(&color);
+	if (color)
+		ft_strdel(&color);
+	return (0);
+}
+
+int			ft_exit_color_error(char *color)
+{
+	if (color)
+		ft_strdel(&color);
+	return (-1);
+}
+
+int			ft_exit_multicolor(char *color, char *multicolor)
+{
+	if (color)
+		ft_strdel(&color);
+	if (multicolor)
+		ft_strdel(&multicolor);
 	return (0);
 }
 
