@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 20:06:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/25 13:38:31 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:50:20 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ t_flags_func	g_ls_flags[] =
 	ft_ls_precision, ft_c_zero, ft_d_padding
 };
 
-static wchar_t		*ft_n_ls(t_datas *datas, t_flags *flags)
+static wchar_t	*ft_n_ls(t_datas *datas, t_flags *flags)
 {
-	va_list	copy;
-	wchar_t	*arg;
+	va_list		copy;
+	wchar_t		*arg;
 
 	va_copy(copy, datas->ap);
 	while (flags->dollar-- > 0)
@@ -30,7 +30,7 @@ static wchar_t		*ft_n_ls(t_datas *datas, t_flags *flags)
 	return (arg);
 }
 
-static char	*ft_launch_ls_flags(char **argcvd, t_flags *flags)
+static char		*ft_launch_ls_flags(char **argcvd, t_flags *flags)
 {
 	int			nb_flags;
 
@@ -43,9 +43,9 @@ static char	*ft_launch_ls_flags(char **argcvd, t_flags *flags)
 	return (*argcvd);
 }
 
-static char	*ft_get_argcvd(wchar_t **argcvd)
+static char		*ft_get_argcvd(wchar_t **argcvd)
 {
-	char	*newarg;
+	char		*newarg;
 
 	if (*argcvd == NULL)
 	{
@@ -61,20 +61,20 @@ static char	*ft_get_argcvd(wchar_t **argcvd)
 	}
 }
 
-char		*ft_get_ls_conv(t_datas *datas)
+char			*ft_get_ls_conv(t_datas *datas)
 {
-	char	*argcvd;
-	wchar_t	*arg;
-	t_flags	flags;
+	char		*argcvd;
+	wchar_t		*arg;
+	t_flags		flags;
 
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (NULL);
+		return (ft_exit(datas));
 	if (datas->un_ord == 1)
 		arg = ft_n_ls(datas, &flags);
 	else
 		arg = va_arg(datas->ap, wchar_t *);
 	if (!(argcvd = ft_get_argcvd(&arg)))
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	if (!(argcvd = ft_launch_ls_flags(&argcvd, &flags)))
 		return (ft_exit_conv(datas, argcvd));
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))

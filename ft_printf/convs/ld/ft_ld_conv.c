@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:27:49 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/15 18:25:19 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:46:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ static char			*ft_launch_ld_flags(t_datas *datas)
 
 	argcvd = NULL;
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	nb_flags = 0;
 	if (datas->un_ord == 1)
 		arg = ft_n_ld(datas, &flags);
 	else
 		arg = va_arg(datas->ap, long int);
 	if (!(argcvd = ft_itoa(arg, 10, BASEUP)))
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	while (nb_flags < 5)
 	{
 		if ((g_ld_flags[nb_flags++](&argcvd, &flags)) == -1)

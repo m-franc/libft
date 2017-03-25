@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 13:18:42 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:28:49 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:09:48 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char		*ft_get_d_conv(t_datas *datas)
 	else
 	{
 		if (!(argcvd = ft_launch_d_flags(datas)))
-			return (ft_exit_conv(datas, argcvd));
+			return (ft_exit(datas));
 		if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 			return (ft_exit_conv(datas, argcvd));
 		datas->len += ft_strlen(argcvd);

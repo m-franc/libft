@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 20:48:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:38:03 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char			*ft_launch_u_flags(t_datas *datas)
 
 	argcvd = NULL;
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	nb_flags = 0;
 	if (datas->un_ord == 1)
 		arg = ft_n_u(datas, &flags);
@@ -50,7 +50,7 @@ static char			*ft_launch_u_flags(t_datas *datas)
 	else if (ft_strchr(datas->flags, 'h'))
 		arg = (unsigned short)arg;
 	if (!(argcvd = ft_uitoa(arg, 10, BASEUP)))
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	while (nb_flags < 3)
 	{
 		if ((g_u_flags[nb_flags++](&argcvd, &flags)) == -1)
@@ -69,9 +69,9 @@ char				*ft_get_u_conv(t_datas *datas)
 	else
 	{
 		if (!(argcvd = ft_launch_u_flags(datas)))
-			return (ft_exit_conv(datas, argcvd));
-		if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 			return (NULL);
+		if (!(datas->result = ft_strjoin(datas->result, argcvd)))
+			return (ft_exit_conv(datas, argcvd));
 		datas->len += ft_strlen(argcvd);
 		ft_strdel(&argcvd);
 		return (datas->result);

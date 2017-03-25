@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 21:32:24 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/25 13:51:34 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:38:26 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_get_w_conv(t_datas *datas)
 	t_flags	flags;
 
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (NULL);
+		return (ft_exit(datas));
 	if (datas->un_ord == 1)
 	{
 		va_copy(cpy, datas->ap);

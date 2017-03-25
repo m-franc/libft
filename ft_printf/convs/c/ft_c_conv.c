@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:32:35 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:08:38 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static char		*ft_prepare_c_conv(t_datas *datas)
 	int			arg;
 
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (NULL);
+		return (ft_exit(datas));
 	if (datas->un_ord == 1)
 		arg = ft_n_d(datas, &flags);
 	else
@@ -85,12 +85,12 @@ static char		*ft_prepare_c_conv(t_datas *datas)
 	if (arg == 0)
 	{
 		if (!(datas->result = ft_c_dont_exist(datas, &flags, arg)))
-			return (NULL);
+			return (ft_exit(datas));
 	}
 	else
 	{
 		if (!(datas->result = ft_c_exist(datas, &flags, arg)))
-			return (NULL);
+			return (ft_exit(datas));
 	}
 	return (datas->result);
 }

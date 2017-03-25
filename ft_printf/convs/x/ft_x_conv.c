@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 17:49:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:41:15 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char				*ft_get_long_x(t_datas *datas, t_flags *flags)
 		flags->diese = 1;
 	}
 	if (!(argcvd = ft_uitoa(arg, 16, BASELW)))
-		return (NULL);
+		return (ft_exit(datas));
 	return (argcvd);
 }
 
@@ -53,7 +53,7 @@ static char				*ft_get_x(t_datas *datas, t_flags *flags)
 	else if (ft_strchr(datas->flags, 'h'))
 		arg = (unsigned short)arg;
 	if (!(argcvd = ft_uitoa(arg, 16, BASELW)))
-		return (NULL);
+		return (ft_exit(datas));
 	return (argcvd);
 }
 
@@ -65,18 +65,18 @@ static char				*ft_launch_x_flags(t_datas *datas)
 
 	argcvd = NULL;
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	nb_flags = 0;
 	if (ft_strchr(datas->flags, 'z') || ft_strchr(datas->flags, 'j')
 			|| ft_strchr(datas->flags, 'l') || datas->pointer == 1)
 	{
 		if (!(argcvd = ft_get_long_x(datas, &flags)))
-			return (ft_exit_conv(datas, argcvd));
+			return (NULL);
 	}
 	else
 	{
 		if (!(argcvd = ft_get_x(datas, &flags)))
-			return (ft_exit_conv(datas, argcvd));
+			return (NULL);
 	}
 	while (nb_flags < 4)
 	{
@@ -91,9 +91,9 @@ char					*ft_get_x_conv(t_datas *datas)
 	char				*argcvd;
 
 	if (!(argcvd = ft_launch_x_flags(datas)))
-		return (ft_exit_conv(datas, argcvd));
-	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 		return (NULL);
+	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
+		return (ft_exit_conv(datas, argcvd));
 	datas->len += ft_strlen(argcvd);
 	ft_strdel(&argcvd);
 	if (datas->pointer == 1)

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:37 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/20 15:06:14 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:30:02 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char				*ft_launch_lx_flags(t_datas *datas)
 
 	argcvd = NULL;
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	nb_flags = 0;
 	if (ft_strchr(datas->flags, 'z') || ft_strchr(datas->flags, 'j')
 			|| ft_strchr(datas->flags, 'l'))
@@ -83,9 +83,9 @@ char					*ft_get_lx_conv(t_datas *datas)
 	char				*argcvd;
 
 	if (!(argcvd = ft_launch_lx_flags(datas)))
-		return (ft_exit_conv(datas, argcvd));
-	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
 		return (NULL);
+	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
+		return (ft_exit_conv(datas, argcvd));
 	datas->len += ft_strlen(argcvd);
 	ft_strdel(&argcvd);
 	return (datas->result);

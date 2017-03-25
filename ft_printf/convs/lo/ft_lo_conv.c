@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:27:49 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 20:48:57 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:29:25 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ static char					*ft_launch_lo_flags(t_datas *datas)
 
 	argcvd = NULL;
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	nb_flags = 0;
 	if (datas->un_ord == 1)
 		arg = ft_n_lo(datas, &flags);
 	else
 		arg = va_arg(datas->ap, unsigned long int);
 	if (!(argcvd = ft_uitoa(arg, 8, BASEUP)))
-		return (ft_exit_conv(datas, argcvd));
+		return (ft_exit(datas));
 	while (nb_flags < 4)
 	{
 		if ((g_lo_flags[nb_flags++](&argcvd, &flags)) == -1)
@@ -62,7 +62,7 @@ char						*ft_get_lo_conv(t_datas *datas)
 	if (!(argcvd = ft_launch_lo_flags(datas)))
 		return (NULL);
 	if (!(datas->result = ft_strjoin(datas->result, argcvd)))
-		return (NULL);
+		return (ft_exit_conv(datas, argcvd));
 	datas->len += ft_strlen(argcvd);
 	ft_strdel(&argcvd);
 	return (datas->result);

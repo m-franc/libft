@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:55:25 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 19:07:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 14:29:42 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char		*ft_lc_dont_exist(t_datas *datas, t_flags *flags, wint_t arg)
 	char		*argcvd;
 
 	if (!(argcvd = ft_wctoa(arg)))
-		return (NULL);
+		return (ft_exit(datas));
 	if (flags->padding < 0)
 	{
 		flags->padding *= -1;
@@ -76,12 +76,12 @@ static char		*ft_prepare_lc_conv(t_datas *datas, t_flags *flags, wint_t arg)
 	if (arg == 0)
 	{
 		if (!(datas->result = ft_lc_dont_exist(datas, flags, arg)))
-			return (NULL);
+			return (ft_exit(datas));
 	}
 	else
 	{
 		if (!(datas->result = ft_lc_exist(datas, flags, arg)))
-			return (NULL);
+			return (ft_exit(datas));
 	}
 	return (datas->result);
 }
@@ -93,7 +93,7 @@ char			*ft_get_lc_conv(t_datas *datas)
 	t_flags		flags;
 
 	if ((ft_flags_init(datas, &flags)) == -1)
-		return (NULL);
+		return (ft_exit(datas));
 	if (datas->un_ord == 1)
 	{
 		va_copy(copy, datas->ap);
