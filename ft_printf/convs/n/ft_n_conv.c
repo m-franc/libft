@@ -6,12 +6,11 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:27 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/25 12:03:50 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 13:51:45 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 static int	*ft_n_n(t_datas *datas, t_flags *flags)
 {

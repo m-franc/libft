@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:27:00 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/25 11:39:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 13:14:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	*ft_get_b(t_datas *datas, t_flags *flags, int *size)
 			return (NULL);
 	}
 	else
-	{	
+	{
 		if (!(arg = va_arg(datas->ap, void*)))
 			return (NULL);
 	}

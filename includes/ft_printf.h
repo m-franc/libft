@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 22:15:54 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 13:13:05 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ int					ft_launch_process(t_datas *datas, char *buff);
 char				*ft_get_unconvdatas(t_datas *datas, char *buff, size_t i);
 int					ft_no_conv_manager(char *buff,
 t_datas *datas, size_t conv_index);
-void				ft_last_datasmanager(t_datas *datas,
-		char conv, char **lastdatas);
+void				ft_last_datasmanager(char conv, char **lastdatas);
 char				*ft_exit(t_datas *datas);
 int					ft_exit_current(t_datas *datas);
 int					ft_exit_noconv(t_datas *datas, char *tmpsf);

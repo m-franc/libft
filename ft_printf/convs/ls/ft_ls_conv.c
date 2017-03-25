@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 20:06:53 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 19:39:54 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 13:38:31 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@ t_flags_func	g_ls_flags[] =
 {
 	ft_ls_precision, ft_c_zero, ft_d_padding
 };
+
+static wchar_t		*ft_n_ls(t_datas *datas, t_flags *flags)
+{
+	va_list	copy;
+	wchar_t	*arg;
+
+	va_copy(copy, datas->ap);
+	while (flags->dollar-- > 0)
+		va_arg(copy, void *);
+	arg = va_arg(copy, wchar_t *);
+	va_end(copy);
+	return (arg);
+}
 
 static char	*ft_launch_ls_flags(char **argcvd, t_flags *flags)
 {
@@ -57,7 +70,7 @@ char		*ft_get_ls_conv(t_datas *datas)
 	if ((ft_flags_init(datas, &flags)) == -1)
 		return (NULL);
 	if (datas->un_ord == 1)
-		arg = (wchar_t *)ft_n_s(datas, &flags);
+		arg = ft_n_ls(datas, &flags);
 	else
 		arg = va_arg(datas->ap, wchar_t *);
 	if (!(argcvd = ft_get_argcvd(&arg)))

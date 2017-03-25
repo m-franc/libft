@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:14:08 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/25 11:27:27 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/25 13:14:01 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char				*ft_vtob(const void *c, size_t size)
 	size_t			o;
 
 	if (!c)
-		return (NULL);	
+		return (NULL);
 	i = 0;
 	o = 0;
 	if (!(result = ft_strnew(9 * size)))
