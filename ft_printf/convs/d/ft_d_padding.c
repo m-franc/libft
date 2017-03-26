@@ -30,8 +30,6 @@ int			ft_d_padding(char **argcvd, t_flags *flags)
 	char	*tmp;
 	int		nb_o;
 
-	PSTR("PADDING : ")
-	PNBR(flags->padding)
 	if (flags->padding == 0 || flags->padding > 1000)
 		return (0);
 	if (flags->padding < 0)

@@ -18,7 +18,7 @@ t_get_convs	g_get_convs[] =
 	ft_get_ld_conv, ft_get_d_conv, ft_get_o_conv, ft_get_lo_conv,
 	ft_get_u_conv, ft_get_lu_conv, ft_get_x_conv, ft_get_lx_conv,
 	ft_get_w_conv, ft_get_c_conv, ft_get_lc_conv, ft_get_b_conv,
-	ft_get_n_conv, ft_get_percent_conv,
+	ft_get_n_conv, ft_get_ln_conv, ft_get_percent_conv,
 };
 
 char	*ft_get_lastdatas(t_datas *datas, char *buff, size_t i)

@@ -14,8 +14,8 @@
 
 void	ft_last_datasmanager(char conv, char **lastdatas)
 {
-	if (conv == 'n' || conv == 'w')
+	if (conv == 'n' || conv == 'w' || conv == 'N')
 		*lastdatas = NULL;
-	if (lastdatas && (conv != 'n' || conv != 'w'))
+	if (lastdatas && (conv != 'n' || conv != 'w'|| conv != 'N'))
 		ft_strdel(lastdatas);
 }

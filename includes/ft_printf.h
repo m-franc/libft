@@ -17,7 +17,7 @@
 # include "libft.h"
 # include "custom.h"
 
-# define CONVS 	"sSpdDioOuUxXwcCbn%"
+# define CONVS 	"sSpdDioOuUxXwcCbnN%"
 # define MODIFS "hlhhlljz"
 # define FLAGS 	"#0123456789 -+*$L.hlhhlljz"
 
@@ -27,6 +27,7 @@ typedef struct		s_datas
 	va_list			ap;
 	char			*flags;
 	int				*tmp_len;
+	char				**cp_result;
 	int				len;
 	int				cplen;
 	int				un_ord;
@@ -107,6 +108,7 @@ char				*ft_get_c_conv(t_datas *datas);
 char				*ft_get_lc_conv(t_datas *datas);
 char				*ft_get_b_conv(t_datas *datas);
 char				*ft_get_n_conv(t_datas *datas);
+char				*ft_get_ln_conv(t_datas *datas);
 char				*ft_get_percent_conv(t_datas *datas);
 
 typedef	char		*(*t_get_convs)(t_datas *datas);

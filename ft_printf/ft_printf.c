@@ -26,6 +26,7 @@ int		ft_launch_process(t_datas *datas, char *buff)
 {
 	datas->result = NULL;
 	datas->flags = NULL;
+	datas->cp_result = NULL;
 	datas->un_ord = 0;
 	datas->len = 0;
 	datas->cplen = 0;

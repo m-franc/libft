@@ -138,6 +138,7 @@ SRCS = 	mems/ft_memset.c				\
 		ft_printf/convs/lc/ft_lc_conv.c	\
 		ft_printf/convs/b/ft_b_conv.c	\
 		ft_printf/convs/n/ft_n_conv.c	\
+		ft_printf/convs/ln/ft_ln_conv.c	\
 		ft_printf/ft_fill_buff.c		\
 		ft_printf/convs/percent/ft_percent_conv.c	\
 		ft_printf/convs/parse_flags/ft_parse_flags.c	\
