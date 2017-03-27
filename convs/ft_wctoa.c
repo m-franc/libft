@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:16:00 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 19:39:34 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/27 15:10:09 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ char			*ft_wctoa(wint_t uchar)
 {
 	if ((uchar >= 0 && uchar <= 127) && MB_CUR_MAX >= 1)
 		return (ft_straddchar(NULL, uchar));
-	else if ((uchar >= 128 && uchar <= 2047) && MB_CUR_MAX >= 2)
+	else if ((uchar >= 0 && uchar <= 255) && MB_CUR_MAX == 1)
+		return (ft_straddchar(NULL, uchar));
+	else if ((uchar >= 127 && uchar <= 2047) && MB_CUR_MAX >= 2)
 		return (get2bytewchar(uchar));
 	else if ((uchar >= 2048 && uchar <= 65535) && MB_CUR_MAX >= 3)
 		return (get3bytewchar(uchar));
