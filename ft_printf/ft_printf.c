@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 18:57:34 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/24 22:03:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/27 16:04:45 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		ft_launch_process(t_datas *datas, char *buff)
 {
 	datas->result = NULL;
 	datas->flags = NULL;
-	datas->cp_result = NULL;
 	datas->un_ord = 0;
 	datas->len = 0;
 	datas->cplen = 0;

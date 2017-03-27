@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:27 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/27 15:25:18 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/27 16:07:22 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	**ft_ln_n(t_datas *datas, t_flags *flags)
 
 char		*ft_get_ln_conv(t_datas *datas)
 {
-	char		**cp_format;
+	char	**cp_format;
 	t_flags	flags;
 
 	if ((ft_flags_init(datas, &flags)) == -1)

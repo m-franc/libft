@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 20:38:16 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/27 12:51:08 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/27 16:03:30 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct		s_datas
 	va_list			ap;
 	char			*flags;
 	int				*tmp_len;
-	char				**cp_result;
+	char			**cp_result;
 	int				len;
 	int				cplen;
 	int				un_ord;

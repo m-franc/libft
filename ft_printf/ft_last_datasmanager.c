@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 11:32:05 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/25 12:01:28 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/27 16:05:23 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_last_datasmanager(char conv, char **lastdatas)
 {
 	if (conv == 'n' || conv == 'w' || conv == 'N')
 		*lastdatas = NULL;
-	if (lastdatas && (conv != 'n' || conv != 'w'|| conv != 'N'))
+	if (lastdatas && (conv != 'n' || conv != 'w' || conv != 'N'))
 		ft_strdel(lastdatas);
 }
