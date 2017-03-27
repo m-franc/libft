@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 21:28:27 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/25 14:31:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/27 12:11:11 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ char		*ft_get_ln_conv(t_datas *datas)
 	datas->cp_result = cp_format;
 	*datas->cp_result = datas->result;
 	datas->len = 0;
-	datas->cplen = 0;
 	return (datas->result);
 }
