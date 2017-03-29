@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/17 12:51:17 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:26:20 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ typedef	struct		s_list
 {
 	void			*content;
 	size_t			content_size;
-	int				index;
-	int				precision;
-	int				padding;
 	struct s_list	*next;
 }					t_list;
 
@@ -106,7 +103,7 @@ char				*ft_itoa(long long n, int base, char *baselist);
 char				*ft_uitoa(unsigned long long n, int base, char *baselist);
 int					ft_ilen(long long n, int base);
 size_t				ft_uilen(unsigned long long n, int base);
-char				*ft_ftoa(long double n, int base, char *bl);
+char				*ft_ftoa(long double n, int precision);
 char				*ft_convbase(char *str,
 		int old_base, int new_base, char *baselist);
 char				*ft_wctoa(wint_t uchar);
