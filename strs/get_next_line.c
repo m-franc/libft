@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 14:32:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/04/17 21:36:14 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/04/17 22:00:58 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ int					save_lines(char *ndtmp, t_file **file, char **line)
 {
 	char			*nexttmp;
 
-	PSTR("LE TEMP : ")
-	ft_putendl((*file)->tmp);
 	if ((*file)->tmp[0] == '\0')
 	{
 		remove_file(file);
