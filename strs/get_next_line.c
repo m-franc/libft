@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 14:32:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/04/05 17:28:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/04/17 20:12:38 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,11 @@ t_file				*get_file(t_file **begin, int fd)
 	t_file			*tmpnext;
 
 	if (!*begin)
-		return (*begin = lstnew(begin, fd));
-	if ((*begin)->fd == fd)
+	{
+		if (!(*begin = lstnew(begin, fd)))
+			return (NULL);
+	}
+	if (!(*begin)->next || (*begin)->fd == fd)
 		return (*begin);
 	tmplst = *begin;
 	tmpnext = (*begin)->next;
@@ -70,13 +73,9 @@ void				remove_file(t_file **file)
 	supp = *file;
 	supp->fd = -1;
 	ft_strdel(&((*file)->tmp));
-	if ((*file)->next)
-	{
-		free(supp);
-		*file = (*file)->next;
-	}
-	else
-		free(supp);
+	free(supp);
+	*file = (*file)->next;
+	free(supp);
 }
 
 int					save_lines(char *ndtmp, t_file **file, char **line)
@@ -90,16 +89,19 @@ int					save_lines(char *ndtmp, t_file **file, char **line)
 	}
 	if (ndtmp == NULL)
 	{
-		*line = ft_strdup((*file)->tmp);
+		if (!(*line = ft_strdup((*file)->tmp)))
+			return (-1);
 		ft_bzero((*file)->tmp, ft_strlen((*file)->tmp));
 		return (1);
 	}
 	else
 	{
-		*line = ft_strsub((*file)->tmp, 0, ft_strlen((*file)->tmp)
-				- ft_strlen(ndtmp));
+		if (!(*line = ft_strsub((*file)->tmp, 0, ft_strlen((*file)->tmp)
+				- ft_strlen(ndtmp))))
+			return (-1);
 		nexttmp = (*file)->tmp;
-		(*file)->tmp = ft_strdup(ndtmp + 1);
+		if (!((*file)->tmp = ft_strdup(ndtmp + 1)))
+			return (-1);
 		ft_strdel(&nexttmp);
 		return (1);
 	}
@@ -113,7 +115,7 @@ int					get_next_line(const int fd, char **line)
 	char			*ndtmp;
 	static t_file	*file;
 
-	if (!line)
+	if (!line || (!(file = get_file(&file, fd))))
 		return (-1);
 	file = get_file(&file, fd);
 	*line = NULL;
