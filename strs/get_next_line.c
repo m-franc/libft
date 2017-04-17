@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 14:32:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/04/17 21:27:52 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/04/17 21:36:14 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int					save_lines(char *ndtmp, t_file **file, char **line)
 {
 	char			*nexttmp;
 
+	PSTR("LE TEMP : ")
+	ft_putendl((*file)->tmp);
 	if ((*file)->tmp[0] == '\0')
 	{
 		remove_file(file);
@@ -119,7 +121,6 @@ int					get_next_line(const int fd, char **line)
 
 	if (!line || (!(file = get_file(&file, fd))))
 		return (-1);
-	file = get_file(&file, fd);
 	*line = NULL;
 	ndtmp = ft_strchr(file->tmp, '\n');
 	while (!ndtmp || *((file)->tmp))
@@ -130,7 +131,8 @@ int					get_next_line(const int fd, char **line)
 			return (-1);
 		buf[ret] = '\0';
 		tmpline = file->tmp;
-		file->tmp = ft_strjoin(tmpline, buf);
+		if (!(file->tmp = ft_strjoin(tmpline, buf)))
+			return (-1);
 		ft_strdel(&tmpline);
 		ndtmp = ft_strchr(file->tmp, '\n');
 	}
