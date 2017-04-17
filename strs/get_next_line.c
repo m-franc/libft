@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 14:32:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/04/17 20:12:38 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/04/17 21:27:52 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ t_file				*lstnew(t_file **begin, int fd)
 		if (!(*begin = (t_file*)malloc(sizeof(t_file))))
 			return (NULL);
 		(*begin)->fd = fd;
-		(*begin)->tmp = ft_strnew(0);
+		if (!((*begin)->tmp = ft_strnew(0)))
+			return (NULL);
 		(*begin)->next = NULL;
 		return (*begin);
 	}
@@ -30,7 +31,8 @@ t_file				*lstnew(t_file **begin, int fd)
 		if (!(new = (t_file*)malloc(sizeof(t_file))))
 			return (NULL);
 		new->fd = fd;
-		new->tmp = ft_strnew(0);
+		if (!(new->tmp = ft_strnew(0)))
+			return (NULL);
 		new->next = *begin;
 		*begin = new;
 		return (new);
