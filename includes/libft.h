@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/05/29 16:26:58 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/05/30 16:15:21 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_strsplit_tolist(char const *s, char c);
 int					ft_sqrt(int nb);
+int					ft_abs(int nb);
 long long			ft_power(long long nb, int power);
 void				ft_putlist(t_list *lst);
 size_t				ft_listcount(t_list *lst);
