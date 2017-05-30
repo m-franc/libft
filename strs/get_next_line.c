@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 14:32:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/04/18 11:10:36 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/05/30 19:53:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_file				*lstnew(t_file **begin, int fd)
 		if (!(*begin = (t_file*)malloc(sizeof(t_file))))
 			return (NULL);
 		(*begin)->fd = fd;
-		(*begin)->tmp = ft_strnew(0);
+		if (!((*begin)->tmp = ft_strnew(0)))
+			return (NULL);
 		(*begin)->next = NULL;
 		return (*begin);
 	}
@@ -31,7 +32,8 @@ t_file				*lstnew(t_file **begin, int fd)
 		if (!(new = (t_file*)malloc(sizeof(t_file))))
 			return (NULL);
 		new->fd = fd;
-		new->tmp = ft_strnew(0);
+		if (!(new->tmp = ft_strnew(0)))
+			return (NULL);
 		new->next = *begin;
 		*begin = new;
 		return (new);
@@ -86,16 +88,19 @@ int					save_lines(char *ndtmp, t_file **file, char **line)
 	}
 	if (ndtmp == NULL)
 	{
-		*line = ft_strdup((*file)->tmp);
+		if (!(*line = ft_strdup((*file)->tmp)))
+			return (-1);
 		ft_bzero((*file)->tmp, ft_strlen((*file)->tmp));
 		return (1);
 	}
 	else
 	{
-		*line = ft_strsub((*file)->tmp, 0, ft_strlen((*file)->tmp)
-				- ft_strlen(ndtmp));
+		if (!(*line = ft_strsub((*file)->tmp, 0, ft_strlen((*file)->tmp)
+				- ft_strlen(ndtmp))))
+			return (-1);
 		nexttmp = (*file)->tmp;
-		(*file)->tmp = ft_strdup(ndtmp + 1);
+		if (!((*file)->tmp = ft_strdup(ndtmp + 1)))
+			return (-1);
 		ft_strdel(&nexttmp);
 		return (1);
 	}
@@ -109,9 +114,8 @@ int					get_next_line(const int fd, char **line)
 	char			*ndtmp;
 	static t_file	*file;
 
-	if (!line)
+	if (!line || (file = get_file(&file, fd)))
 		return (-1);
-	file = get_file(&file, fd);
 	*line = NULL;
 	ndtmp = ft_strchr(file->tmp, '\n');
 	while (!ndtmp)
@@ -122,7 +126,8 @@ int					get_next_line(const int fd, char **line)
 			return (-1);
 		buf[ret] = '\0';
 		tmpline = file->tmp;
-		file->tmp = ft_strjoin(tmpline, buf);
+		if (!(file->tmp = ft_strjoin(tmpline, buf)))
+			return (-1);
 		ft_strdel(&tmpline);
 		ndtmp = ft_strchr(file->tmp, '\n');
 	}
