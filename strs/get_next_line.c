@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/27 14:32:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/05/30 19:53:24 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/06/07 15:01:54 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int					get_next_line(const int fd, char **line)
 	char			*ndtmp;
 	static t_file	*file;
 
-	if (!line || (file = get_file(&file, fd)))
+	if (!line || (!(file = get_file(&file, fd))))
 		return (-1);
 	*line = NULL;
 	ndtmp = ft_strchr(file->tmp, '\n');

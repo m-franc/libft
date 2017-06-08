@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 12:10:33 by mfranc            #+#    #+#             */
-/*   Updated: 2017/05/31 12:52:56 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/06/07 14:40:29 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int			ft_buff_customer(char **ucvchar)
 					return (-1);
 				else if (find_custom == 1)
 					i--;
-				
 			}
 		}
 		return (1);

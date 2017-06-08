@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 13:38:43 by mfranc            #+#    #+#             */
-/*   Updated: 2017/05/30 16:30:46 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:54:04 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char			*ft_ftoa(long double n, int precision)
 	if (!(entier = ft_itoa(n, 10, BASEUP)))
 		return (NULL);
 	n = ((n - ft_atoi(entier)));
-	n = ft_abs(n);
+	n = ABS(n);
 	n *= ft_power(10, precision);
 	n += 0.5;
 	if (precision == 0)

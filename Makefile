@@ -6,13 +6,13 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/05/31 11:20:30 by mfranc           ###   ########.fr        #
+#    Updated: 2017/06/07 15:21:35 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror
 
 CC = gcc $(FLAGS)
 
