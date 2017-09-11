@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/05/30 16:15:21 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/06 19:45:36 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					ft_str_isdigit(char *str);
 
 void				*ft_memalloc(size_t n);
 void				ft_memdel(void **ap);
@@ -144,6 +145,7 @@ int					ft_countword(char const *s);
 void				**ft_tabnew(size_t n);
 void				ft_sort_int_tab(int *tab, unsigned int size);
 int					ft_get_median(int *tab, unsigned int size);
+int					ft_fibonacci(int n);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lststrnew(void const *content, size_t content_size);

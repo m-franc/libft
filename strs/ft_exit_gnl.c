@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_exit_gnl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 11:57:33 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/04 18:56:18 by mfranc           ###   ########.fr       */
+/*   Created: 2017/09/06 19:37:29 by mfranc            #+#    #+#             */
+/*   Updated: 2017/09/06 19:47:53 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "get_next_line.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int		ft_exit_gnl(t_file *file, char **line)
 {
-	unsigned char		*srcstr;
-	unsigned char		*deststr;
-	size_t				i;
-
-	srcstr = (unsigned char*)src;
-	deststr = (unsigned char*)dest;
-	i = 0;
-	while (i < n)
+	if (*line)
+		ft_strdel(line);
+	if (file)
 	{
-		deststr[i] = srcstr[i];
-		i++;
+		if (file->tmp)
+			ft_strdel(&file->tmp);
+		ft_memdel((void**)&file);
 	}
-	return (dest);
+	return (-1);
 }
