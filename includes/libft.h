@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/14 12:11:40 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/14 12:36:05 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct		s_ctl_list
 	int				size;
 }					t_ctl_list;
 
-# define C_TLIST (x->content)
+# define CNT_LST (x->content)
 # define BASEUP "0123456789ABCDEF"
 # define BASELW "0123456789abcdef"
 # define ENDL ft_putchar('\n');
@@ -169,6 +169,7 @@ int					ft_sqrt(int nb);
 int					ft_abs(int nb);
 long long			ft_power(long long nb, int power);
 void				ft_putlist(t_list *lst);
+void				ft_push_back(t_ctl_list *ctl_list, t_list *new_elem);
 size_t				ft_listcount(t_list *lst);
 
 #endif
