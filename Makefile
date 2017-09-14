@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/09/14 12:35:14 by mfranc           ###   ########.fr        #
+#    Updated: 2017/09/14 19:49:08 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -191,7 +191,8 @@ SRCS = 	mems/ft_memset.c				\
 		detects/ft_str_isdigit.c	\
 		maths/ft_fibonacci.c		\
 		strs/ft_exit_gnl.c			\
-		lists/ft_push_back.c
+		lists/ft_push_back.c		\
+		lists/ft_lstdelone_if.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 

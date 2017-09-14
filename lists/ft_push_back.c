@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_pusb_back.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/17 21:24:58 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/14 19:39:20 by mfranc           ###   ########.fr       */
+/*   Created: 2017/09/14 12:24:21 by mfranc            #+#    #+#             */
+/*   Updated: 2017/09/14 13:56:16 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstdelone(t_list **node)
+void	ft_push_back(t_ctl_list *ctl_list, t_list *new_elem)
 {
-	t_list	*to_free;
-	t_list	*next_node;
-	
-	to_free = *node;
-	next_node = (*node)->next;
-	if (next_node && next_node->next)
-		next_node->prev = (*node)->prev;
-	ft_memdel((void**)&to_free);
-	*node = next_node;
+	if (ctl_list->head)
+	{
+		ctl_list->bottom->next = new_elem;
+		ctl_list->bottom = ctl_list->bottom->next;
+	}
+	else
+	{
+		ctl_list->head = new_elem;
+		ctl_list->bottom = new_elem;
+	}
 }

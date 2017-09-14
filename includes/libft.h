@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/14 12:36:05 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/14 19:50:53 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,7 @@ void				ft_lstdelone(t_list **alst);
 void				ft_lstdel(t_list **alst);
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void				ft_lstdelone_if(t_ctl_list *ctl_list, int(*f)(t_list *elem, void *op), void *op);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_strsplit_tolist(char const *s, char c);
 int					ft_sqrt(int nb);
