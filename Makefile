@@ -6,13 +6,9 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/09/11 15:06:47 by mfranc           ###   ########.fr        #
+#    Updated: 2017/09/14 12:13:02 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-.PHONY: all clean fclean re
-
-.SILENT: all clean fclean re
 
 NAME = libftprintf.a
 
@@ -201,16 +197,18 @@ OBJECTS = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME) : $(OBJECTS)
-	ar rc $@ $^
-	ranlib $@
+	@ar rc $@ $^
+	@ranlib $@
 
 %.o: %.c
-	$(CC) -c $< -o $@ -I $(INCLUDES)
+	@$(CC) -c $< -o $@ -I $(INCLUDES)
 
 clean:
-	rm -f $(OBJECTS)
+	@rm -f $(OBJECTS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

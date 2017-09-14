@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/06 19:45:36 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/14 12:11:40 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,17 @@ typedef	struct		s_list
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
+typedef struct		s_ctl_list
+{
+	t_list			*head;
+	t_list			*bottom;
+	int				size;
+}					t_ctl_list;
+
+# define C_TLIST (x->content)
 # define BASEUP "0123456789ABCDEF"
 # define BASELW "0123456789abcdef"
 # define ENDL ft_putchar('\n');
@@ -148,6 +157,7 @@ int					ft_get_median(int *tab, unsigned int size);
 int					ft_fibonacci(int n);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lstnew_nm(void const *content, size_t content_size);
 t_list				*ft_lststrnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst);
 void				ft_lstdel(t_list **alst);
