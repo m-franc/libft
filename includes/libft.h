@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/14 19:50:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/15 16:26:17 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct		s_ctl_list
 	int				size;
 }					t_ctl_list;
 
-# define CNT_LST (x->content)
+# define CTN(x) (x->content)
 # define BASEUP "0123456789ABCDEF"
 # define BASELW "0123456789abcdef"
 # define ENDL ft_putchar('\n');
@@ -159,9 +159,9 @@ int					ft_fibonacci(int n);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstnew_nm(void const *content, size_t content_size);
 t_list				*ft_lststrnew(void const *content, size_t content_size);
-void				ft_lstdelone(t_list **alst);
+void				ft_lstdelone(t_ctl_list *ctl_list, t_list **alst);
 void				ft_lstdel(t_list **alst);
-void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_push_front(t_ctl_list *ctl_list, t_list *elem);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstdelone_if(t_ctl_list *ctl_list, int(*f)(t_list *elem, void *op), void *op);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
@@ -171,6 +171,7 @@ int					ft_abs(int nb);
 long long			ft_power(long long nb, int power);
 void				ft_putlist(t_list *lst);
 void				ft_push_back(t_ctl_list *ctl_list, t_list *new_elem);
+void				ft_push_at(t_ctl_list *ctl_list, t_list *new, int(*f)(t_list *node, void *op), void *op);
 size_t				ft_listcount(t_list *lst);
 
 #endif

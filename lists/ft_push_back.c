@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 12:24:21 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/14 13:56:16 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/15 15:41:07 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	ft_push_back(t_ctl_list *ctl_list, t_list *new_elem)
 {
 	if (ctl_list->head)
 	{
+		new_elem->prev = ctl_list->bottom;
 		ctl_list->bottom->next = new_elem;
-		ctl_list->bottom = ctl_list->bottom->next;
+		ctl_list->bottom = new_elem;
 	}
 	else
 	{

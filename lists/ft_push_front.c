@@ -6,14 +6,23 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/18 10:12:00 by mfranc            #+#    #+#             */
-/*   Updated: 2016/11/19 12:31:53 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/15 15:41:12 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_push_front(t_ctl_list *ctl_list, t_list *new)
 {
-	new->next = *alst;
-	*alst = new;
+	if (ctl_list->head)
+	{
+		new->next = ctl_list->head;
+		new->next->prev = new;
+		ctl_list->head = new;
+	}
+	else
+	{	
+		ctl_list->head = new;
+		ctl_list->bottom = new;
+	}
 }

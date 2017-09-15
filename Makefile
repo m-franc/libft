@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/09/14 19:49:08 by mfranc           ###   ########.fr        #
+#    Updated: 2017/09/15 16:25:31 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ SRCS = 	mems/ft_memset.c				\
 		lists/ft_lststrnew.c			\
 		lists/ft_lstdelone.c			\
 		lists/ft_lstdel.c				\
-		lists/ft_lstadd.c				\
+		lists/ft_push_front.c				\
 		lists/ft_lstiter.c			\
 		lists/ft_lstmap.c				\
 		strs/ft_countword.c			\
@@ -192,7 +192,8 @@ SRCS = 	mems/ft_memset.c				\
 		maths/ft_fibonacci.c		\
 		strs/ft_exit_gnl.c			\
 		lists/ft_push_back.c		\
-		lists/ft_lstdelone_if.c
+		lists/ft_lstdelone_if.c		\
+		lists/ft_push_at.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 
