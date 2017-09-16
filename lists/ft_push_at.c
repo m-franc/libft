@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 16:15:03 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/15 16:51:51 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/16 16:25:16 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ void	ft_push_at(t_ctl_list *ctl_list, t_list *new, int(*f)(t_list *node, void *o
 	t_list	*node;
 
 	node = ctl_list->head;
-	if (!node)
-	{
-		ft_push_front(ctl_list, new);
-		return ;
-	}
 	while (node)
 	{
 		if (f(node, op))
@@ -40,7 +35,9 @@ void	ft_push_at(t_ctl_list *ctl_list, t_list *new, int(*f)(t_list *node, void *o
 				ft_push_front(ctl_list, new);
 			else
 				ft_push(node, new);
+			return ;
 		}
-		node = node->next;	
+		node = node->next;
 	}
+	ft_push_back(ctl_list, new);
 }
