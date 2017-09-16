@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 14:11:04 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/16 16:26:00 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/16 20:05:10 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "get_next_line.h"
 #include "ft_printf.h"
 
-int		ft_nodecontent_is_lower(t_list *node, void *op)
+int		ft_nodecontent_is_lower(t_list *node, t_list *new)
 {
-	if (!op)
+	if (!node)
 		return (1);
-	if (ft_strcmp(node->content, op) >= 0)
+	if (ft_strcmp(node->content, new->content) >= 0)
 		return (1);
 	else
 		return (0);
@@ -36,7 +36,7 @@ int		main(void)
 	while ((ret = get_next_line(0, &line)) == 1)
 	{
 		link = ft_lstnew_nm(line, ft_strlen(line));
-		ft_push_at(ctl_list, link, &ft_nodecontent_is_lower, link->prev);
+		ft_push_sort(ctl_list, link, &ft_nodecontent_is_lower);
 		ctl_list->size++;
 	}
 	ft_putstr(RED);

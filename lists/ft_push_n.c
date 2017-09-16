@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdeloneif.c                                   :+:      :+:    :+:   */
+/*   ft_push_n.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/14 18:19:17 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/16 20:05:13 by mfranc           ###   ########.fr       */
+/*   Created: 2017/09/16 19:17:00 by mfranc            #+#    #+#             */
+/*   Updated: 2017/09/16 20:05:17 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstdelone_if(t_ctl_list *ctl_list, int(*f)(t_list *elem, void *op), void *op)
+void	ft_push_n(t_ctl_list *ctl_list, t_list *node, t_list *new, int n)
 {
-	t_list	*node;
+	int	i;
 
-	node = ctl_list->head;
-	while (node)
+	i = 0;
+	if (n == 0)
+		ft_push_front(ctl_list, new);
+	else if (ctl_list->size >= n)
+		ft_push_back(ctl_list, new);
+	else
 	{
-		if (f(node, op))
-			ft_lstdelone(ctl_list, &node);
-		else
-			node = node->next;
+		while (node && i != n)
+		{
+			node = node->next;	
+			i++;
+		}
+		ft_push(node, new);
 	}
 }

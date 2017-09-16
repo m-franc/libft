@@ -6,12 +6,11 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 21:24:58 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/15 15:53:00 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/16 20:05:14 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_printf.h"
 
 void		ft_lstdelone(t_ctl_list *ctl_list, t_list **node)
 {

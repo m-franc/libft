@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/15 16:26:17 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/16 20:05:12 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,9 @@ int					ft_abs(int nb);
 long long			ft_power(long long nb, int power);
 void				ft_putlist(t_list *lst);
 void				ft_push_back(t_ctl_list *ctl_list, t_list *new_elem);
-void				ft_push_at(t_ctl_list *ctl_list, t_list *new, int(*f)(t_list *node, void *op), void *op);
+void				ft_push_sort(t_ctl_list *ctl_list, t_list *new, int(*f)(t_list *node, t_list *new));
+void				ft_push_n(t_ctl_list *ctl_list, t_list *node, t_list *new, int n);
+void				ft_push(t_list *node, t_list *new);
 size_t				ft_listcount(t_list *lst);
 
 #endif
