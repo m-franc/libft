@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 14:11:04 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/16 20:05:10 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/09/16 20:22:39 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ int		ft_nodecontent_is_lower(t_list *node, t_list *new)
 		return (0);
 }
 
+int		ft_content_is_equ(t_list *node, void *op)
+{
+	(void)node;
+	(void)op;
+	return (1);
+}
+
 int		main(void)
 {
 	int			ret;
@@ -39,10 +46,16 @@ int		main(void)
 		ft_push_sort(ctl_list, link, &ft_nodecontent_is_lower);
 		ctl_list->size++;
 	}
-	ft_putstr(RED);
+	char *test = ft_strdup("COUCOU");
+	link = ft_lstnew_nm(test, ft_strlen(test));
+	ft_push_n(ctl_list, link, 4);
+	ft_putstr(RED);	
 	ft_putlist(ctl_list->head);
 	ft_putstr(EOC);
-//	ft_lstdelone_if(ctl_list, &ft_content_is_equ, "ok");
+	ft_lstdelone_if(ctl_list, &ft_content_is_equ, "ok");
+	ft_putstr(RED);	
+	ft_putlist(ctl_list->head);
+	ft_putstr(EOC);
 //	ft_lstdel(&ctl_list->head);
 	return (0);
 }
