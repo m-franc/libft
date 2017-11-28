@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 17:10:28 by mfranc            #+#    #+#             */
-/*   Updated: 2017/11/02 19:37:14 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/28 17:43:19 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ char			**ft_strsplit(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	tab = ft_memalloc(sizeof(*tab) * (ft_word_count(s, c) + 1));
+	if (!(tab = ft_memalloc(sizeof(*tab)
+					* (ft_word_count(s, c) + 1))))
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i])

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 20:21:39 by mfranc            #+#    #+#             */
-/*   Updated: 2017/10/30 17:55:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/28 17:45:40 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t n)
 	if (!s)
 		return (NULL);
 	i = 0;
-	new = ft_memalloc(sizeof(char) * (n + 1));
+	if (!(new = malloc(sizeof(char) * (n + 1))))
+		return (NULL);
 	while (i < n)
 		new[i++] = s[start++];
 	new[i] = '\0';

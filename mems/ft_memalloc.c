@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 18:18:07 by mfranc            #+#    #+#             */
-/*   Updated: 2017/10/23 11:22:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/28 17:41:57 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	*ft_memalloc(size_t n)
 	void	*area;
 
 	if (n < 1)
-		exit(1);
+		return (NULL);
 	if (!(area = malloc(n)))
-		exit(1);
+		return (NULL);
 	ft_bzero(area, n);
 	return (area);
 }
