@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 10:08:40 by mfranc            #+#    #+#             */
-/*   Updated: 2016/11/21 15:59:21 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/04 18:58:27 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,5 @@ char	*ft_strtrim(char const *s)
 		i--;
 	i++;
 	new = ft_strsub((char*)s, o, i - o);
-	if (new == NULL)
-		return (NULL);
 	return (new);
 }

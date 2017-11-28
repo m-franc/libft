@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/09/16 20:05:15 by mfranc           ###   ########.fr        #
+#    Updated: 2017/11/08 18:39:47 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS = 	mems/ft_memset.c				\
 		strs/ft_strnstr.c			\
 		strs/ft_strncmp.c			\
 		strs/ft_strcmp.c				\
+		strs/ft_strindex.c				\
 		convs/ft_atoi.c				\
 		convs/ft_atoui.c				\
 		detects/ft_isalpha.c			\
@@ -61,6 +62,7 @@ SRCS = 	mems/ft_memset.c				\
 		strs/ft_strnequ.c			\
 		strs/ft_strsub.c				\
 		strs/ft_strjoin.c			\
+		strs/ft_strnjoin.c			\
 		strs/ft_strtrim.c			\
 		puts/ft_putstr.c				\
 		puts/ft_puttab.c				\

@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/16 19:17:00 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/16 20:14:20 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/24 10:14:13 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void		ft_push_n(t_ctl_list *ctl_list, t_list *new, int n)
 	{
 		while (node && i != n)
 		{
-			node = node->next;	
+			node = node->next;
 			i++;
 		}
 		ft_push(node, new);
+		ctl_list->size++;
 	}
 }

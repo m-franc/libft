@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 20:49:33 by mfranc            #+#    #+#             */
-/*   Updated: 2017/03/29 21:09:32 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/02 19:40:17 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_puttab(char **tab)
 		return ;
 	i = 0;
 	while (tab[i])
-		ft_printf("%s ", tab[i++]);
+		ft_printf("%s\n", tab[i++]);
 }

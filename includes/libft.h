@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/16 20:12:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/24 10:13:26 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_ctl_list
 	t_list			*head;
 	t_list			*bottom;
 	int				size;
+	int				padd;
 }					t_ctl_list;
 
 # define CTN(x) (x->content)
@@ -71,6 +72,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t n);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
 char				*ft_strstr(const char *s1, const char *s2);
+int					ft_strindex(char *str, char c);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -85,6 +87,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					ft_is_separator(char c);
 int					ft_str_isdigit(char *str);
 
 void				*ft_memalloc(size_t n);
@@ -101,6 +104,7 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t n);
 char				*ft_strjoin(char const *s1, const char *s2);
+char				*ft_strnjoin(char const *s1, const char *s2, size_t size);
 char				*ft_strtrim(char const *s);
 char				*ft_straddchar(char *s, int c);
 void				ft_putstr(char const *s);
@@ -163,7 +167,8 @@ void				ft_lstdelone(t_ctl_list *ctl_list, t_list **alst);
 void				ft_lstdel(t_list **alst);
 void				ft_push_front(t_ctl_list *ctl_list, t_list *elem);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-void				ft_lstdelone_if(t_ctl_list *ctl_list, int(*f)(t_list *elem, void *op), void *op);
+void				ft_lstdelone_if(t_ctl_list *ctl_list,
+		int(*f)(t_list *elem, void *op), void *op);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_strsplit_tolist(char const *s, char c);
 int					ft_sqrt(int nb);
@@ -171,7 +176,8 @@ int					ft_abs(int nb);
 long long			ft_power(long long nb, int power);
 void				ft_putlist(t_list *lst);
 void				ft_push_back(t_ctl_list *ctl_list, t_list *new_elem);
-void				ft_push_sort(t_ctl_list *ctl_list, t_list *new, int(*f)(t_list *node, t_list *new));
+void				ft_push_sort(t_ctl_list *ctl_list,
+		t_list *new, int(*f)(t_list *node, t_list *new));
 void				ft_push_n(t_ctl_list *ctl_list, t_list *new, int n);
 void				ft_push(t_list *node, t_list *new);
 size_t				ft_listcount(t_list *lst);

@@ -6,13 +6,14 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 18:19:17 by mfranc            #+#    #+#             */
-/*   Updated: 2017/09/16 20:05:13 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/24 10:15:16 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstdelone_if(t_ctl_list *ctl_list, int(*f)(t_list *elem, void *op), void *op)
+void		ft_lstdelone_if(t_ctl_list *ctl_list,
+		int (*f)(t_list *elem, void *op), void *op)
 {
 	t_list	*node;
 

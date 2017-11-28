@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strindex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 20:04:08 by mfranc            #+#    #+#             */
-/*   Updated: 2017/11/20 15:33:13 by mfranc           ###   ########.fr       */
+/*   Created: 2017/11/08 18:39:16 by mfranc            #+#    #+#             */
+/*   Updated: 2017/11/08 18:39:26 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t n)
+int	ft_strindex(char *str, char c)
 {
-	char	*str;
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (n + 1))))
-		exit(1);
-	while (i <= n)
-		str[i++] = 0;
-	return (str);
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (i);
+		i++;
+	}
+	return (i);
 }

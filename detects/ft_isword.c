@@ -6,15 +6,23 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 19:25:02 by mfranc            #+#    #+#             */
-/*   Updated: 2016/11/21 19:47:58 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/02 19:22:27 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_is_separator(char c)
+{
+	if (c == '\t' || c == ' ')
+		return (1);
+	else
+		return (0);
+}
+
 int	ft_isword(char c)
 {
-	if (c == '\t' || c == ' ' || c == '\n' || c == '\0')
+	if (c == '\0' || c == '\t' || c == ' ' || c == '\n' || c == '\0')
 		return (0);
 	else
 		return (1);
