@@ -6,7 +6,7 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/11/08 18:39:47 by mfranc           ###   ########.fr        #
+#    Updated: 2017/11/29 15:38:01 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -197,7 +197,8 @@ SRCS = 	mems/ft_memset.c				\
 		lists/ft_lstdelone_if.c		\
 		lists/ft_push_sort.c		\
 		lists/ft_push.c				\
-		lists/ft_push_n.c
+		lists/ft_push_n.c			\
+		btree/ft_new_node.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 

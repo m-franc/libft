@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/11/24 10:13:26 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/11/30 21:17:45 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,23 @@ typedef struct		s_ctl_list
 	t_list			*head;
 	t_list			*bottom;
 	int				size;
-	int				padd;
+	char			padd[4];
 }					t_ctl_list;
+
+enum				e_rb_color
+{
+	RB_BLACK,
+	RB_RED
+};
+
+typedef struct		s_btree
+{
+	struct s_btree	*parent;
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
+	e_rb_color		color;
+}					t_btree;
 
 # define CTN(x) (x->content)
 # define BASEUP "0123456789ABCDEF"
