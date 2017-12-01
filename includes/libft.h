@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/11/30 21:17:45 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/12/01 17:56:43 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct		s_btree
 	struct s_btree	*left;
 	struct s_btree	*right;
 	void			*item;
-	e_rb_color		color;
+	enum e_rb_color	color;
 }					t_btree;
 
 # define CTN(x) (x->content)
@@ -196,5 +196,7 @@ void				ft_push_sort(t_ctl_list *ctl_list,
 void				ft_push_n(t_ctl_list *ctl_list, t_list *new, int n);
 void				ft_push(t_list *node, t_list *new);
 size_t				ft_listcount(t_list *lst);
+
+t_btree				*ft_new_node(void const *item);
 
 #endif
