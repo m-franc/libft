@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/12/01 17:56:43 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/12/05 18:04:31 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,15 @@ enum				e_rb_color
 	RB_BLACK,
 	RB_RED
 };
+
+typedef struct		s_data_node
+{
+	int				middle;
+	int				width;
+	int				padding;
+	int				padding_left;
+	int				padding_right;
+}					t_data_node;
 
 typedef struct		s_btree
 {
@@ -198,5 +207,6 @@ void				ft_push(t_list *node, t_list *new);
 size_t				ft_listcount(t_list *lst);
 
 t_btree				*ft_new_node(void const *item);
+void				ft_put_btree(t_btree *root, int height);
 
 #endif
