@@ -6,23 +6,14 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 15:54:49 by mfranc            #+#    #+#             */
-/*   Updated: 2017/12/05 18:32:14 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/12/06 16:41:24 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-/*static void	ft_put_node(t_btree *iter_tree)
-{
-	if (iter_tree->color == RB_RED)
-		ft_printf("{red}%s{eoc}", iter_tree->item);
-	else
-		ft_printf("%s", iter_tree->item);
-}
-*/
-
-void		f(t_btree *node)
+static void			print(t_btree *node)
 {
 	if (node->color == RB_RED)
 		ft_printf("{red}%s{eoc}", node->item);
@@ -30,33 +21,46 @@ void		f(t_btree *node)
 		ft_printf("%s", node->item);
 }
 
-void		ft_iter_inorder(t_btree *node, void (*f)(t_btree *node))
+static t_data_node	ft_init_data_node(int height_tree)
 {
-	if (!node)
-		return ;
-	if (node->left)
-		ft_iter_inorder(node->left, f);
-	f(node);
-	if (node->right)
-		ft_iter_inorder(node->right, f);
-}
-
-t_data_node		ft_init_data_node(int height_tree)
-{
-	t_data_node	data_node;
+	t_data_node		data_node;
 
 	data_node.padding = height_tree + 1;
 	data_node.width = data_node.padding * height_tree;
 	data_node.middle = data_node.width / 2;
-	data_node.padding_right = data_node.middle;
-	data_node.padding_left = data_node.middle;
+	data_node.margin = data_node.middle;
 	return (data_node);
 }
 
-void		ft_put_btree(t_btree *root, int height)
+static void			ft_print_padding(int nb_padd)
 {
-	t_data_node	data_node;
+	char			*padds;
+
+	if (!(padds = ft_strnew(nb_padd)))
+		return ;
+	ft_memset(padds, ' ', nb_padd);
+	ft_putstr(padds);
+	ft_strdel(&padds);
+}
+
+static void			ft_print_btree_prefix(t_btree *node, t_data_node *data_node, void (*print)(t_btree *node))
+{
+	if (!node)
+		return ;
+	ft_print_padding(data_node->margin);
+	print(node);
+	data_node->margin -= data_node->padding;
+	ft_putchar('\n');
+	if (node->left)
+		ft_print_btree_prefix(node->left, data_node, print);
+	if (node->right)
+		ft_print_btree_prefix(node->right, data_node, print);
+}
+
+void				ft_put_btree(t_btree *root, int height)
+{
+	t_data_node		data_node;
 
 	data_node = ft_init_data_node(height);
-	ft_iter_inorder(root, f);
+	ft_print_btree_prefix(root, &data_node, print);
 }
