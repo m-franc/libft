@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 18:04:22 by mfranc            #+#    #+#             */
-/*   Updated: 2017/12/07 15:55:56 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/12/08 18:06:18 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ typedef struct		s_btree
 	void			*item;
 	enum e_rb_color	color;
 }					t_btree;
+
+typedef struct		s_ctl_btree
+{
+	size_t			depth;
+	t_btree			*root;
+}					t_ctl_btree;
 
 # define CTN(x) (x->content)
 # define BASEUP "0123456789ABCDEF"
@@ -202,5 +208,7 @@ void				ft_put_btree(t_btree *root, int height);
 void				ft_iter_preorder(t_btree *node, void (*f)(t_btree *node));
 void				ft_iter_inorder(t_btree *node, void (*f)(t_btree *node));
 void				ft_iter_postorder(t_btree *node, void (*f)(t_btree *node));
+void				ft_btree_insert_data(t_btree **root, t_btree *node,
+		t_btree *parent, int (*cmpf)(void *, void *));
 
 #endif

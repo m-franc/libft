@@ -6,13 +6,13 @@
 #    By: mfranc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 18:43:40 by mfranc            #+#    #+#              #
-#    Updated: 2017/12/06 16:05:11 by mfranc           ###   ########.fr        #
+#    Updated: 2017/12/08 18:43:34 by mfranc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 CC = gcc $(FLAGS)
 
@@ -200,7 +200,8 @@ SRCS = 	mems/ft_memset.c				\
 		lists/ft_push_n.c			\
 		btree/ft_new_node.c			\
 		puts/ft_put_btree.c			\
-		btree/ft_iter.c
+		btree/ft_iter.c				\
+		btree/ft_btree_insert_data.c
 
 OBJECTS = $(SRCS:%.c=%.o)
 
