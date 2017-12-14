@@ -6,7 +6,7 @@
 /*   By: mfranc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 15:54:49 by mfranc            #+#    #+#             */
-/*   Updated: 2017/12/09 18:18:11 by mfranc           ###   ########.fr       */
+/*   Updated: 2017/12/13 18:23:15 by mfranc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ static void			ft_print_margin(int nb_padd)
 
 static void			ft_print_btree_prefix(t_btree *node, void (*print)(t_btree *node), int margin, int height)
 {
-	ft_printf("{cyan}%p{eoc}\n", node->right);
-	ft_printf("{cyan}%p{eoc}\n", node->left);
 	if (!node)
 		return ;
 	margin += height;
